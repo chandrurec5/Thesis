@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Markov Decision Processes}{}% 1
+\BOOKMARK [1][-]{section.2}{Practical Issues}{}% 2
+\BOOKMARK [1][-]{section.3}{Approximate Dynamic Programming}{}% 3
+\BOOKMARK [1][-]{section.4}{Linear Function Approximation}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Projected Bellman Equation}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Approximate Linear Programming}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Reinforcement Learning}{}% 7
+\BOOKMARK [2][-]{subsection.5.1}{Properties of T}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{Approximate Dynamic Programming}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{Value-Function based ADP}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.2}{Linear Function Approximation}{section.6}% 11
+\BOOKMARK [1][-]{section.7}{Approximate Linear Programming}{}% 12
+\BOOKMARK [1][-]{section.8}{Constraint sampling}{}% 13
+\BOOKMARK [1][-]{section.9}{Generalized Reduced Linear Program}{}% 14
+\BOOKMARK [1][-]{section.10}{Least Upper Bound Projection}{}% 15
+\BOOKMARK [1][-]{section.11}{Approximate Least Upper Bound Projection}{}% 16
+\BOOKMARK [1][-]{section.12}{A simple bound}{}% 17
+\BOOKMARK [1][-]{section.13}{Improved Bounds}{}% 18
+\BOOKMARK [1][-]{section.14}{Discussion}{}% 19
+\BOOKMARK [2][-]{subsection.14.1}{On Error Terms}{section.14}% 20
+\BOOKMARK [2][-]{subsection.14.2}{On Constraint Reduction and Approximation}{section.14}% 21
+\BOOKMARK [2][-]{subsection.14.3}{Numerical Illustration}{section.14}% 22
+\BOOKMARK [2][-]{subsection.14.4}{Reinforcement Learning}{section.14}% 23
+\BOOKMARK [1][-]{section.15}{Conclusion}{}% 24

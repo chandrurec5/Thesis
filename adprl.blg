@@ -1,0 +1,92 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: adprl.aux
+The style file: plain.bst
+I couldn't open database file ref.bib
+---line 310 of file adprl.aux
+ : \bibdata{ref
+ :             }
+I'm skipping whatever remains of this command
+I found no database files---while reading file adprl.aux
+Warning--I didn't find a database entry for "BertB"
+Warning--I didn't find a database entry for "Puter"
+Warning--I didn't find a database entry for "lspi"
+Warning--I didn't find a database entry for "lspe"
+Warning--I didn't find a database entry for "ALP"
+Warning--I didn't find a database entry for "wang2014approximate"
+Warning--I didn't find a database entry for "dpchapter"
+Warning--I didn't find a database entry for "CS"
+Warning--I didn't find a database entry for "CST"
+Warning--I didn't find a database entry for "SALP"
+Warning--I didn't find a database entry for "dolgov"
+Warning--I didn't find a database entry for "ALP-Bor"
+Warning--I didn't find a database entry for "kushner"
+Warning--I didn't find a database entry for "NAC"
+Warning--I didn't find a database entry for "IAC"
+Warning--I didn't find a database entry for "KAC"
+Warning--I didn't find a database entry for "BAC"
+Warning--I didn't find a database entry for "BSPSA"
+Warning--I didn't find a database entry for "Pet-Sch"
+Warning--I didn't find a database entry for "SB1"
+Warning--I didn't find a database entry for "Bax-Bar"
+Warning--I didn't find a database entry for "Amari"
+Warning--I didn't find a database entry for "SMSM"
+Warning--I didn't find a database entry for "Kak"
+Warning--I didn't find a database entry for "SP"
+Warning--I didn't find a database entry for "SPSA"
+Warning--I didn't find a database entry for "TTSPSA"
+Warning--I didn't find a database entry for "SB-VB"
+Warning--I didn't find a database entry for "Mar-Tsit"
+Warning--I didn't find a database entry for "SB-VB2"
+Warning--I didn't find a database entry for "SB3"
+Warning--I didn't find a database entry for "BTS"
+Warning--I didn't find a database entry for "BO"
+Warning--I didn't find a database entry for "BADA"
+Warning--I didn't find a database entry for "SA"
+Warning--I didn't find a database entry for "BMSTAB"
+Warning--I didn't find a database entry for "TTSAP"
+Warning--I didn't find a database entry for "ndp"
+Warning--I didn't find a database entry for "PJS"
+Warning--I didn't find a database entry for "sitavg"
+You've used 0 entries,
+            2118 wiz_defined-function locations,
+            569 strings with 4312 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 2 error messages)
