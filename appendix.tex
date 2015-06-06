@@ -1,0 +1,96 @@
+\section{Appendix}\label{appendix}
+\subsection{Gronwall Inequalities}
+Discrete Gronwall Inequality
+\begin{lemma}\label{gronwalld}
+Let $\{x_n,n\geq 0\}$ (resp.$\{a_n,n\geq 0\}$) be non-negative (resp.~positive) sequences and $C, L\geq 0$ scalars such that for all $n$,
+\begin{align}\label{ineq}
+x_{n+1} \leq C+L(\overset{n}{\underset{n}{\sum}} a_m x_m)
+\end{align}
+Then for $T_n=\sum^{n}_{m=0} a_m$,
+\begin{align}
+x_{n+1}\leq Ce^{LT_n}.\nn
+\end{align}
+\end{lemma}
+Continuous Gronwall Inequality
+\begin{lemma}\label{gronwallc}
+For continuous $u(\cdot), v(\cdot) \geq 0$ and scalars $0<C,K<T$, we have
+\begin{align}
+u(t)\leq C+K\int_0^t u(s)v(s) ds, \forall t \in [0,T],\nn\\
+\end{align}
+implies
+\begin{align}
+u(t)\leq Ce^{K\int_0^t v(s)ds}, t\in [0,T].\nn
+\end{align}
+\end{lemma}
+
+Define
+\begin{align}
+\zeta_n=\sum_{m=0}^{n-1}a(m)M_{m+1}, n\geq 1.
+\end{align}
+
+\begin{lemma}\label{trackyfull}
+Pick any $\epsilon >0$ and let $y_n(t)$ be the trajectory to the ODE $\dot{y}(t)=g_c(y(t)), t\in [T_n,T_{n+1})$, with $y_n(T_n)=\hat{y}(T_n)$. Then there exists a $c_\epsilon$ such that If $r(k)>c_\epsilon$ for some $k>0$, then for sufficiently large $n$ we have
+\begin{align}
+\sup_{t \in [T_n,T_{n+1})} \parallel \hat{y}(t)-y_n(t)\parallel \leq \epsilon LT e^{L(L+1)T}, a.s.
+\end{align}
+\end{lemma}
+\begin{proof}
+The arguments below follow close those in Lemma~$1$, Chapter~$2$ of \cite{SA}. For the sake of brevity, we present only those steps that differ from the ones in Lemma~$1$, Chapter~$2$ of \cite{SA} and skip the steps that are exactly the same.
+\begin{align}\label{dotraj}
+\hat{y}(t(n+m))=\hat{y}(t(n))+\sum_{k=0}^{m-1} b(n+k)g'_c(\hat{x}(t(n+k)),\hat{y}(t(n+k)))+\delta_{n,n+m},
+\end{align}
+where $\delta_{n,n+m}\stackrel{def}{=}\zeta_{n+m}-\zeta_n$.
+\begin{align}\label{hatraj}
+y^{t(n)}(t(m+n))&=\hat{y}(t(n))+\int_{t(n)}^{t(n+m)} g_c(y^{t(n)}(t))dt\nn\\
+&=\hat{y}(t(n))+\sum_{k=0}^{m-1}b(n+k) g_c(y^{t(n)}(t(n+k)))\nn\\
+&+ \int_{t(n)}^{t(n+m)}(g_c(y^{t(n)}(y) ) -g_c(y^{t(n)}([y]) ) )dy.
+\end{align}
+Since $\sup_n\parallel \hat{y}_n\parallel <1$, then for $0\leq k \leq (m-1)$ and 
+$t\in (t(n+k),t(n+k+1))$ one can then show that 
+\begin{align}
+\parallel y^{t(n)}(t)-y^{t(n)}(t(n+k))\parallel \leq C_Tb(n+k),
+\end{align}
+where $C_T\stackrel{def}{=}\parallel g_c(0)\parallel +L (1+\parallel g_c(0)\parallel T)e^{LT}<\infty$, a.s.
+and hence
+\begin{align}
+\parallel \int_{t(n)}^{t(n+m)} (g_c(y^{t(n)}(t))-g_c(y^{t(n)}([t])))dt\parallel \leq 
+C_T L\sum_{k=0}^{\infty}b(n+k)^2 \stackrel{n\uparrow \infty}{\ra} 0, \text{ a.s.}
+\end{align}
+Also, the martingale $(\zeta_n,\mathcal{F}_n)$ converges a.s, we have
+\begin{align}
+\sup_{k\geq 0}\parallel \delta_{n,n+k}\parallel \stackrel{n\uparrow \infty}{\ra} 0, \text{ a.s.}
+\end{align}
+Subtracting \eqref{hatraj} from \eqref{dotraj} and taking norm we have,
+\begin{align}
+\parallel \hat{y}(t(m+n))-y^{t(n)}(t(m+n))\parallel & \leq\sum_{i=0}^{m-1}b(n+i)\parallel
+g'_c(\hat{x}(t(n+i)),\hat{y}(t(n+i)))-g_c(y^{t(n)}(t(n+i)))\parallel \nn\\&
++C_T\sum_{k\geq 0}b(n+k)^2+\sup_{k\geq 0} \parallel \delta_{n,n+k}\parallel, \text{ a.s.}\nn\\
+&=\sum_{i=0}^{m-1}b(n+i)\big(\parallel\frac{g(c\hat{x}(t(n+i)),c\hat{y}(t(n+i)))}{c}\nn\\&-\frac{g(c\lambda_\infty(y^{t(n)}(t(n+i))),cy^{t(n)}(t(n+i)))}{c}\parallel\big)\nn\\&+C_T\sum_{k\geq 0}b(n+k)^2+\sup_{k\geq 0}
+\parallel \delta_{n,n+k}\parallel, \text{ a.s.}\nn\\
+&\leq L\sum_{i=0}^{m-1}b(n+i)\big(\parallel \hat{x}(t(n+i)) -\lambda_\infty(y^{t(n)}(t(n+i)))\parallel
+\nn\\&+\parallel \hat{y}(t(n+i)))-y^{t(n)}(t(n+i)))\parallel \big)\nn\\&+C_T\sum_{k\geq 0}b(n+k)^2+
+\sup_{k\geq 0} \parallel \delta_{n,n+k}\parallel, \text{ a.s.}\nn\\
+&\leq L\sum_{i=0}^{m-1}b(n+i) \big(\parallel \epsilon+\lambda_\infty(\hat{y}(t(n+i))) -
+\lambda_\infty(y^{t(n)}(t(n+i)))\parallel \big)\nn\\&+\parallel \hat{y}(t(n+i)))-y^{t(n)}(t(n+i)))\parallel
+\nn\\&+C_T\sum_{k\geq 0}b(n+k)^2+\sup_{k\geq 0} \parallel \delta_{n,n+k}\parallel, \text{ a.s.}\nn
+\end{align}
+\begin{align}
+&\leq L\sum_{i=0}^{m-1}b(n+i)\epsilon+ L(L+1) \sum_{i=0}^{m-1}b(n+i) \parallel
+\hat{y}(t(n+i)))-y^{t(n)}(t(n+i)))\parallel \nn\\&+C_T\sum_{k\geq 0}b(n+k)^2+\sup_{k\geq 0} 
+\parallel \delta_{n,n+k}\parallel, \text{ a.s.}\nn\\
+&\leq LT\epsilon+ L(L+1) \sum_{i=0}^{m-1}b(n+i) \parallel \hat{y}(t(n+i)))-y^{t(n)}(t(n+i)))\parallel
+\nn\\&+C_T\sum_{k\geq 0}b(n+k)^2+\sup_{k\geq 0} \parallel \delta_{n,n+k}\parallel, \text{ a.s.}\nn
+\end{align}
+In a manner similar to Lemma~$1$, Chapter~$2$ of \cite{SA}, one can then define $K_{T,n}=LT\epsilon+C_TL\sum_{k\geq 0}b(n+k)^2+\sup_{k\geq 0}\parallel \delta_{n,n+k}\parallel$, $z_i\stackrel{def}{=}\parallel
+\hat{y}(t(n+i))-y^{t(n)}(t(n+i))\parallel$ and $d_i\stackrel{def}{=}b(n+i)$. The above inequality becomes
+\begin{align}
+z_m\leq K_{T,n}+L(L+1)\sum_{i=0}^{m-1}d_iz_i.
+\end{align}
+Then following the lines of arguments as in Lemma~$1$, Chapter~$2$ of \cite{SA} we have
+\begin{align}
+\underset{t\in[T_n,T_{n+1}]}{\sup}\parallel \hat{y}(t)-y^{t(n)}\parallel 
+\leq K_{T,n}e^{L(L+1)T}+C_T b(n+k), a.s.
+\end{align}
+The proof follows by noting that $b(n+k)\ra 0$ and $K_{T,n}\ra LT\epsilon$ as $n \ra \infty$.
+\end{proof}
+

@@ -1,0 +1,240 @@
+% This document describes how to use iiscthesis style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt, twoside]{iiscthes}
+%\documentstyle[12pt]{iiscthes}
+%\usepackage{graphicx} % more modern
+\pagestyle{bfheadings}
+
+% Put your macros here
+%\newfont{\punkbx}{punkbx20}
+
+
+%Packages
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{color}
+%\usepackage{latexsym}
+\usepackage{graphicx}
+%\usepackage{wrapfig}
+%\usepackage{color,colortbl}
+\usepackage{algorithm,algorithmic}
+%\usepackage{url}
+%\usepackage{multicol}
+\usepackage{amsmath} 
+%%\usepackage{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}
+\newcommand{\cP}{{\mathcal{P}}}
+
+%\mathbf commands are of the form \bA where A is the symbol
+\newcommand{\bP}{{\mathbf{P}}}
+\newcommand{\bQ}{{\mathbf{Q}}}
+\newcommand{\bY}{{\mathbf{Y}}}
+\newcommand{\bI}{{\mathbf{I}}}
+\newcommand{\J}{{\mathbf{J}}}
+\newcommand{\B}{{\mathbf{B}}}
+\newcommand{\bH}{{\mathbf{H}}}
+\newcommand{\bR}{{\mathbb{R}}}
+\newcommand{\bE}{{\mathbb{E}}}
+\newcommand{\f}{{\mathbf{f}}}
+\newcommand{\s}{{\mathbf{s}}}
+\newcommand{\bv}{{\mathbf{v}}}
+\newcommand{\w}{{\mathbf{w}}}
+\newcommand{\x}{{\mathbf{x}}}
+\newcommand{\q}{{\mathbf{q}}}
+
+
+\newcommand{\er}{\textup{\textrm{er}}}
+\newcommand{\pd}{\textup{\textrm{PD}}}
+\newcommand{\argmax}{\textup{\textrm{argmax}}}
+\newcommand{\argmin}{\textup{\textrm{argmin}}}
+\newcommand{\argsort}{\textup{\textrm{argsort}}}
+\newcommand{\bell}{{\boldsymbol \ell}}
+\newcommand{\balpha}{{\boldsymbol \alpha}}
+\newcommand{\bpi}{{\boldsymbol \pi}}
+\newcommand{\bphi}{{\boldsymbol \phi}}
+\newcommand{\bpsi}{{\boldsymbol \psi}}
+\newcommand{\bsigma}{{\boldsymbol \sigma}}
+\newcommand{\btheta}{{\boldsymbol \theta}}
+\newcommand{\linear}{\textup{\textrm{linear}}}
+\newcommand{\logit}{\textup{\textrm{logit}}}
+\newcommand{\probit}{\textup{\textrm{probit}}}
+\newcommand{\ratio}{\textup{\textrm{ratio}}}
+\newcommand{\BTL}{\textup{\textrm{BTL}}}
+\newcommand{\Thrs}{\textup{\textrm{Thrs}}}
+\newcommand{\LN}{\textup{\textrm{LN}}}
+\newcommand{\GLN}{\textup{\textrm{GLN}}}
+\newcommand{\RLN}{\textup{\textrm{RLN}}}
+\newcommand{\DAG}{\textup{\textrm{DAG}}}
+\newcommand{\BCP}{\textup{\textrm{BCP}}}
+\newcommand{\TI}{\textup{\textrm{TI}}}
+\newcommand{\RC}{\textup{\textrm{RC}}}
+\newcommand{\SR}{\textup{\textrm{SR}}}
+\newcommand{\MB}{\textup{\textrm{MB}}}
+\newcommand{\SVMRA}{\textup{\textrm{SVM-RA}}}
+\newcommand{\NNA}{\textup{\textrm{NNA}}}
+\newcommand{\LRPR}{\textup{\textrm{LRPR}}}
+\newcommand{\MC}{\textup{\textrm{MC}}}
+\newcommand{\UM}{\textup{\textrm{UM}}}
+\newcommand{\PM}{\textup{\textrm{PM}}}
+\newcommand{\PD}{\textup{\textrm{PD}}}
+\newcommand{\Mkv}{\textup{\textrm{Markov}}}
+\newcommand{\LogLN}{\textup{\textrm{LogLN}}}
+\newcommand{\sign}{\textup{\textrm{sign}}}
+
+\newcommand{\TC}{\operatorname{TC}}
+\newcommand{\opCW}{\operatorname{CW}}
+\newcommand{\CO}{\operatorname{CO}}
+\newcommand{\MA}{\operatorname{MA}}
+\newcommand{\Cond}{\textup{\textrm{Cond}}}
+\newcommand{\CW}{\textup{\textrm{CW}}}
+\newcommand{\TS}{\operatorname{TS}}
+
+\newtheorem{thm}{Theorem}%[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}{Example}
+\newtheorem*{prob}{Problem}
+\newtheorem*{exer}{Exercise}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newenvironment{pf}{{\noindent\sc Proof. }}{\qed}
+\newenvironment{map}{\[\begin{array}{cccc}} {\end{array}\]}
+
+%\newcommand{\X}{{\mathcal X}}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The frontmatter environment for everything that comes with roman numbering
+\begin{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Everything is optional in the front matter.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         THE TITLEPAGE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Ranking from Pairwise Data: The Role of the Pairwise Preference Matrix
+	}
+\author{Arun Rajkumar}
+% For all the parameters below, take default values
+\submitdate{\emph{month} 2015}
+\dept{Computer Science and Automation}
+\enggfaculty
+%\degreein{Computer Science and Engineering}
+%\mscengg
+%\me
+\iisclogotrue % Default is false
+% \figurespagefalse %default is true
+\tablespagetrue %default is false
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              COPYRIGHT                             %
+% Copyright is automatically included by the style file              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              DEDICATION                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{dedication}
+%% You can design this page as you like
+%\begin{center}
+%TO \\[2em]
+%\large\it Donald Knuth\\
+%and\\
+%\large\it His Ingenuity 
+%\end{center}
+%\end{dedication}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         ACKNOWLEDGEMENTS                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\acknowledgements
+%
+%Many thanks to all the persons who made this style file. It will certainly
+%live long! Detailed acknowledgements are available within the style file itself.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              VITA                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vita
+%IISc was born in 1909 and will celebrate its centenary with great fanfare
+%in the year 2008.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               PUBLICATIONS BASED ON THIS THESIS                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\publications
+%
+%\begin{enumerate}
+%\item IISc INDEST Committee,  How to Typeset Theses:~Using iiscthesis
+%style for \LaTeX, Indian Institute of Science, 2004.
+%\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              ABSTRACT                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{abstract}
+%\sl
+%	This manual tells   you how  to use the  {\tt iiscthes} style to
+%produce professional  theses (Ph.D., M.Sc.(Engg)  or  M.E.   reports).
+%This style is a modification of the  standard \LaTeX\ report style. 
+%This document is written using the {\tt iiscthes} style itself.
+%	
+%\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              CONTENTS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makecontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              KEYWORDS                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\keywords
+%{\large\bf{
+%LaTeX, thesis, project report, IISc style, style file.
+%}}
+
+\vspace{10MM}
+
+\noindent
+%Note:~Kindly provide a standard classification for keywords, such as,
+%ACM Computing Classification, JEL Classification, AMS Classification etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     NOTATION AND ABBREVIATIONS                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\notations
+%	No notation is used in this document. No abbreviations have been
+%used either.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+\label{chap:intro}
+Ranking a set of items given preferences among them is a fundamental problem in machine learning. It arises naturally in several real world situations such as ranking candidates in a election, ranking movies, ranking sports teams, ranking documents in response to a query to name a few. In each of these situations, the preference data among the items to be ranked may be available in different forms: as pairwise comparisons, partial orderings or complete orderings.  Ranking from pairwise comparison data is especially useful in large scale settings (such as movie ranking) where the number of items to be ranked is large and it may not be feasible to obtain partial or complete rankings over the items. Moreover studies in the cognitive human psychology literature confirm that it is easy for humans to give preferences among items by comparing them in pairs as opposed to giving complete orderings over a set of items. 
+While several algorithms (both classic and recent) have been proposed for the problem of ranking from pairwise comparisons in multiple communities such as machine learning, operations research, linear algebra, statistics etc, it is not well understood under what conditions these different algorithms perform well. In this thesis, we aim to fill this fundamental gap in understanding by studying the properties of different algorithms for ranking from pairwise comparisons and proposing new algorithms which have better statistical guarantees than previous algorithms. Towards this, we will consider a natural framework to study this problem wherein for every pair of items $(i,j)$, there is a coin with bias $p_{ij}$ that is flipped whenever items $i$ and $j$ are compared. In other words, for every pair $(i,j): i < j$, item $i$ is preferred to item $j$ with probability $p_{ij}$ and item $j$ is preferred to item $i$ with probability $1 - p_{ij}$. We will refer to the matrix $\bP$ containing all these numbers $p_{ij}$ as the \emph{pairwise preference matrix}. The conditions satisfied by this matrix will play a crucial role in determining the performance of various algorithms and will be studied extensively under different settings in the following chapters.  This thesis is organized as follows:
+
+In \textbf{Chapter} \ref{chap:background}  we formally introduce the problem of ranking from pairwise comparisons and review the necessary background  including previous algorithms for this problem, different probabilistic models for rankings etc. 
+ 
+In \textbf{Chapter} \ref{chap:pairwise_preference_matrix}, we introduce certain natural conditions on the pairwise preference matrix and derive containment relationships among them.
+ 
+In \textbf{Chapter} \ref{chap:acylic}, we consider a natural statistical setting where pairs are sampled according to some underlying distribution over all the pairs and the outcomes for every chosen pair $(i,j)$ is obtained by flipping a coin with bias $p_{ij}$. Under this setting, we show that various popular algorithms  output \emph{optimal} rankings under different conditions that we define on the pairwise preference matrix. We then propose a novel SVM based rank aggregation algorithm which is provably guaranteed to output an optimal ranking under a strictly broader condition than all the previous algorithms considered.
+
+In \textbf{Chapter} \ref{chap:cyclic}, we consider the same statistical setting as before, focusing on the case where the pairwise preference matrix might contain cycles. Here, we show that existing algorithms do not always rank \emph{winners} ahead of the rest of the items, where the winners among a set of items are decided from the pairwise preference matrix based on notions of tournament solution concepts from social choice theory. We propose several algorithms which provably rank winners ahead of the rest for several popular notions of winners. 
+
+In \textbf{Chapter} \ref{chap:subset}, we consider a natural statistical setting where a fixed number of pairs are drawn uniformly at random from the set of all pairs and for each drawn pair $(i,j)$, the outcome of its pairwise comparison is observed a fixed number of times. Under this setting, we propose a low rank based pairwise ranking framework which we prove produces an \emph{optimal} ranking under strictly broader conditions on the pairwise preference matrix than those under which previous algorithms were known to be optimal. 
+
+%In all the cases considered above, we derive explicit sample complexity bounds under the specific statistical setting considered and provide experimental results to demonstrate the efficacy of the proposed algorithms.  \quad \quad \quad
+In \textbf{Chapter} \ref{chap:conc}, we conclude by summarizing the results and indicating directions for future work.
+
+
+
+\end{document}

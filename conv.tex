@@ -1,0 +1,14 @@
+Under the further assumptions (Assumption~\ref{convassump}) Theorem~\ref{conv} establishes the convergence of iterates in \eqref{ttsarec}.
+\begin{assumption}\label{convassump}
+\mbox{ }
+\begin{enumerate}
+\item The ODE $\dot{x}(t)=h(x(t),y)$ has a gobally asymptotically stable equilibrium $\lambda(y)$, where $\lambda \colon \R^k \ra \R^k$ is a Lipschitz map.
+\item The ODE $\dot{y}(t)=g(\lambda(y(t)),y(t))$ has a globally asymptotically stable equilibrium $y^*$.
+\end{enumerate}
+\end{assumption}
+\begin{theorem}\label{conv}
+Under Assumptions~\ref{lip} and \ref{convassump}, the iterates in \eqref{ttsarec} converge to $(\lambda(y^*),y^*)$ a.s. 
+\end{theorem}
+\begin{proof}
+Follows from Theorem~\ref{stabfull}, and Theorem~$1.1$ of \cite{TTSAP}.
+\end{proof}

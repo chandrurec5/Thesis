@@ -1,0 +1,52 @@
+\section{Smoothed Approximate Linear Program}\label{sec:salp}
+In this section, we show that our error analysis can be applied to an important variant of the ALP namely the smoothed approximate linear program (SALP). The SALP corresponding to the ALP in \eqref{alp} is given by 
+\begin{align}\label{salp}
+\min_{r\in \R^k, q\in \R^n} &c^\top \Phi r\nn\\
+\text{s.t}\mb &\Phi r\geq T \Phi r-q,\nn\\
+\mb &q\geq 0, \pi^\top q\leq \theta,\nn\\
+\end{align}
+where $q\in \R^n$ is the constraint relaxation function and $\theta \in (0,\infty)$ is the maximum allowed cumulative penality that $q$ can incur with repsect to the distribution $\pi$. Let $r'_c\in \R^k$ be the solution to the SALP in \eqref{salp} and $J'_c=\Phi r'_c$ be the corresponding approximate value function.\\
+ Let $\mathcal{C}_{ALP} \in \R^k$, $\mathcal{C}_{GRLP} \in \R^k$, $\mathcal{C}_{SALP} \in \R^k$ denote the constraint sets of the ALP in \eqref{alp}, the GRLP in \eqref{grlp} and the SALP in \eqref{salp} respectively. We make the important observation that our analysis of the GRLP in \eqref{grlp} depended only on the fact that $\C_{GRLP}\subset \C_{ALP}$. Since $\C_{SALP}\subset \C_{ALP}$ the error bounds for the SALP in \eqref{salp} can be obtained by following arguments on the lines similar to those presented in section~\ref{sec:lubp} and ~\ref{sec:alubp} by defining appropriate lower bound projection operators. To this end we define $\gd \colon \R^n \ra \R^n$ as below:
+\begin{definition}\label{slubpop}
+Given $J\in \R^n$, its least upper bound projection is denoted by $\gd J$ and is defined as 
+\begin{align}\label{gamdef}
+(\gd J)(i)\stackrel{\Delta}{=}\underset{j=1,\ldots,k}{\min} (\Phi r_{e_j})(i), \mb \forall i=1,\ldots,n,
+\end{align}
+where $V(i)$ denotes the $i^{th}$ component of the vector $V\in \R^n$. Also in \eqref{gamdef}, $e_j$ is the vector with $1$ in the $j^{th}$ place and zeros elsewhere, and $r_{e_j}$ is the solution to the linear program in \eqref{slubplp} for $c=e_j$.
+\begin{align}\label{slubplp}
+r_c\stackrel{\Delta}{=}\min_{r\in \R^k, q\in \R^n} &c^\top \Phi r,\nn\\
+\text{s.t}\mb &\Phi r\geq  TJ-q,\nn\\
+\mb &q\geq 0, \pi^\top q\leq \theta.
+\end{align}
+\end{definition}
+The following results on the operator $\gd$ are similar to those proved for $\hg$ in section~\ref{sec:alubp}.
+\begin{lemma}\label{gdmonotone}
+For $J_1, J_2\in \R^n$ such that $J_1\geq J_2$, we have $\gd J_1\geq \gd J_2$.
+\end{lemma}
+\begin{proof}
+Proof follows from Assumptions~\ref{wassump} and ~\ref{one} using arguments along the lines of Lemma~\ref{gmonotone}.
+\end{proof}
+\begin{lemma}\label{gdshift}
+Let $J_1\in \R^n$ and $k\in \R$ be a constant. If $J_2=J_1+k\one$, then $\gd J_2=\gd J_1+\alpha k\one$.
+\end{lemma}
+\begin{proof}
+Proof follows from Assumption~\ref{wassump} and~\ref{one} using arguments along the lines of Lemma~\ref{gshift}.
+\end{proof}
+\begin{theorem}\label{gdmaxcontra}
+The operator $\gd \colon \R^n\ra \R^n$ obeys the $\max$-norm contraction property with factor $\alpha$ and the following iterative scheme based on the ALUB projection operator $\gd$, see \eqref{apvid}, converges to a unique fixed point $\vd$.
+\begin{align}\label{apvid}
+V_{n+1}&=\gd V_n,\mb\forall n\geq 0.
+\end{align}
+\end{theorem}
+\begin{proof}
+Follows on similar lines of proof of Theorem~\ref{gmaxcontra}.
+\end{proof}
+\begin{lemma}\label{relation2}
+The unique fixed point $V'$ of the iteration in \eqref{apvid} and the solution $\jd$ of the GRLP obey $\jd\geq\hv$.
+\end{lemma}
+\begin{proof}
+Follows in a similar manner as the proof for Lemma~\ref{relation1}.
+\end{proof}
+
+
+

@@ -1,0 +1,210 @@
+\section{Results for the Scaled ODE}\label{oderes}
+Let $u \colon\R^{d_1+d_2}\ra\R^{d_1}$ be a Lipschitz map, i.e., there exists $L>0$ such that 
+$\parallel u(x_1)-u(x_2)\parallel \leq L\parallel x_1-x_2\parallel, x_1,x_2\in \R^{d_1+d_2}$. 
+Let $\eta^{q(t)}(t,p)$ denote the solution to the ODE
+\begin{align}\label{auto}
+\dot{p}(t)=u(p(t),q(t)), \mb t \geq 0,
+\end{align}
+with initial condition $p\in \R^{d_1}$ and the external input $q(t) \in \R^{d_2}$. The superscript $q(t)$ in $\eta^{q(t)}(t,p)$ is to be understood as a symbol that indicates the fact that the external input is $q(t)$. 
+%Thus $q(t)$ in $\eta^{q(t)}(t,p)$ is not to be interpreted as a function of time. 
+We denote by $\eta^q(t,p)$ the solution to the ODE
+\begin{align}\label{autofix}
+\dot{p}(t)=u(p(t),q), \mb t \geq 0.
+\end{align}
+Thus, in \eqref{autofix}, $q(t)=q, \forall t\geq 0$ for some $q\in \R^{d_2}$. Hence, in \eqref{autofix},
+the external input is a constant as opposed to being a function of time as with \eqref{auto}.
+Let $B(p_0,r)=\{p\colon \parallel p-p_0\parallel \leq r\}$ denote the closed ball of radius $r$ 
+around $p_0$. The 
+lemma below is a generalization of Lemma~$1$, Chapter $3$ of \cite{SA}.
+\begin{lemma}\label{attract}
+Let $K\subset \R^{d_1}$ be a compact set and $q\in \R^{d_2}$ be a fixed external input to the ODE in 
+\eqref{autofix}. If this ODE has a unique globally asymptotically stable equilibrium (a.s.e) 
+$\lambda(q) \in \R^{d_1}$, then given any $\delta>0$, there exists a $T_\delta>0$ such that for all 
+initial conditions $p \in K$, we have
+\begin{align}
+ \eta^q(t,p) \in B(\lambda(q),\delta), \forall t\geq T_\delta.\nn
+\end{align}
+\end{lemma}
+\begin{proof}
+Since $\lambda(q)$ is the unique globally a.s.e, it is Lyapunov stable. Hence, there exists a 
+$\delta'>0$ (assume $\delta'<\delta$ without loss of generality) such that any trajectory starting 
+in $B(\lambda(q),\delta')$ stays within $B(\lambda(q),\delta)$ forever, i.e., for any $s\geq 0$,
+\begin{align}
+\eta^q(s,p)\in B(\lambda(q),\delta') \Rightarrow \eta^q(t,p) \in B(\lambda(q),\delta), \mb \forall t \geq s.
+\end{align}
+Let $p \in K$ be a given initial condition and since $\lambda(q)$ is a globally a.s.e, there exists a 
+$T_{p}$ such that $\eta^q(T_p,p)\in B(\lambda(q),\delta'/2)$. Let $p'$ be some other initial condition, 
+then for $t \in [0,T_p]$,
+\begin{align}
+\eta^q(t,p)&=p+\int_0^t u(\eta^q(s,p),q)ds,\nn\\
+\eta^q(t,p')&=p'+\int_0^t u(\eta^q(s,p'),q)ds.\nn
+\end{align}
+Subtracting the two equations above, we get
+\begin{align}
+\parallel \eta^q(t,p)-\eta^q(t,p')\parallel &\leq \parallel p-p'\parallel +L\int_0^t \parallel
+\eta^q(s,p)-\eta^q(s,p')\parallel ds\nn\\
+&\leq \parallel p-p'\parallel e^{LT_p}, \forall t \in [0,T_p].
+\end{align}
+The last inequality above follows from the Gronwall inequality (see Appendix). Given any $p\in K$, one can always choose $p'$ close enough to $p$ such that $\parallel p-p'\parallel e^{LT_p}<\delta'/2$ and 
+$\eta^q(T_p,p') \in B(\lambda(q),\delta')$. Thus there is a neighborhood $U_p$ of $p$ such that for all $p' \in U_p$, $\eta^q(t,p') \in B(\lambda(q),\delta'), \forall t\geq T_p$. Now $\underset{p\in K}{\cup} U_p$ is a cover for $K$ and since $K$ is compact there exists a finite sub-cover $\{U_{p_1}, \ldots,U_{p_n}\}$ such that $K \subset \cup_{i=1}^nU_{p_i}$. 
+Let $T_\delta=\max\{T_{p_i}, i=1,\ldots,n\}$, then for any $p
+\in K$,
+\begin{align}
+\eta^q(T_\delta,p)\in B(\lambda(q),\delta') \Rightarrow \eta^q(t,p) \in B(\lambda(q),\delta), \mb \forall t \geq T_\delta.
+\end{align}
+\end{proof}
+\begin{assumption}\label{scalefns}
+Let functions $u_c \colon \R^{d_1+d_2} \ra \R^{d_1}, c\geq 1$ be a family of Lipschitz continuous functions 
+with Lipschitz constant $L$. Let $u_c \ra u_\infty$ as $c \ra \infty$ uniformly on compacts to some 
+$u_\infty \in \mathcal{C}(R^{d_1+d_2})$.
+\end{assumption}
+\begin{lemma}
+$u_\infty\colon \R^{d_1+d_2}\ra \R^{d_1}$ is also a Lipschitz continuous function with Lipschitz constant $L$.
+\end{lemma}
+\begin{proof}
+Given $x_1,x_2 \in \R^{d_1+d_2}$, we have
+\begin{align}
+\parallel u_\infty(x_1)-u_\infty(x_2)\parallel &\leq\parallel u_\infty(x_1)-u_c(x_1)\parallel
++\parallel u_c(x_1)-u_c(x_2)\parallel +\parallel u_c(x_2) -u_\infty(x_2)\parallel \nn\\
+&\leq 2\epsilon(c)+L\parallel x_1-x_2\parallel,
+\end{align}
+where since $c$ is arbitrary, we let $c\ra \infty$, whereby $\epsilon(c)\ra 0$. The second inequality above 
+follows from Assumption~\ref{scalefns}. So we have
+\begin{align}
+\parallel u_\infty(x_1)-u_\infty(x_2)\parallel \leq L\parallel x_1-x_2\parallel.
+\end{align}
+\end{proof}
+Let $\eta^{q(t)}_c(t,p)$ and $\eta^{q(t)}_\infty(t,p)$ be solutions\footnote{When the external input is 
+constant, i.e., $q(t)=q, \forall t\geq 0$, we denote the same by $\eta^{q}_c(t,p)$ and $\eta^{q}_\infty(t,p)$,
+respectively.} to the ODEs \eqref{odec} and \eqref{odei}, respectively, with $p(0)=p$. 
+\begin{align}\label{odec}
+\dot{p}(t)=u_c(p(t),q(t)),
+\end{align}
+\begin{align}\label{odei}
+\dot{p}(t)=u_\infty(p(t),q(t)).
+\end{align}
+Lemma~\ref{near} below is a generalization of Lemma~$2$, Chapter~$3$ of \cite{SA}.
+\begin{lemma}\label{near}
+Let $p \in \R^{d_1}$, $q\in \R^{d_2}$, $[0,T]$ be a given time interval and $r>0$ be a small positive constant. Let $q'(t) \in B(q,r), \mb \forall t\in [0,T]$, then 
+\begin{align}
+\parallel \eta^{q'(t)}_c(t,p)-\eta^q_\infty(t,p)\parallel \leq (\epsilon(c)+Lr)Te^{LT}, 
+\mb \forall t \in [0,T], \nn
+\end{align}
+where $\epsilon(c)$ is independent of $p$ and $q$ and $\epsilon(c) \ra 0$, as $c \ra \infty$.
+\end{lemma}
+\begin{proof}
+\begin{align}
+\eta^{q'(t)}_c(t,p)&=p+\int_0^t u_c(\eta^{q'(t)}_c(s,p),q'(t))ds,\nn\\
+\eta^q_\infty(t,p)&=p+\int_0^t u_\infty(\eta^q_\infty(s,p),q)ds,
+\end{align}
+and hence
+\begin{align}
+\parallel \eta^{q'(t)}_c(t,p)-\eta^q_\infty(t,p)\parallel \leq \int_0^t \parallel u_c(\eta^{q'(t)}_c(s,p),
+q'(t))-u_\infty(\eta^q_\infty(s,p),q)\parallel ds.
+\end{align}
+Since $u_c$ and $u_\infty$ are Lipschitz continuous, we have
+\begin{align}
+&\parallel u_c(\eta^{q'(t)}_c(s,p),q'(t))-u_\infty(\eta^q_\infty(s,p),q)\parallel \nn\\
+&\leq \parallel u_c(\eta^{q'(t)}_c(s,p),q'(t))-u_c(\eta^q_\infty(s,p),q'(t))\parallel \nn\\
+&+\parallel u_c(\eta^q_\infty(s,p),q'(t))-u_\infty(\eta^q_\infty(s,p),q'(t))\parallel \nn\\
+&+\parallel u_\infty(\eta^q_\infty(s,p),q'(t))-u_\infty(\eta^q_\infty(s,p),q)\parallel \nn\\
+&\leq L\parallel \eta^{q'(t)}_c(s,p)-\eta^q_\infty(s,p)\parallel +\epsilon(c)+L\parallel
+q-q'(t)\parallel \nn\\
+&\leq L\parallel \eta^{q'(t)}_c(s,p)-\eta^q_\infty(s,p)\parallel +\epsilon(c)+Lr,\nn
+\end{align}
+where $\epsilon(c)$ is independent of $p \in K$, and $\epsilon(c) \ra 0$ as $c \ra \infty$. The last line 
+follows from the fact that $q'(t)\in B(q,r), \mb \forall t\in [0,T]$. Now we have
+\begin{align}
+\parallel \eta^{q'(t)}_c(s,p)-\eta^q_\infty(s,p)\parallel \leq \epsilon(c)T+Lr T +L\int^t_0\parallel
+\eta^{q'(t)}_c(s,p)-\eta^q_\infty(s,p)\parallel ds.
+\end{align}
+The claim now follows from the Gronwall inequality.
+\end{proof}
+\begin{lemma}\label{within}
+Let $q\in \R^{d_2}$ and let $\lambda_\infty(q)$ be the unique globally asymptotically stable equilibrium 
+of \eqref{odei}. Given any $\epsilon >0$ and $T>0$, there exist $c_{\epsilon,T}> 0 $, $\delta_{\epsilon,T} 
+> 0$ and $r_{\epsilon,T} > 0$ such that $\forall t\in [0,T), \forall p \in 
+B(\lambda_\infty(q),\delta_{\epsilon,T}), \mb \forall c>c_{\epsilon,T}$ and external input $q'(s)$ with 
+\begin{align}
+q'(s) \in B(q,r_{\epsilon,T}), s\in [0,T],
+\end{align}
+we have
+\begin{align}
+\eta^{q'(t)}_c(t,p) \in B(\lambda_\infty(q),2\epsilon), \forall t \in [0,T].
+\end{align}
+\end{lemma}
+\begin{proof}
+Given any $\epsilon >0$, it follows from Lyapunov stability that there exists $\delta_{\epsilon,T}>0$ such that any trajectory of \eqref{odei} starting in $B(\lambda_\infty(q),\delta_{\epsilon,T})$ stays within the ball $B(\lambda_\infty(q),\epsilon)$. Without loss of generality we can assume $\delta_{\epsilon,T}<\epsilon$. From Lemma~\ref{near} we know that there exist $c_{\epsilon,T}$ and $r_{\epsilon,T}$ such that
+\begin{align}
+\parallel \eta^{q'(t)}_c(t,p)-\eta^{q}_\infty(t,p)\parallel&\leq \epsilon.
+\end{align}
+Hence, $\forall t \in [0,T],\mb \forall q'(t)\in B(q,r_{\epsilon,T}), \mb\forall p \in B(\lambda_\infty(q),\delta_{\epsilon,T})$ and $\forall c> c_{\epsilon,T}$,
+\begin{align}
+\parallel \eta^{q'(t)}_c(t,p)-\lambda_\infty(q)\parallel &\leq \parallel \eta^{q'(t)}_c(t,p)-\eta^{q}_\infty
+(t,p)\parallel + \parallel \eta^{q}_\infty(t,p)-\lambda_\infty(q)\parallel \nn\\
+&\leq \delta/2+\epsilon\nn\\
+&\leq 2\epsilon.
+\end{align}
+The claim follows.
+\end{proof}
+\begin{lemma}\label{neartraj}
+ Let $p\in B(0,1) \subset \R^{d_1}$, $q\in K'\subset\R^{d_2}$ and let $\lambda_\infty(q)$ be the unique globally asymptotically stable equilibrium of \eqref{odei}. Then, given $\epsilon > 0$, there exists $c_\epsilon\geq 1$, $r_{\epsilon}>0$ and $T_\epsilon>0$ such that for any external input $q'(s)$ satisfying
+\begin{align}\label{qcond}
+q'(s) \in B(q,r_{\epsilon}), \forall s\in [0,T],
+\end{align}
+we have
+\begin{align}
+\parallel \eta^{q'(t)}_c(t,p)-\lambda_\infty(q)\parallel \leq 2\epsilon, \forall t\geq T_\epsilon, 
+\forall c>c_\epsilon.
+\end{align}
+\end{lemma}
+\begin{proof}
+Given any $\epsilon >0$, it follows from Lyapunov stability that there exists $\delta>0$ such that any 
+trajectory of \eqref{odei} starting in $B(\lambda_\infty(q),\delta)$ stays within the ball 
+$B(\lambda_\infty(q),\epsilon)$. Without loss of generality we can assume $\delta<\epsilon$. 
+Let $K=B(0,1)\cup B(\lambda_\infty(q),\delta)$, then from Lemma~\ref{attract}, there exists a $T_{\delta/2}$ 
+such that $\eta^q_\infty(t,p) \in B(\lambda_\infty(q),\delta/2)$, $\forall t\geq T_{\delta/2}$. 
+Pick $T_{\epsilon}\stackrel{\Delta}{=} T_{\delta/2}$ as given by Lemma~\ref{attract} and divide the 
+time-line into intervals $T_\epsilon$ apart, i.e., $t\in \underset{n}{\cup}[nT_\epsilon,(n+1)T_\epsilon), n\geq0$. We know $\eta^q_\infty(t,p) \in B(\lambda_\infty(q),\delta/2), \forall t\geq T_\epsilon$. From Lemma~\ref{near}, it follows that there exists $c^1_{\epsilon,T_\epsilon}$ and $r^1_{\epsilon,T_\epsilon}$ such that 
+$\parallel \eta^{q'(t)}_c(T_\epsilon,p)-\eta^q_\infty(T_\epsilon,p)\parallel \leq \delta/2, \forall c> c^1_{\epsilon,T_\epsilon}$ and $q'(t)$ satisfying \eqref{qcond}. This implies that $\eta^{q'(t)}_c(T_\epsilon,p) \in B(\lambda_\infty(q),\delta) \subset B(\lambda_\infty(q),2\epsilon), \forall c> c^1_{\epsilon,T_\epsilon}$ and $q'(t)$ satisfying \eqref{qcond}. Thus starting from $p$, the trajectory $\eta^{q'(t)}_c(t,p)$ falls into the ball $B(\lambda(\infty),\delta)$ for all $c>c^1_{\epsilon,T_\epsilon}$ and $q'(t)$ satisfying \eqref{qcond}.
+
+It is easy to note that the trajectory $\eta^{q'(t)}_c(t,p)$ of the ODE \eqref{odec} in the time interval 
+$[T_\epsilon,2T_\epsilon)$ starting from $p$ is the same as the trajectory of the ODE \eqref{odec} in the 
+time interval $[0,T_\epsilon]$ but starting from the initial condition 
+$\eta^{q'(T_\epsilon)}_c(T_\epsilon,p)$. Now we know from Lemma~\ref{near} that 
+$\eta^{q'(t)}_c(t,\eta^{q'(t)}_c(T_\epsilon,p))$ and $\eta^{q}_\infty(t,\eta^{q'(t)}_c(T_\epsilon,p))$ 
+track each other closely in the time $t\in [0,T_\epsilon)$.
+Formally, $\forall t\in [T_\epsilon,2T_\epsilon)$,
+\begin{align}\label{intermed}
+&\parallel \eta^{q'(t)}_c(t, p)-\eta^q_\infty(t-T_\epsilon,\eta^{q'(t)}_c(T_\epsilon,p))\parallel
+\nn\\&=\parallel \eta^{q'(t)}_c(t-T_\epsilon,\eta^{q'(t)}_c(T_\epsilon,p))-\eta^q_\infty(t-T_\epsilon,\eta^{q'(t)}_c(T_\epsilon,p))\parallel \nn\\&\leq \delta/2.
+\end{align}
+Since $\eta^q_\infty(T_\epsilon, \eta^{q'(t)}_c(T_\epsilon,p)) \in B(\lambda_\infty(q),\delta/2)$ and from \eqref{intermed} we can conclude that $\eta^{q'(t)}_c(2T_\epsilon,p) \in B(\lambda_\infty(q),\delta)$. Also, since $\eta^{q'(t)}_c(T_\epsilon,p) \in B(\lambda_\infty(q),\delta)$, we know from Lemma~\ref{within} that there exists $c^2_{\epsilon,T_\epsilon}$ and $r^2_{\epsilon,T_\epsilon}$ such that $\eta^{q'(t)}_c(t,p) \in B(\lambda_\infty(q),2\epsilon), \forall t\in [T_\epsilon,2T_\epsilon)$.\\
+Notice that by arguing in a similar manner one can show that $\eta^{q'(t)}_c(nT_\epsilon,p)\in B(\lambda_\infty(q),$ $\delta), \forall n\geq 0$ and $\eta^{q'(t)}_c(t,p) \in B(\lambda_\infty(q),2\epsilon), \forall t\in [nT_\epsilon,(n+1)T_\epsilon)$. The proof is complete by choosing $c_\epsilon=\max(c^1_{\epsilon,T_\epsilon},c^2_{\epsilon,T_\epsilon})$ and $r_\epsilon=\min(r^1_{\epsilon,T_\epsilon},r^2_{\epsilon,T_\epsilon})$.
+\end{proof}
+\begin{comment}
+\begin{proof}
+Given any $\epsilon >0$, it follows from Lyapunov stability that there exists $\delta>0$ such that any trajectory of \eqref{odei} starting in $B(\lambda_\infty(q),\delta)$ stays within the ball $B(\lambda_\infty(q),\epsilon)$. Without loss of generality we can assume $\delta<\epsilon$. Let $K=B(0,1)\cup B(\lambda_\infty(q),\delta)$, then from Lemma~\ref{attract} we know that there exists a $T_{\delta/2}$ such that $\eta^q_\infty(t,p) \in B(\lambda_\infty(q),\delta/2), \forall t\geq T_{\delta/2}$. Let $T_{\epsilon}\stackrel{\Delta}{=} T_{\delta/2}$ and let us divide the time-line into intervals $T_\epsilon$ apart, i.e., $t=\underset{n}{\cup}[nT_\epsilon,(n+1)T_\epsilon), n\geq0$. We know $\eta^q_\infty(t,p) \in B(\lambda_\infty(q),\delta/2), \forall t\geq T_\epsilon$. From Lemma~\ref{near}, it follows that there exists $c_\epsilon$ and $r_\epsilon$ such that $\parallel
+\eta^{q'}_c(T_\epsilon,p)-\eta^q_\infty(T_\epsilon,p)\parallel \leq \delta/2, \forall c> c_\epsilon$ and $\forall q'\in B(q,r_\epsilon)$. This implies that 
+$\eta^{q'}_c(T_\epsilon,p) \in B(\lambda_\infty(q),\delta), \forall c> c_\epsilon$ and $\forall q'\in B(q,r_\epsilon)$ and as a result $\parallel \eta^{q'}_c(T_\epsilon,p)-\lambda(\infty)\parallel \leq \parallel
+\eta^{q}_\infty(T_\epsilon,p)-\lambda(\infty)\parallel + \parallel \eta^{q'}_c(T_\epsilon,p)-\eta^{q}_\infty(T_\epsilon,p)\parallel \leq \epsilon$. We now need to show that $\eta^{q'}_c(t,p)$ stays within the ball of radius $2\epsilon$ around $\lambda(\infty)$ for all $t>T_\epsilon$. To show the same, we first look at the time interval $[T_\epsilon,2T_\epsilon)$.\\
+It is easy to note that the trajectory $\eta^{q'}_c(t,p)$ of ODE \eqref{odec} in the time interval $[T_\epsilon,2T_\epsilon)$ starting from $p$ is the same as the trajectory of the ODE \eqref{odec} in the time interval $[0,T_\epsilon]$ but starting from the initial condition $\eta^{q'}_c(t,p)$, i.e., $\eta^{q'}_c(t, p)=\eta^{q'}_c(t-T_\epsilon,\eta^{q'}_c(T_\epsilon,p)), \forall t \in [T_\epsilon,2T_\epsilon)$. Now we know from Lemma~\ref{near} that $\eta^{q'}_c(t,\eta^{q'}_c(T_\epsilon,p))$ and $\eta^{q}_\infty(t,\eta^{q'}_c(T_\epsilon,p))$ track each other closely in the time $t\in [0,T_\epsilon)$.
+Formally,
+\begin{align}\label{intermed}
+&\parallel \eta^{q'}_c(t, p)-\eta^q_\infty(t-T_\epsilon,\eta^{q'}_c(T_\epsilon,p))\parallel
+\nn\\&=\parallel \eta^{q'}_c(t-T_\epsilon,\eta^{q'}_c(T_\epsilon,p))-\eta^q_\infty(t-T_\epsilon,\eta^{q'}_c(T_\epsilon,p))\parallel, \forall t\in [T_\epsilon,2T_\epsilon)\nn\\&\leq \delta/2, 
+\end{align}
+Now, since $\eta^q_\infty(t,\eta^{q'}_c(T_\epsilon,p))$ starts from within $B(\lambda(\infty),\delta)$ we know that it stays within $B(\lambda(\infty),\epsilon)$. Thus
+\begin{align}
+\parallel \eta^{q'}_c(t,p)-\lambda(\infty)\parallel &\leq \parallel \eta^{q'}_c(t-T_\epsilon,\eta^{q'}_c
+(T-\epsilon,p))-\eta^q_\infty(t-T_\epsilon,\eta^{q'}_c(T-\epsilon,p))\parallel \nn\\
+&+\parallel \eta^{q'}_c(t-T_\epsilon,\eta^{q'}_c(T-\epsilon,p))-\lambda(\infty)\parallel, 
+\forall t \in [T_\epsilon,2T_\epsilon)\nn\\
+&\leq \delta/2+\epsilon\nn\\
+&\leq 2 \epsilon
+\end{align}
+Also, we know that any trajectory of ODE in \eqref{odei} starting from within $B(\lambda(\infty),\delta)$ falls into the ball $B(\lambda(\infty),\delta/2)$ within $T_\epsilon$. Thus $\eta^q_\infty(T_\epsilon,\eta^{q'}_c(T_\epsilon,p)) \in B(\lambda(\infty),\delta/2)$ and from \eqref{inter} it follows that $\eta^{q'}_c(2T_\epsilon,p)=\eta^{q'}_c(T_\epsilon,\eta^{q'}_c(T_\epsilon,p))\in B(\lambda(\infty),\delta)$.
+Thus 
+\end{proof}\
+\end{comment}
+

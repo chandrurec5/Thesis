@@ -1,0 +1,208 @@
+\section{An Application in Reinforcement Learning}\label{example}
+Reinforcement Learning (RL) algorithms are sample trajectory based methods for solving Markov Decision Processes (MDP). RL algorithms make use of stochastic approximation to $\emph{filter}$ the noise in the estimates obtained from the samples. We apply our analysis to establish the stability of iterates in an actor-critic (AC) algorithm ({Algorithm~$1$} of \cite{NAC}), which is a two-timescale stochastic approximation scheme. Our goal here is to demonstrate the application of our stability results to Algorithm~$1$ of \cite{NAC}. Hence, we present only limited background material and refer the reader to \cite{NAC} for the detailed development of the algorithm. We consider an MDP with finite numbers of states and actions. The state space is denoted by 
+$S=\{1,2,\ldots,n\}$, and the action space by $A=\{1,2,\ldots,m\}$. In state $s$ and under action $a$, 
+let $c_a(s)$ denote the single-stage cost incurred and $p_a(s,s')$ be the probability of transition to 
+$s'$. By policy, we mean a sequence $\pi=\{\pi_1, \pi_2, \ldots, \pi_k, \ldots\}$, 
+where each $\pi_k,k=1,2,\ldots,$ specifies a way by which states are mapped to actions and such mapping 
+can be $\emph{deterministic}$  or $\emph{randomized}$. In deterministic policies, $\pi_k \colon S \ra A$
+while, in randomized policies, $\pi_k(s,a)$ is the probability of performing action $a$ in state $s$. 
+When $\pi_k=\pi, \forall k$, we call the policy $\emph{stationary}$. In the following example, we consider 
+classes of stationary randomized policies (SRP) denoted by $\Pi$. Under an SRP, the MDP is a Markov chain 
+with transition probability kernel denoted by $P_\pi$.\\
+\indent The $\emph{average}$-cost associated with a policy $\pi$ is given by
+\begin{align}
+J(\pi)=\lim_{N\ra \infty}\frac{1}{N}\mathbf{E}[\sum_{n=0}^{N-1} c_{a_n}(s_n)|\pi],
+\end{align}
+where $a_n$ is sampled from the distribution $\pi(s_n,\cdot), \forall n\geq 0$ and given $s_n$, $s_{n+1}$ is distributed as $p_{a_n}(s_n,\cdot)$. 
+The differential cost associated with state-action pair $(s,a)$ under policy $\pi$ is denoted by $Q^\pi(s,a)$, where
+\begin{align}
+Q^\pi(s,a)=\mathbf{E}[\sum_{n=0}^\infty c_{a_n}(s_n)-J(\pi)].
+\end{align}
+Similarly, one can define the differential cost associated with state $s$, denoted $V^\pi(s)$, as
+\begin{align}
+V^\pi(s)=\sum_{a \in A} \pi(s,a)Q^\pi(s,a).
+\end{align}
+The average and differential costs are related by the Bellman equation as below:
+\begin{align}
+Q^\pi(s,a)=g^\pi(s)-J(\pi)+\sum_a p_a(s,s') V^\pi(s').
+\end{align}
+We are interested in finding the $\emph{optimal}$-policy $\pi^*$ such that 
+\begin{align}\label{optiideal}
+J(\pi^*)=\min_{\pi \in \Pi} J(\pi).
+\end{align}
+\indent The term $\emph{curse of dimensionality}$ or simply $\emph{curse}$ refers to the exponential 
+dependence of the number of states on the number of state variables. Most practical problems suffer 
+from the $\emph{curse}$ and \eqref{optiideal} is difficult to solve due to the large search space. So, 
+in practice,  we restrict the search space to a smaller set of SRPs wherein each policy $\pi$ is a 
+differentiable function of a parameter $\theta \in \R^d$, where $d<<n \times m$. We are interested in 
+finding the $\emph{optimal}$-parameter $\theta^*$ such that 
+\begin{align}\label{opti}
+J(\pi^{\theta^*})=\min_{\theta \in \R^d} J(\pi^\theta).
+\end{align}
+Henceforth, by abuse of notation, we use the symbols $\pi$ and $\theta$ interchangeably to denote the 
+policy $\pi^\theta$.\\
+\indent The gradient of $J(\theta)$ is given by
+\begin{align}
+\nabla J(\theta)= \sum_s d^\pi(s) \sum_a \nabla \pi(s,a) Q^\pi(s,a),
+\end{align} 
+where $(d^\pi(s),s \in S)$ denotes the stationary distribution under the SRP $\pi$.\\
+We now verify our stability conditions for the iterates in Algorithm~$1$ of \cite{NAC} (except for some differences in the aforementioned algorithm and the one we present below). We present the algorithm here for the sake of completeness. 
+\FloatBarrier
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\caption{The Actor-Critic Algorithm}
+\label{algo}
+\STATE{Input:
+\begin{itemize}
+\item Randomized parameterized policy $\pi^\theta(\cdot,\cdot)$,
+\item Value function feature vector.
+\end{itemize}
+}
+\STATE{Initialization:
+\begin{itemize}
+\item Policy parameters $\theta_0 = \theta$,
+\item Value function weight vector $v_0 = v$ ,
+\item Initial step sizes $a(0) = a , b(0) = b, c(0) = c$,
+\item Initial state $s_0$.
+\end{itemize}
+}
+\FOR{$t=0,1,2,\ldots$}
+\STATE{Execution
+\begin{itemize}
+\item Draw action $a_n\sim\pi^{\theta_n}(s_n,\cdot)$ ,
+\item Observe next state $s_{n+1} \sim p_{a_n} (s_n ,\cdot)$,
+\item Observe cost $c_{a_n}(s_n)$.
+\end{itemize}
+}
+\STATE{Average Cost Update: $\hat{J}_{n+1}=\hat{J}_n+a(n)(c_{a_n}(s_n)-\hat{J}_n)$}
+\STATE{TD Error: $\delta_n=c_{a_n}(s_n)-\hat{J}_n+v^\top_nf_{s_{n+1}}-v^\top_nf_{s_n}$}
+\STATE{Critic Update: $v_{n+1}=v_n+a(n)\delta_nf_{s_n}$}
+\STATE{Actor Update: $\theta_{n+1}=\theta_n-b(n)(\delta_n\psi_{s_na_n}+\epsilon \theta_n)$}\label{ac}
+\ENDFOR
+\STATE Return the policy and value function parameters $\theta$ and $v$.
+\end{algorithmic}
+\end{algorithm}
+\begin{remark}
+We now hasten to point out certain minor differences between Algorithm~$1$ of \cite{NAC} and the
+Algorithm~\ref{algo} presented here. Algorithm~$1$ of \cite{NAC} corresponds to the average reward setting
+while the algorithm here is for the setting of average cost. Also, the update in equation $(23)$ of 
+Algorithm~$1$ of \cite{NAC} makes use of a projection operator in order to ensure boundedness of the 
+iterates. However, in the actor update in line~\ref{ac} of Algorithm~\ref{algo} (here),
+we do not make use of projection and instead we introduce an additional term $\epsilon \theta_n$ 
+(where $\epsilon >0$ is a small positive constant). This is equivalent to adding a quadratic penalty to 
+the objective. Thus, the actor update in line~\ref{ac} of Algorithm~\ref{algo} corresponds to the regularized version of the minimization problem in \eqref{opti} given by
+\begin{align}\label{optireg}
+J(\pi^{\theta^*})=\min_{\theta \in \R^d} J(\pi^\theta)+\epsilon \theta.
+\end{align}
+\end{remark}
+\begin{remark}
+In Algorithm~\ref{algo}, the randomized policy $\pi^\theta$ is given via the Gibbs distribution below:
+\begin{align}
+\pi^\theta(s,a)=\frac{e^{\phi_{sa}^\top \theta}}{\sum_{a'} e^{\phi_{sa'}^\top \theta}},
+\end{align}
+where $\phi_{sa} \in \R^d$ is a $d$-dimensional feature vector, and $\theta\in \R^d$ is the parameter. 
+This policy parameterization has also been suggested in \cite{NAC}.
+\end{remark}
+We also assume that assumptions ${A1-A3}$ of \cite{NAC} hold. The iterates in Algorithm~\ref{algo} form a 
+two-timescale stochastic approximation scheme. While iterates $\{\hat{J}_n\}$ and $\{v_n\}$ evolve on the 
+faster timescale, the iterates $\{\theta_n\}$ evolve along the slower timescale. We now write the iterates 
+in the standard form as below:
+\begin{align}
+\label{fast}\hat{J}_{n+1}&=\hat{J}_n+a(n)[h^1(\hat{J}_n,v_n,\theta_n)+M^{(1)}_{n+1}],\\
+\label{inter}v_{n+1}&=v_n+a(n)[h^2(\hat{J}_n,v_n,\theta_n)+M^{(2)}_{n+1}],\\
+\label{slow}\theta_{n+1}&=\theta_n+b(n)[g(\hat{J}_n,v_n,\theta_n)+M^{(3)}_{n+1}],
+\end{align}
+where\footnote{For simplicity, we make here the mild technical assumption that given $\theta_n$, the states $s_n$ are independently sampled from the stationary distribution $d^{\pi^{\theta_n}}$ of the Markov chain, a scenario also discussed in Chapter~$6$ of \cite{ndp}.}
+\begin{align}
+\label{h1func}h^1(\hat{J}_n,v_n,\theta_n)&= \mathbf{E}[c_{a_n}(s_n)|\mathcal{F}_n]-\hat{J}_n=\sum_s d^\pi(s) \sum_a \pi(s,a) c_a(s)-\hat{J}_n,\\
+\label{h2func}h^2(\hat{J}_n,v_n,\theta_n)&= \mathbf{E}[\delta_nf_{s_n}|\mathcal{F}_n]\nn\\&=\sum_s d^\pi(s)\sum_a \pi(s,a)[c_a(s)-\hat{J_n}+\sum_{s'}p_a(s,s') v^\top_nf_{s'}-v^\top_nf_s ]f_s,\\
+\label{gfunc}g(\hat{J}_n,v_n,\theta_n)&= \mathbf{E}[\delta_n\psi_{s_na_n}|\mathcal{F}_n]=-\sum_s d^\pi(s)\sum_a \nabla \pi(s,a)\hat{A}^\pi(s,a)-\epsilon \theta_n.
+\end{align}
+Note that, in the above equations, $\pi$ stands for $\pi^{\theta_n}$ and\\ $\mathcal{F}_n\stackrel{def}{=}\sigma(\theta_m,v_m,\hat{J}_m,M^{(1)}_m,M^{(2)}_m,M^{(3)}_m,0\leq m\leq n)$. To handle the $\emph{curse}$, the differential cost $V^\pi(s)$ is approximated as $ V^\pi(s)\approx v^{\pi\top} f_s$ (where $f_s\in \R^k$ is the feature vector of state $s$, $v^\pi \in \R^k$ is a learnt weight vector) and $\hat{A}^\pi(s,a)=c_a(s)-\hat{J}_n+\sum_{s'}p_a(s,s')v^\top_n f_{s'}-v^\top_n f_s$ is the approximate $\emph{advantage}$-function (see \cite{NAC}). The martingale terms are given by
+\begin{align}
+M^{(1)}_{n+1}&=c_{a_n}(s_n)-\mathbf{E}[c_{a_n}(s_n)|\cf_n],\\
+M^{(2)}_{n+1}&=\delta_nf_{s_n}-\mathbf{E}[\delta_nf_{s_n}|\cf_n],\\
+M^{(3)}_{n+1}&=\delta_n\psi_{s_na_n}-\mathbf{E}[\delta_n\psi_{s_na_n}|\cf_n].
+\end{align}
+It is easy to see that there exist $C_i, i=1,2,3$ such that $\mathbf{E}[||M^{(i)}_{n+1}||^2|\cf_n]\leq C_i(1+||\theta_n||^2+||v_n||^2+||\hat{J}_n||^2)$. By letting $x=(\hat{J},v) \in \R^{1+k}$ and $y=\theta\in \R^{d}$, we can rewrite the iterates in \eqref{fast}-\eqref{slow} in the standard format of \eqref{ttsarec} as below:
+\begin{subequations}
+\begin{align}
+x_{n+1}&=x_n+a(n)[h(x_n,y_n)+N^{(1)}_{n+1}],\\
+y_{n+1}&=y_n+b(n)[g(x_n,y_n)+N^{(2)}_{n+1}],
+\end{align}
+\end{subequations}
+where $h=(h^1,h^2)$ (see \eqref{h1func}, \eqref{h2func}), $g$ is the same as in \eqref{gfunc}, $N^{(1)}_{n+1}=(M^{(1)}_{n+1},M^{(2)}_{n+1})$ and $N^{(2)}_{n+1}=M^{(3)}_{n+1}$.
+
+We show that Assumption~\ref{lip} holds for the iterates in Algorithm~\ref{algo} in the proposition below.
+\begin{proposition}
+$\mbox{ }$\\
+\begin{enumerate}
+\item The functions $h^1\colon \R^{d+1+k} \ra \R, h^2\colon \R^{d+1+k}\ra \R^{k}, g\colon \R^{d+1+k}\ra \R^{d}$ are Lipschitz\label{cllip}.
+\item The functions $h^1_c(\hat{J},v,\theta)\stackrel{def}{=}\frac{h^1(c\hat{J},cv,c\theta)}{c}, c\geq 1$ are Lipschitz, and satisfy $h^1_c\ra h^1_\infty$, as $c\ra \infty$, uniformly on compacts. 
+%Further, the ODE $\dot{J}(t)=h^1_\infty(\theta,v,J(t))$, has a unique globally asymptotically stable equilibrium $\lambda^1_\infty(\theta,v)$, a Lipschitz map  and $\lambda^1_\infty(\textbf{0})=0, \textbf{0}\in R^{d+k}$.
+\item The functions $h^2_c(\hat{J},v,\theta)\stackrel{def}{=}\frac{h^2(c\hat{J},cv,c\theta)}{c}$ are Lipschitz, and satisfy $h^2_c \ra h^2_\infty$ as $c\ra \infty$, uniformly on compacts.
+% and the ODE $\dot{v}=h^2_\infty(\theta,v(t),\lambda_\infty(\theta,v(t)))$, has a unique globally asymptotically stable equilibrium $\lambda^2_\infty(\theta)$ a Lipschitz map, and $\lambda^2_\infty(\textbf{0})=0, \textbf{0} \in \R^k$.
+\item The ODE $(\dot{\hat{J}}(t),\dot{v}(t))=h_\infty(\hat{J}(t),v(t),\theta)$ has a unique asymptotically stable equilibrium $\lambda_\infty(\theta)$, where $\lambda_\infty\colon \R^{d} \ra \R^{1+k}$ is a Lipschitz map that satisfies $\lambda_\infty(\mathbf{0})=\mathbf{0}$.
+\item The functions $g_c(\theta)\stackrel{def}{=}\frac{g(c\theta,c\lambda_\infty(\theta))}{c}$ are Lipschitz 
+and satisfy $g_c \ra g_\infty$, as $c \ra \infty$, uniformly on compacts and the ODE $\dot{\theta}=g_\infty(\theta(t))$ has the origin in $\R^k$ as its unique globally asymptotically stable equilibrium.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\begin{enumerate}
+\item $h^1(\hat{J},v,\theta)=\sum_s d^\pi(s) \sum_a \pi(s,a) c_a(s) -\hat{J}$. $h^1$ is clearly Lipschitz 
+(in fact linear) in $\hat{J}$. We now show that the derivatives of $h^1$ are bounded w.r.t.~$\theta$.
+\begin{align}
+\nabla_\theta h^1(\hat{J},v,\theta)&=\sum_s \nabla_\theta d^\pi(s) \sum_a \pi(s,a) c_a(s)+\sum_s d^\pi(s) \sum_a \nabla_\theta \pi(s,a) c_a(s).
+%				     &=\sum_s \sum_{s'} \sum_{a'} \nabla_\theta \pi(s',a') \frac{\partial d^\pi(s)}{\partial \pi(s',a') } \sum_a \pi(s,a) c_a(s)+ \sum_s d^\pi(s) \sum_a \nabla_\theta \pi(s,a) c_a(s).
+\end{align}
+We know from \cite{PJS} that $d^\pi(s)$ is continuously differentiable in $\theta$ and has a 
+bounded derivative. Now since
+\begin{align}
+d^\pi(s)=\sum_{s'} d^\pi(s') \sum_a \pi(s',a) \sum_{s}p_a (s',s),\nn
+\end{align}
+and $\nabla\pi_\theta(s,a)= \pi(s,a)(\phi_{sa}-\sum_{a'} \phi(s,a')\pi(s,a'))$, it follows
+that $d^\pi(s)$ also has a bounded derivative w.r.t $\theta$.
+Using similar arguments on the boundedness of the derivatives of $d^\pi(s)$ and $\pi(s,a)$ w.r.t $\theta$ we can show that $h^2$ and $g$ are Lipschitz as well. For more details see \cite{PJS}.
+
+\indent
+Given $\theta$, define quantity $\pi_c(\theta)\stackrel{def}{=}\pi^{c\theta}, c \geq 1$. For any $s$, let $a^*=\underset{a}{\arg\max} \phi^\top_{sa}\theta$, and let $\pi^\theta_\infty(s,a)\stackrel{def}{=}\mathbf{1}_{\{a=a^*\}}$, where $\mathbf{1}$ is the indicator function. We show that $\pi_c^\theta(s,a) \ra \pi^\theta_\infty(s,a)$, uniformly on compacts. For any $a\neq a^*$,
+\begin{align}
+\pi_c^\theta(s,a)&=\frac{e^{c\phi^\top_{sa}\theta}}{\sum_{a'}e^{c\phi^\top_{sa'} \theta}}\nn\\
+ &\leq \frac{e^{c\phi^\top_{sa}\theta}}{e^{c\phi^\top_{sa^*} \theta}}\nn\\
+&=e^{c(\phi^\top_{sa}-\phi^\top_{sa^*}) \theta}.\nn
+\end{align}
+Now since $a\neq a^*$ and $\pi^\theta_c(s,a^*)=1-\sum_{a\neq a^*} \pi^\theta_c(s,a)$, we have 
+$\pi^\theta_c(s,a)\ra 0$, as $c \ra \infty$, $\forall s \in S, a \in A$, uniformly on compacts. We now
+drop the superscript $\theta$ and simply use $\pi_\infty$ and $\pi_c$ for notational simplicity.
+\item $h_c^1(\hat{J},v,\theta)=\frac{\sum_s d^{\pi_c}(s)\sum_a \pi_c(s,a)c_a(s)-c\hat{J}}{c}$, thus we have 
+$h^1_\infty(\hat{J},v,\theta)=-\hat{J}$.
+%and the ODE $\dot{\hat{J}}=-\hat{J}(t)$ has $\lambda^1_\infty(\theta,v)=0$ as its unique globally asymptotically stable equilibrium.
+\item In a similar fashion, 
+\begin{align}
+h^2_c(\hat{J},v,\theta)&\stackrel{def}{=}\bigg(\sum_s d^{\pi_c}(s)\sum_a \pi_c(s,a)[c_a(s)-c\hat{J}\nn\\&+\sum_{s'}p_a(s,s') v^\top_nf_{s'}-v^\top_nf_s]\bigg)/{c},\nn
+\end{align}
+and $h^2_\infty(\hat{J},v,\theta)=F^\top D^{\pi_\infty}(-I+P_\pi)Fv -\hat{J}$, where $F$ is the feature matrix whose $s^{th}$ row is $f_s$, and $D^\pi$ is a diagonal matrix where the $s^{th}$ diagonal element is 
+$d^\pi(s)$. Also, we make the assumption that $F$ has full column rank and $Fe\neq e$, where 
+$e=(1,1,\ldots,1)$. This is a technical requirement, see also \cite{NAC,sitavg}.
+\item Consider the ODE $(\dot{\hat{J}}(t),\dot{v}(t))=h_\infty(\hat{J},v,\theta)$, where 
+$h_\infty=(h^1_\infty,h^2_\infty)$. It is straightforward to see that $\dot{\hat{J}}(t)=-\hat{J}(t)$ is 
+stable to the origin in $\R$. Now, we know from \cite{NAC} (provided ${A3}$ of \cite{NAC} holds) that 
+$\dot{v}(t)=F^\top D^{\pi_\infty}(-I+P_\pi)Fv$ has the origin in $\R^d$ as its unique asymptotically 
+stable equilibrium. Thus, $\lambda(\theta)=(0,\mathbf{0}) \in \R^{1+k}, \forall \theta \in \R^k$, where 
+$0 \in \R$ and $\mathbf{0}\in \R^k$.
+\item Now 
+\begin{align}\label{geq}
+g_c(\theta)&=\bigg(\sum_s d^{\pi_c}(s)\sum_a \nabla \pi_c(s,a)[c_a(s)-c \times 0\nn\\&+\sum_{s'}p_a(s,s') c \mb \mathbf{0}^\top f_{s'}-c \mb\mathbf{0}^\top f_s]\bigg)/{c}-\frac{\epsilon c\theta}{c},
+\end{align}
+and $g_\infty(\theta)=\lim_{c \ra \infty}\frac{g(c\theta)}{c}$. Note that in \eqref{geq} we have made use of 
+the fact that $\lambda_\infty(\theta)=(0,\mathbf{0})$. Also, it is easy to see that all the quantities in 
+the numerator of the first term on the right hand side of \eqref{geq} are bounded and therefore,
+$g_\infty(\theta)=-\theta$. Then the ODE $\dot{\theta}(t)=-\theta(t)$, has the origin in $\R^d$ as its 
+unique globally asymptotically stable equilibrium.
+\end{enumerate}
+The claim follows. \end{proof}
+
+We have thus shown that the iterates $\theta_n$, $v_n$ and $\hat{J}_n$ are stable. It is important to note 
+that for the stability analysis we have not explicitly projected the iterates $\theta_n$ as in \cite{NAC}.
+
+

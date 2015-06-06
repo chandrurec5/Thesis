@@ -1,0 +1,170 @@
+We are interested in studying the stability of the iterates in the following (\eqref{ttsarec}) coupled stochastic recursions of the form
+\begin{subequations}\label{ttsarec}
+\begin{align}
+\label{fast}x_{n+1}&=x_n+a(n)[h(x_n,y_n)+M^{(1)}_{n+1}]\\
+\label{slow}y_{n+1}&=y_n+b(n)[g(x_n,y_n)+M^{(2)}_{n+1}]
+\end{align}
+\end{subequations}
+where, the iterates $x_n \in \mathbf{R}^d$ and $y_n \in \mathbf{R}^k$. As and when necessary we use $z \in \mathbf{R}^{d+k}$, to denote $z=(x,y)$. We make the following assumptions regarding quantities in \eqref{fast} and \eqref{slow}
+\begin{assumption}\label{lip}
+\text{$h\colon\mathbf{R}^{d+k} \rightarrow \mathbf{R}^d$ and $g\colon\mathbf{R}^{d+k} \rightarrow \mathbf{R}^k$ are Lipschitz continuous functions.}
+\end{assumption}
+\begin{assumption}\label{martbdd}
+\text{$\{M^{(1)}_n\}$, $\{M^{(2)}_n\}$ are martingale difference sequences w.r.t  the increasing $\sigma$-fields $\mathcal{F}_n$}
+\begin{align}
+\mathcal{F}_n\stackrel{\Delta}{=} \sigma(x_m,y_m,M^1_m,M^2_m,m\leq n), n \geq 0,\nn
+\end{align}
+satisfying
+\begin{align}
+\mathbf{E}[||M^{i}_{n+1}||^2|\mathcal{F}_n]\leq K(1+||x_n||^2+||y_n||^2), i=1, 2, n\geq 0.
+\end{align}
+\end{assumption}
+\begin{assumption}
+\text{ $\{a(n)\}$, $\{b(n)\} $ are step-size schedules satisfying}
+\begin{align}
+a(n) > 0,\mbox{ } b(n) >0,\mbox{ } \underset{n}{\sum} a(n) = \underset{n}{\sum} b(n) =\infty, \underset{n}{\sum}(a(n)^2+b(n)^2) < \infty, \frac{b(n)}{a(n)} \rightarrow 0.
+\end{align}
+\end{assumption}
+\begin{definition}
+\begin{align}
+h^y_c(x)\stackrel{\Delta}{=}\frac{h(cx,y)}{c}.\nn\\
+\hat{h}_c(x,y)\stackrel{\Delta}{=}\frac{h(cx,cy)}{c}.\nn
+\end{align}
+\end{definition}
+\begin{lemma}
+Maps $h^y_c(x)$ and $\hat{h}_c(x,y)$ are Lipschitz continuous.
+\end{lemma}
+\begin{proof}
+Given $x_1, x_2 \in \mathbf{R}^d$, we have
+\begin{align}
+||h^y_c(x_1)-h^y_c(x_2)||&=||\frac{h(cx_1,y)}{c}-\frac{h(cx_2,y)}{c}||\nn\\
+			 &\leq\frac{1}{c}L||(cx_1,y)-(cx_2,y)||\nn\\
+			 &=\frac{1}{c}Lc||x_1-x_2||\nn\\
+			 &=L||x_1-x_2||.\nn
+\end{align}
+where the second line follows from the Lipschitz property of $h$ in Assumption~\ref{lip}.
+Similarly given $z_1, z_2 \in \mathbf{R}^{d+k}$, we have
+\begin{align}
+||\hat{h}_c(z_1)-\hat{h}_c(z_2)||&=||\frac{h(cx_1,cy_1)}{c}-\frac{h(cx_2,yx_2)}{c}||\nn\\
+			 &\leq\frac{1}{c}L||(cx_1,cy_2)-(cx_2,cy_2)||\nn\\
+			 &=\frac{1}{c}Lc||z_1-z_2||\nn\\
+			 &=L||x_1-x_2||.\nn			 
+\end{align}
+\end{proof}\\
+\begin{assumption}\label{uniconv}
+The functions $h^0_c(x) \stackrel{\Delta}{=}\frac{h(cx,0)}{c}, c\geq 1, x \in \mathbf{R}^d$, satisfy $h^0_c(x) \rightarrow h_\infty(x)$ as $c \rightarrow \infty$, uniformly on compacts for some $h_\infty$. Furthermore, the ODE
+\begin{align}
+\dot{x}(t)=h_\infty(x(t))
+\end{align}
+has origin as its unique globally asymptotically stable equilibrium.
+\end{assumption}
+\begin{lemma}\label{ally}
+Under Assumption~\ref{lip} we have $h^y_c(x) \rightarrow h_\infty(x)$ as $c \rightarrow \infty$ for all $y \in \mathbf{R}^k$.
+\end{lemma}
+\begin{proof}
+\begin{align}
+||h^y_c(x)-h_\infty(x)||&=||h^y_c(x)-h^0_c(x)+h^0_c(x)-h_\infty(x)||\nn\\
+			&\leq ||h^y_c(x)-h^0_c(x)||+||h^0_c(x)-h_\infty(x)||\nn\\
+			&= \Bigg|\Bigg|\frac{h(cx,y)-h(cx,0)}{c}\Bigg|\Bigg|+||h^0_c(x)-h_\infty(x)||\nn\\
+			&\leq \frac{L||y||}{c}+||h^0_c(x)-h_\infty(x)||\nn\\
+\end{align}
+As $c \rightarrow \infty$ both terms in the last line go to zero.
+\end{proof}\\
+\begin{corollary}
+For any given $y \in \mathbf{R}^k$, $h^y_c(x) \rightarrow h_\infty(x)$ uniformly as $c \rightarrow \infty$.
+\end{corollary}
+Let $\phi_\infty(t,x)$ denote the solution of the ODE, $\dot{x}(t)=h_\infty(x(t))$ with initial condition $x$.
+Lemmas~$1-2$ and Corollary~$3$ of Chapter~$3$ of \cite{SA} continue to hold in this settting. We state those results for the sake of completeness.
+\begin{lemma}\label{attract}
+There exists a $T^f > 0$ such that for all initial conditions $x$ on the unit sphere, $||\phi_\infty(t,x)|| < \frac{1}{8}$ for all $t > T^f$.
+\end{lemma}
+\begin{proof}
+See Lemma~$3$, Chapter~$3$ of \cite{SA}.
+\begin{comment}
+Since asymptotic stability implies Liapunov stability, there is a $\delta > 0 $ such that any trajectory starting within distance of $\delta$ of the origin stays within distance $\frac{1}{8}$ thereof. For an inital condition $x$ on the unit sphere, let $T_x$ be a time at which the solution is within distance $\frac{\delta}{2}$ of the origin. Let $x'$ be any other initial condition on the unit sphere. Note that 
+\begin{align}
+\phi_\infty(t,x) &=x+\overset{t}{\underset{0}{\int}}h_\infty(\phi_\infty(s,x))ds,\mbox{ }\text{and}\nn\\
+\phi_\infty(t,x') &=x'+\overset{t}{\underset{0}{\int}}h_\infty(\phi_\infty(s,x'))ds.\nn
+\end{align}
+Subtracting the above equations and using the Lipschitz property, we get
+\begin{align}
+||\phi_\infty(t,x)-\phi_\infty(t,x')|| \leq ||x-x'|| + L \overset{t}{\underset{0}{\int}}||\phi_\infty(s,x)-\phi_\infty(s,x')||ds.
+\end{align}
+Then by Gronwall's inequality section~\ref{gronwall} we find that for $t \leq T_x$,
+\begin{align}
+||\phi_\infty(t,x)-\phi_\infty(t,x')||\leq ||x-x'||e^{LT_x}.
+\end{align}
+So there is a neighbourhood $U_x$ of $x$ such that for all $y \in U_x$, $\phi_\infty(T_x,y)$ is within distance of $\delta$ of the origin. By Liapunov stability, this implies that $\phi_\infty(t,x')$ remains within distance of $\frac{1}{8}$ of the origin for all $t\geq T_x$. Since the unit sphere is compact, it can be covered by a finite number of such neighbourhoods $U_{x_1},\ldots,U_{x_n}$ with corresponding times $T_{x_1},\ldots,T_{x_n}$. Then the statement of the lemma holds if $T^f$ is the maximum of $T_{x_1},\ldots,T_{x_n}$.
+\end{comment}
+\end{proof}\\
+The following lemma shows that for a given $y$, solutions of the ODEs $\dot{x}(t)=h^y_c(x(t))$ and $\dot{x}(t)=h_\infty(x(t))$ are close for $c$ large enough. The Lemma~\ref{near} is similar to Lemma~$2$ of Chapter~$3$ of \cite{SA} and is more general due to the presence of the slower timescale variable $y$.
+\begin{lemma}\label{near}
+Let $K \subset \mathbf{R}^d$ be compact, and let $[0,T]$ be a given time interval. Then for $t \in [0,T]$ and $x_0 \in K$, for a given $y \in \mathbf{R}^k$,
+\begin{align}
+||\phi^y_c(t,x)-\phi_\infty(t,x_0)||\leq [||x-x_0||+\epsilon(c)T]e^{LT}\nn
+\end{align}
+where $\epsilon_y(c)$ is independent of $x_0 \in K$  and $\epsilon_y(c) \rightarrow 0$ as $c \rightarrow \infty$. In particular, if $x=x_0$, then
+\begin{align}\label{growth}
+||\phi^y_c(t,x_0)-\phi_\infty(t,x_0)||\leq \epsilon_y(c)Te^{LT}.
+\end{align}
+\end{lemma}
+\begin{proof}
+Note that
+\begin{align}
+\phi^y_c(t,x)&=x+\overset{t}{\underset{0}{\int}} h^y_c(\phi^y_c(s,x))ds, \text{~and~}\nn\\
+\phi_\infty(t,x_0)&=x_0+\overset{t}{\underset{0}{\int}} h_\infty(\phi_\infty(s,x_0))ds\nn
+\end{align}
+This gives
+\begin{align}
+||\phi^y_c(t,x)-\phi_\infty(t,x_0)|| \leq ||x-x_0||+\overset{t}{\underset{0}{\int}}||h^y_c(\phi^y_c(s,x))-h_\infty(\phi_\infty(s,x_0))||ds.\nn
+\end{align}
+Now, using the facts that $\phi_\infty[[0,T],K]$ is compact, $h^y_c \rightarrow h_\infty$ uniformly on compact sets for fixed $y$, and $h^y_c$ has the Lipschitz property, we get
+\begin{align}
+||h^y_c(\phi^y_c(s,x))-h_\infty(\phi_\infty(s,x_0))||	 &\leq ||h^y_c(\phi^y_c(s,x))-h^y_c(\phi_\infty(s,x_0))||+||h^y_c(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))||\nn\\
+							 &\leq L||\phi^y_c(s,x)-\phi_\infty(s,x_0)||+\epsilon_y(c),
+\end{align}
+where $\epsilon_y(c)$ is independent of $x_0 \in K$ and $\epsilon_y(c) \rightarrow 0$ (from Lemma~\ref{ally}) as $c \rightarrow \infty$. Thus for $t \leq T$, we get
+\begin{align}\label{growtheq}
+||\phi^y_c(t,x)-\phi_\infty(t,x_0)||\leq||x-x_0||+\epsilon_y(c)T+L\overset{t}{\underset{0}{\int}}||\phi^y_c(s,x)-\phi_\infty(s,x_0)||ds.
+\end{align}
+The conclusion follows from Gronwall's inequality as in Lemma~$2$, Chapter~$3$ of \cite{SA}.
+\end{proof}
+We now present Corollary~\ref{fallback} which is similar to Corollary~$3$ of Chapter~$3$ of \cite{SA}.
+\begin{comment}
+
+\begin{corollary}\label{fallback}
+For a given $y$, there exists $c^y_0 >0$ and $T^f >0$ such that for all initial conditions $x$ on the unit sphere, $||\phi^y_c(t,x)|| < \frac{1}{4}$ for $t \in [T^f,T^f+1]$ and $c>c^y_0$.
+\end{corollary}
+\begin{proof}
+See Corollary~$3$, Chapter~$3$ of \cite{SA}.
+Choose $T^f$ as in Lemma~\ref{attract}. Now, using equation \eqref{growtheq} with $K$ taken to be the close unit ball, conclude that $||\phi^y_c(t,x)||< \frac{1}{4}$ for $t \in [T^f,T^f+1]$ and $c^y_0$ such that $\epsilon_y(c^y_0)(T^f+1)e^{L(t+1)}<\frac{1}{8}$.
+\end{proof}
+\begin{lemma}
+For a given $y \in \mathbf{R}^k$ and $c^y_0$ as in Corollary~\ref{fallback}, $\exists~K_1 > 0$ such that $c_0(y) \leq K_1(1+||y||)$.
+\end{lemma}
+\begin{proof}
+We need $\epsilon_y(c^y_0)<\epsilon'$, where $\epsilon'=\frac{1}{8(T+1)e^{L(t+1)}}$
+\begin{align}\label{cyochoice}
+\epsilon_y(c^y_0)&=||h^y_c(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))||\nn\\
+	   &=||h^y_c(\phi_\infty(s,x_0)) - h^0_c(\phi_\infty(s,x_0)) + h^0_c(\phi_\infty(s,x_0)) -h_\infty(\phi_\infty(s,x_0))   ||\nn\\
+	   &\leq \frac{L||y||}{c_0(y)}+||h^0_c(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))||
+\end{align}
+By Assumption~\ref{uniconv}, $\exists~c_1$ such that $||h^0_{c_1}(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))|| < \frac{\epsilon'}{2}$. If we choose $c^y_0 > L||y||\frac{2}{\epsilon'}$, then the inequality in \eqref{cyochoice} is satisfied. Proof is complete by choosing $K_1=\max(c_1,L||y||\frac{2}{\epsilon'})$.
+\end{proof}
+\end{comment}
+\begin{corollary}\label{fallback}
+For a given $y \in \mathbf{R}^k$, there exists $K_1>0$ such that for all initial conditions $x \in \mathbf{R}^d$ on the unit sphere, $||\phi^y_c(t,x)||<\frac{1}{4}$ for $t \in [T^f,T^f+1]$ and $c> K(1+||||)$
+\end{corollary}
+\begin{proof}
+Choose $T^f$ as in Lemma~\ref{attract}. Now, using equation \eqref{growtheq} with $K$ taken to be the close unit ball, conclude that $||\phi^y_c(t,x)||< \frac{1}{4}$ for $t \in [T^f,T^f+1]$ and $c$ such that $\epsilon_y(c)(T^f+1)e^{L(t+1)}<\frac{1}{8}$, i.e., 
+\begin{align}\label{hold}
+\epsilon_y(c)&<\frac{1}{8(T^f+1)e^{L(t+1)}}.
+\end{align}
+We have
+\begin{align}
+\epsilon_y(c)&=||h^y_c(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))||\nn\\
+	     &=||h^y_c(\phi_\infty(s,x_0)) - h^0_c(\phi_\infty(s,x_0)) + h^0_c(\phi_\infty(s,x_0)) -h_\infty(\phi_\infty(s,x_0))||\nn\\
+	     &\leq \frac{L||y||}{c}+||h^0_c(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))||
+\end{align}
+By Assumption~\ref{uniconv}, $\exists~c_1$ such that $||h^0_{c_1}(\phi_\infty(s,x_0))-h_\infty(\phi_\infty(s,x_0))||< \frac{1}{16(T^f+1)e^{L(t+1)}}$. For \eqref{hold} to hold we need $\frac{L||y||}{c}<\frac{1}{16(T^f+1)e^{L(t+1)}}$. The proof is complete by choosing $K_1=\max(c_1,16L(T^f+1)e^{L(t+1)})$.
+\end{proof}

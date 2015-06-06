@@ -1,0 +1,36 @@
+\FloatBarrier
+\begin{table}[H]
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{|c|c|c|}\hline
+Choice of $W$&	$||J^*-\hj||_{1,c}$, with $\zeta=0.9$ &	$||J^*-\hj||_{1,c}$, with $\zeta=0.999$ \\\hline
+$W_G$ \eqref{wdes} with $m=50$& $220$&		$82$\\\hline
+RANDOM& $5.04\times 10^4$&	$1.25\times 10^7$\\\hline
+\end{tabular}
+}
+\caption{Shows performance metrics for $Q_L$.}% Second row corresponds to $W$ as in \eqref{wdes} and the third row shows quantities averaged over $10$ random positive $4000\times 50$ matrices.}
+\label{pref}
+\end{table}
+\section{Conclusion}
+Solving MDPs with large number of states is of practical interest. However, when the number of states is large, it is difficult to calculate the exact value function. ALP is a widely studied ADP scheme that computes an approximate value function. Whilst the ALP offers sound theoretical guarantees it is also plagued by the presence of a large number of constraints. This calls for constraint reduction/approximation techniques. In this paper, we dealt with the GRLP and provided the error bounds, and by doing so we solved a major open problem of analytically justifying linear function approximation of the constraints. A salient feature of the error analysis was that it did not include any idealized assumptions. We demonstrated the effectiveness of the theory in a practical example of controlled queues. Future directions include providing more sophisticated error bounds based on Lyapunov functions, two-time scale actor-critic scheme to solve the GRLP, and basis function adaptation schemes to tune the $W$ matrix.
+%\vspace{-10pt}
+\input{valfnew}
+%\vspace{-10pt}
+\begin{comment}
+\textbf{Lyapunov Functions:}
+The error bounds are in terms of $||J^*-\Phi r^*||_\infty$ and $||\Gamma \bj-\tg\bj||_\infty$ and it can be argued that the basis functions might not approximate $J^*$ uniformly over all the states. This problem can be alleviated easily by making use of Lyapunov functions as in \cite{ALP} and showing that the operators $\Gamma$ and $\tg$ are contraction maps in a modified $L_\infty$ norm. %Since such a procedure requires additional algebra we have omitted its discussion in this paper and will provide the same in a longer version.\\
+\end{comment}
+\begin{comment}
+\textbf{Reinforcement Learning:}
+An important aspect of the GRLP is its amenability to the reinforcement learning (RL) \cite{Sutton} setting. In the RL setting, the model information is limited to the knowledge of the sample trajectories and solution can be obtained by a primal/dual gradient scheme that makes use of the Lagrangian function. The Lagrangian function corresponding to ALP and GRLP can be written as
+\begin{align}\label{lag}
+\tilde{L}(r,\lambda)=c^\top \Phi r+\lambda^\top (T\Phi r-\Phi r),\nn\\  \hat{L}(r,q)=c^\top \Phi r+q^\top W^\top (T\Phi r-\Phi r),
+\end{align}
+respectively. The additional insight from \eqref{lag} is that the GRLP can also be interpreted as linear function approximation of the Lagrangian multipliers, i.e., $\lambda\approx W q$. \cite{dolgov} takes such a view to formulate an approximate dual linear program (ADLP) as a dimensionality reduction technique. However, \cite{dolgov} provides neither an error analysis for the ADLP nor an RL algorithm. \cite{ALP} deals with an RL algorithm based on the ALP, nevertheless, the Lagrangian multipliers are approximated by a \emph{non-linear} function approximator.\\
+\textbf{Unified view of various constraint approximation methods:}
+An interesting direction is to extend the analytical machinery developed in this paper to constraint relaxation methods such as the smoothed approximate linear program (SALP) in \cite{SALP}. The key will be to appropriately modify the ALUB projection operator $\tg$ to suit the SALP. It will also be interesting to find the connection between the analytical arguments presented here based on contraction maps and the ones in \cite{CS} based on concentration inequalities.\\
+\textbf{Basis Adaptation for W:} The paper justifies linear function approximation of the constraints by providing the error bounds. An interesting research direction is to find basis adaptation schemes that tune for $W$.
+\end{comment}
+\begin{comment}
+\textbf{Empirical Evidence:}\\
+It is well known that constraint sampling works in the case of large MDPs like Tetris \cite{CST}. Since the RLP is a special case of GRLP the results obtained in this paper further bolster the validity of such a solution approach for large MDPs.
+\end{comment}

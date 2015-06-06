@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+\begin{axis}[scale=0.8, transpose legend,
+legend columns=1,
+legend style={at={(0.5,-0.1)},anchor=north},
+]
+\addplot[domain=-60:60,thick,smooth,variable=\y,black]  plot ({-74.000000+-1.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-124.000000+-2.000000*\y},{\y});
+\addplot[mark=*,black] plot file{../nips_exp/r_ALP};
+\addplot[domain=-60:60,thick,smooth,variable=\y,black]  plot ({-242.000000+-10.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-292.000000+-11.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-24.000000+9.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-192.000000+9.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-174.000000+-3.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-342.000000+-12.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-224.000000+-4.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-392.000000+-13.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-274.000000+-5.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-442.000000+-14.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-324.000000+-6.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-492.000000+-15.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-374.000000+-7.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-542.000000+-16.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-424.000000+-8.000000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-592.000000+-17.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-474.000000+-18.800000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,black]  plot ({-642.000000+-28.600000*\y},{\y});
+\begin{comment}
+\end{comment}
+\addlegendentry{Active Constraints}
+\addlegendentry{Inactive Constraints}
+\addlegendentry{$\tr$}
+\end{axis}
+\end{tikzpicture}

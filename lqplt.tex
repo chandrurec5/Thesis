@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\begin{axis}[legend pos=north west, legend columns=1, scale=0.75]
+\addplot[smooth,black]  plot file {./nips_exp/Vl};
+%\addplot[dotted,black]  plot file {./nips_exp/Vl_pol_alp};
+\addplot[dashed,black]  plot file {./nips_exp/p9/Vl_rlp};
+%\addplot[dotted,black]  plot file {./nips_exp/rand/Vl_rlp};
+\tiny
+\addlegendentry{$J^*$}
+\addlegendentry{$\hj$ for $W$ as in \eqref{wdes}}
+%\addlegendentry{$J_{\hat{u}}$ for random choice of $W$}
+\end{axis}
+\end{tikzpicture}
+

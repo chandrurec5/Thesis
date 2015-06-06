@@ -1,0 +1,23 @@
+
+\begin{figure}
+
+\begin{center}
+\begin{tikzpicture}
+\draw [black,thick,domain=180:360] plot ({cos(\x)}, {sin(\x)});
+\node [rotate=90] at (-1.2,0.9) { Inelastic Wall};
+\draw (-1.5,-.1) rectangle (-1,2.0);
+\node[] at (0,-0.6) { Car};
+\draw (-0.3,-0.8) rectangle (0.3,-0.3);
+\draw (1,0.0) rectangle (1.4,0.8);
+
+\draw[] (-0.25,-0.85) circle(0.1);
+\draw[] (0.25,-0.85) circle(0.1);
+\node [rotate=90] at (1.2,0.4) { Goal};
+
+\end{tikzpicture}
+
+\end{center}
+
+\caption{Mountain Car}
+\label{mcar}
+\end{figure}

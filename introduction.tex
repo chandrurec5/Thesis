@@ -1,0 +1,130 @@
+\section{Introduction}
+A typical stochastic approximation \cite{kushner} (SA) scheme can be specified as under:
+\begin{align}\label{rmsa}
+x_{n+1}=x_n+a(n)[h(x_n)+M_{n+1}], n\geq 0,
+\end{align}
+where the iterates $x_n \in \R^d$, $h\colon \R^d \ra \R^d$, and $M_{n+1}$ are zero-mean noise terms and $a(n)$ are diminishing step sizes. The earliest and most representative example of an SA scheme is the 
+Robbins-Monro (RM) algorithm, an iterative procedure to compute the zeros of a function using only 
+its noisy observations. Here, $h$ is the function whose unique zero say $x^* \in \R^d$ needs to be 
+computed and at any point $x_n$, the value of the function $h(x_n)$ is corrupted by an additive noise 
+$M_{n+1}$. Other instances of SA schemes are the stochastic gradient schemes wherein $h$ is the 
+gradient of some other function $f\colon \R^d \ra \R$, i.e., $h(x)=\nabla f(x)$. Stochastic gradient 
+schemes are found to be useful in actor-critic \cite{NAC,IAC,KAC,BAC,BSPSA,Pet-Sch,ALP-Bor,SB1} and policy gradient \cite{Bax-Bar,Amari,SMSM,Kak,SP} reinforcement learning algorithms as well as stochastic optimization algorithms \cite{SPSA,TTSPSA,SB-VB,Mar-Tsit,SB-VB2,SB3,BTS,BO,BADA}.\\
+\indent The conditions under which the above scheme converges have been studied widely (\cite{kushner,SA}) 
+in the literature. In general, analysis of SA schemes involves two important steps namely,
+\begin{enumerate}
+\item establishing $\emph{stability}$ of the iterates $x_n$, i.e., showing that 
+$\sup_n \parallel x_n\parallel <\infty$ with probability one, and  \label{stb}
+\item establishing $\emph{convergence}$ to a desired solution $x^*$, i.e., showing that 
+$x_n \rightarrow x^*$ almost surely as $n \rightarrow \infty$. \label{conv}
+\end{enumerate}
+%Often \ref{stb} is required to show \ref{conv} (\cite{SA}).
+In situations where stability of iterates cannot be established analytically, a common procedure 
+is to pick a suitable compact subset of the parameter space onto which one would projects the iterates, 
+thereby ensuring their boundedness, i.e., $\sup_n \parallel x_n\parallel <\infty$.\\
+\indent The ODE method (\cite{SA,BMSTAB}) is a useful analytical tool to study the stability as well as 
+convergence of the stochastic iterates. In the ODE method, one considers \eqref{rmsa} to be a 
+$\emph{noisy-discretized}$ version of the ODE,
+\begin{align}\label{odebasic}
+\dot{x}(t)=h(x(t)).
+\end{align}
+An important notion associated with the ODE method is that of $\emph{timescale}$ that is
+defined using the quantity $t(n)=\sum_{m=0}^{n-1} a(m),\mb n\geq 1$. Let $\phi(t,x), t\geq 0$ 
+denote the trajectory of \eqref{odebasic} with initial condition $x(0)=x$. When $\sup_n\parallel
+x_n\parallel <\infty$, 
+the trajectory $\phi(t,x)$ sampled at instants $t(n)$, i.e., $\{\phi(t(n),x_0), n\geq 0\}$ approximates the 
+iterates ${x_n}$ (Lemma~$1$, Chapter $2$,\cite{SA}). The SA scheme can then be shown to converge to a 
+compact connected internally chain transitive invariant set of the ODE in \eqref{odebasic}. 
+Thus the convergence of iterates in the SA scheme \eqref{rmsa} can be understood by looking at the 
+asymptotic equilibria of the ODE in \eqref{odebasic}.\\
+\indent
+The ODE method can also be used to establish the stability of iterates $\{x_n\}$ which involves 
+understanding the behavior of \eqref{rmsa} when $\parallel x_n\parallel$ gets larger. The idea is to observe
+the evolution of the continuously interpolated trajectory obtained from the iterates $\{x_n\}$ every 
+$T$ instants and then rescaling it to the unit ball if the trajectory goes out of it. 
+The rescaled iterates $\{\tilde{x}_n\}$ then differ from the original iterates $\{x_n\}$ only by a 
+constant factor. The rescaled iterates track the rescaled ODE,
+\begin{align}
+\dot{x}(t)=h_{c}(x(t)), \text{where}\mbox{ } h_c(x)\stackrel{def}{=}\frac{h(cx)}{c}, \forall c\geq 1.
+\end{align}
+As $c \ra \infty$, one obtains the following $\emph{limiting}$ ODE (assuming the limit exists):
+\begin{align}\label{lode}
+\dot{x}(t)=h_\infty(x(t)), \text{where} \mbox{ } h_\infty(x)=\lim_{c \ra \infty} h_c(x).
+\end{align}
+When the ODE \eqref{lode} is globally asymptotically stable to the origin, \cite{BMSTAB} shows that 
+$\sup_n \parallel x_n\parallel <\infty$ almost surely. This is because outside a set of zero probability,
+as $\parallel x_n\parallel$ grows larger, the scaling factor tends to $\infty$ and 
+$\tilde{x}_n$ can be approximated 
+by the trajectory of the limiting ODE \eqref{lode}. Since the ODE \eqref{lode} is stable to the origin, 
+the scaled iterates $\{\tilde{x}_n\}$ fall back to the origin. The stability of $\{x_n\}$ then follows 
+upon noting that these iterates differ from $\tilde{x}_n,n\geq 1$ only by a scaling factor.\\
+\indent The SA scheme in \eqref{rmsa} is a $\emph{single}$ timescale stochastic approximation scheme. 
+A two-timescale stochastic approximation scheme \cite{TTSAP,BADA,SB-VB2,TTSPSA,BO,BTS} 
+is as under:
+\begin{subequations}\label{ttsaintro}
+\begin{align}
+\label{frec} x_{n+1}&=x_n+a(n)[h(x_n,y_n)+M^{(1)}_{n+1}],\\
+\label{srec} y_{n+1}&=y_n+b(n)[g(x_n,y_n)+M^{(2)}_{n+1}], 
+\end{align}
+\end{subequations}
+where, $x_n \in \R^{d_1}, y_n \in \R^{d_2}$, $a(n)$ and $b(n)$ are both diminishing step-size schedules 
+except that $\frac{b(n)}{a(n)} \rightarrow 0$ as $n\rightarrow \infty$. 
+The two timescales here are, the $\emph{slower}$, corresponding to $t^s(n)=\sum^{n-1}_{m=0} b(m)$, 
+and the $\emph{faster}$,  corresponding to  $t^f(n)=\sum^{n-1}_{m=0} a(m)$ respectively, on which 
+the two recursions proceed. The terms $\emph{faster}$ and $\emph{slower}$ signify the rates of growth 
+of $t^f(n)$ and $t^s(n)$ respectively. Many iterative schemes might involve calls to subroutines which 
+themselves are iterative in nature. Thus the $\emph{outer}$-loop in such schemes must typically wait for 
+the iterates in the $\emph{inner}$-loop to converge before proceeding to its next step. 
+Instead, the same effect can also be achieved by a two-timescale recursion with outer and inner loop 
+iterates on the slower and faster timescales respectively. The condition $\frac{b(n)}{a(n)} \ra 0$ 
+ensures that the slower timescale iterates do not move much compared to the faster timescale iterates, 
+thereby producing the effect equivalent to that of a $\emph{nested}$-loop. As a result,
+multi-timescale stochastic approximation is commonly used in algorithms that involve estimation of 
+$\emph{nested}$ quantities \cite{NAC,IAC,KAC,TTSAP,SB-VB2,BTS}. Study of two timescale SA schemes is 
+also important as it is easy to extend the arguments made for two timescale recursions to those with 
+even more timescales.\\
+\indent Under the assumption that $\sup_n\parallel x_n\parallel <\infty$, $\sup_n\parallel y_n\parallel
+<\infty$, the ODE method can 
+be applied to establish the convergence of iterates in \eqref{ttsaintro}, see \cite{TTSAP} 
+and Chapter~$6$, \cite{SA}. In this paper, we provide {\em the first} conditions in the literature
+that imply stability of the iterates in \eqref{ttsaintro}. These are conditions that imply 
+$\sup_n\parallel x_n\parallel <\infty$ and $\sup_n\parallel y_n\parallel
+<\infty$ with probability one. Stability results 
+for the single timescale recursions, see \cite{BMSTAB} and Chapter $3$ of \cite{SA}, cannot be applied 
+directly to the two-timescale scheme in \eqref{ttsaintro}, because the iterates $\{x_n\}$ and $\{y_n\}$ 
+are coupled and they evolve along separate timescales. Nonetheless, while our analysis resembles 
+\cite{SA,TTSAP} 
+in that we study scaled ODEs, it differs considerably from \cite{SA} in that we study two separate 
+sets of scaled ODEs for the two different timescales. Since the iterates $x_n$ evolve on the faster 
+timescale, it is natural to first characterize the growth of $\{x_n\}$ before studying the stability
+of $\{y_n\}$. So, we first study the following scaled ODE and its limiting version:
+\begin{align}
+\label{hcf} \dot{x}(t)&={h}_c(x(t),y), \text{where}\mbox{ } {h}_c(x,y)\stackrel{def}{=}\frac{h(cx,cy)}{c}, 
+c \geq 1,\\
+\label{hif} \dot{x}(t)&=h_\infty(x(t),y), \text{where}\mbox{ } {h}_\infty(x,y)=\lim_{c \ra \infty}h_c(x,y).
+\end{align}
+Equations \eqref{hcf} and \eqref{hif} also allude to the fact that the slower timescale iterates 
+appear to be constant, i.e., $y(t)\equiv y$ $\forall t$, when viewed from the faster timescale 
+\cite{SA}.\\
+Under the assumption that the limiting ODE \eqref{hif} has a unique globally asymptotically stable 
+equilibrium $\lambda_\infty(y)$, where $\lambda_\infty \colon \R^{d_2} \ra \R^{d_1}$
+is a Lipschitz continuous map with $\lambda_\infty(0)=0$, we show that $\parallel x_n\parallel
+\leq K^*(1+\parallel y_n\parallel)$ 
+for some $K^*>0$. Subsequently, we analyze the slower recursion using the following ODE:
+\begin{align}\label{gc} 
+\dot{y}(t)=g_c(y(t)), \text{where } \mbox{ } g_c(y)=\frac{g(c\lambda_\infty(y),cy)}{c}.
+\end{align}
+We show that $\sup_n \parallel y_n\parallel <\infty$ with probability one, when the limiting 
+ODE $\dot{y}(t)=g_\infty(y(t))$ (with $g_\infty(y)=\underset{c\ra\infty}{\lim}g_c(y)$) is stable 
+to the origin. By making use of the fact that $\parallel x_n\parallel \leq K^*(1+\parallel y_n\parallel)$ 
+(see above), 
+we establish the stability of two timescale SA iterates given in \eqref{ttsaintro}.\\
+\indent The paper is organized as follows. In section~\ref{oderes} we summarize certain results 
+(mostly from \cite{SA,TTSAP}) regarding the scaled ODEs that will be used in our arguments. 
+In sections~\ref{faster} and ~\ref{slower}, we present the analysis for the faster and slower 
+timescale recursions, respectively. In section~\ref{example}, we apply our analysis to establish 
+the stability of iterates in a two-timescale stochastic approximation algorithm arising in an 
+application in reinforcement learning. Conclusions are provided in section~\ref{disc}. 
+Finally, an Appendix at the end presents the Gronwall inequalities that are used in the proofs 
+and a result whose proof follows along the lines of a similar result in \cite{SA}.
+

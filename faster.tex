@@ -1,0 +1,218 @@
+\subsection{Faster Timescale Results}\label{faster}
+It is easy to see that in a two timescale scheme, the slower timescale iterates $\emph{appear}$ 
+to be constant when {\em viewed} from the faster timescale, while the faster timescale iterates 
+$\emph{appear}$ equilibrated when {\em viewed} from the slower timescale. It is straightforward to show 
+that the faster timescale iterates are bounded for a fixed $y \in \R^{d_2}$. However, since $y$ changes 
+along the slower timescale, we need a bound on $\parallel x_n\parallel$ in terms of 
+$\parallel y_n\parallel$. Conditions $1-4$ of Assumption~\ref{lip} help us achieve such a result (Theorem~\ref{maintheorem} at the end of this section).
+
+In all the statements in this section, we make use of the following definition of `time points'.
+\begin{definition}\label{deft}
+\text{For $n=1,2,\ldots$ and $T>0$,}
+\begin{align}
+&t(0)=0,t(n)=\overset{n-1}{\underset{i=0}{\sum}} a(i), \mb n\geq 1,\nn\\
+&T_0=0, T_{n}=\min \{t(m) \colon t(m)\geq T_{n-1}+T\}.\nn\\
+&\text{Note that}\nn\\
+&T_n=t(m(n)), \mbox{for suitable } m(n)  \uparrow \infty  \mbox{ }\text{as} \mbox{ } n\uparrow \infty.
+\end{align}
+\end{definition}
+We hasten to point out that the above variables in Definition~\ref{deft} only hold for the arguments 
+in this section. In the next section, corresponding to the slower timescale, we will re-define these 
+variables suitably for the slower timescale.\\
+\indent We analyze the evolution of iterates on the faster timescale and to this end, we re-write 
+\eqref{ttsarec} as a single faster timescale recursion in $z_n$, i.e.,
+\begin{align}
+\label{combo}z_{n+1}=z_n+a(n)[f(z_n)+N_{n+1}],
+\end{align}
+where,
+\begin{align}
+z_n=&(x_n,y_n),\nn\\
+f(z_n)=&\left({\begin{array}{c} h(x_n,y_n) \\ \frac{b(n)}{a(n)}g(x_n,y_n) \end{array}}\right),\nn\\
+N_{n+1}=&\left({\begin{array}{c}M^{(1)}_{n+1}\\ \frac{b(n)}{a(n)}M^{(2)}_{n+1}\end{array}} \right).\nn
+\end{align}
+We define the piecewise linear trajectory $\bar{z}(t)=(\bar{x}(t),\bar{y}(t))$ as follows:
+\begin{definition}\label{defpl}
+\begin{align}
+\bar{z}(t)=z_n +(z_{n+1}-z_n)\frac{t-t(n)}{t(n+1)-t(n)}, t \in [t(n),t(n+1)].\nn
+\end{align}
+\end{definition}
+Since the boundedness of $\bar{z}(t)$ is not known, we monitor its growth every $T_n$ time instants and rescale it to the unit ball around the origin in $\R^{d_1+d_2}$. The rescaled trajectory $\hat{z}(t)$ defined below is bounded and tracks the trajectory of a scaled ODE (Lemma~\ref{scaleconv}).
+\begin{definition}\label{defs}
+Define the piecewise continuous trajectory $\hat{z}(t), t\geq 0$, by
+\begin{align}\label{hattraj}
+&\hat{z}(t) = \frac{\bar{z}(t)}{r(n)} \text{~for~} t \in [T_n, T_{n+1}),\\
+\label{rdef}&\text{~where~} r(n)\stackrel{def}{=}\max(r(n-1),\parallel \bar{z}(T_n)\parallel,1), 
+n \geq 1, r(0)=1.
+\end{align}
+Also, we define $\hat{z}(T^{-}_{n+1})\stackrel{def}{=}\frac{\bar{z}(T_{n+1})}{r(n)}$. This is the same 
+as $\hat{z}(T_{n+1})$ if there is no jump at $T_{n+1}$ and is equal to $\lim_{t\uparrow T_{n+1}}\hat{z}(t)$.
+\end{definition}
+The scaled iterates for $m(n)\leq k \leq m(n+1)-1$ are given by
+\begin{subequations}\label{scaledttsarec}
+\begin{align}
+\hat{x}_{m(n)}&=\frac{x_{m(n)}}{r(n)},\\
+\hat{y}_{m(n)}&=\frac{y_{m(n)}}{r(n)},\\
+\hat{x}_{k+1}&=\hat{x}_k+a(k)[{h}_c(\hat{x}_k,\hat{y}_k)+\hat{M}^{(1)}_{k+1}],\\
+\hat{y}_{k+1}&=\hat{y}_k+a(k)[\epsilon_k+\hat{M}^{(2)}_{k+1}],
+\end{align}
+\end{subequations}
+where $c=r(n)$, $\epsilon_k=\frac{b(k)}{a(k)}\bigg(\frac{g(c\hat{x}_k,c\hat{y}_k)}{c}\bigg)$, $\hat{M}^{(1)}_{k+1}=\frac{M^{(1)}_{k+1}}{r(n)}$, $\hat{M}^{(2)}_{k+1}=\frac{M^{(2)}_{k+1}}{r(n)}$. 
+The idea behind the definition of $r(n)$ in \eqref{rdef} is to check every time interval roughly $T$ apart and rescale the iterates only if $\hat{z}(t)$ goes outside of the unit ball.
+\begin{lemma}\label{monotoner}
+The sequence $\{r(n)\}$ as defined in \eqref{rdef} is monotonically nondecreasing.
+\end{lemma}
+\begin{proof}
+Follows directly from the definition of $r(n)$ in \eqref{rdef}.
+\end{proof}
+Lemmas~$4-6$, Chapter~$3$ of \cite{SA} continue to hold for $\hat{z}(t)$. In particular, we re-state a part 
+of Lemma~$6$, Chapter~$3$ of \cite{SA}, since we require it in the proof of Theorem~\ref{maintheorem}.
+\begin{lemma}\label{bdd}
+For $0<k\leq m(n+1)-m(n)$, we have almost surely
+\begin{align}
+\parallel \hat{z}(t(m(n)+k))\parallel \leq K_2,
+\end{align}
+for some $K_2>0$.
+\end{lemma}
+\begin{proof}
+See $(3.2.6)$ in the proof of Lemma~$6$, Chapter $3$, of \cite{SA}. 
+\end{proof}
+\begin{lemma}\label{scaleconv}
+Let $z_n(t)=(x_n(t),y_n(t)), \mb t\in [T_n,T_{n+1}]$, denote the trajectory of the following ODE:
+\begin{subequations}\label{xyodes}
+\begin{align}
+\label{hfodex} \dot{x}(t)&=h_{r(n)}(x(t),y(t)),\\
+\label{hfodey}\dot{y}(t)&=0,
+\end{align}
+\end{subequations}
+with initial conditions $x_n(T_n)=\hat{x}(T_n)$ and $y_n(T_n)=\hat{y}(T_n)$. Then
+\begin{align}
+\underset{n\ra \infty}{\lim} \parallel \hat{z}(t)-z_n(t)\parallel =0, a.s., \forall t\in [t(m(n)),t(m(n+1))).
+\end{align}
+\end{lemma}
+\begin{proof}
+Follows from Lemma~$1$, Chapter~$6$, \cite{SA}.
+\end{proof}
+
+\begin{lemma}\label{lemmt}
+Outside a set of zero probability, for $n$ large, there exists a $C_1>0$ such that if
+\begin{align}\label{xgreat}
+\parallel \bar{x}(T_n)\parallel >C_1(1+\parallel \bar{y}(T_n)\parallel),
+\end{align}
+ then 
+\begin{align}
+\parallel \bar{x}(T_{n+1})\parallel < \frac{3}{4}\parallel \bar{x}(T_{n})\parallel.
+\end{align}
+\end{lemma}
+\begin{proof}
+Note that \eqref{xgreat} implies that $r(n)\geq C_1$, $\parallel \hat{y}(T_n)\parallel <\frac{1}{C_1}$ and 
+$\parallel \hat{x}(T_n)\parallel >\frac{1}{1+1/C_1}$. Let $\phi^{y(t)}_\infty(t,x)$ and $\phi^{y(t)}_c(t,x)$ 
+be the solutions to the ODEs \begin{align}
+\label{iode}\dot{x}(t)&=h_\infty(x(t),y(t)) \text{\mb and}\\
+\label{code}\dot{x}(t)&=h_c(x(t),y(t)),
+\end{align}
+respectively, with initial condition $x$ in both. Let $y'(t-T_n)=y_n(t), \mb \forall t \in [T_n,T_{n+1}]$. 
+It is easy to see that 
+\begin{align}\label{equal}
+x_n(t)=\phi^{y'(t)}(t-T_n,\hat{x}(T_n)), \forall t\in [T_n,T_{n+1}],
+\end{align}
+where $x_n(t)$ and $y_n(t)$ are as in Lemma~\ref{scaleconv}.\\
+%We know from \eqref{hfodey} that for any given $r_{1/4}>0$ there exists a sufficiently large $n$ such that $||\hat{y}(t)-y_n(t)||\leq 1/2 \times r_{1/4}$. 
+We also know from Lemma~\ref{neartraj} that there exists $r_{1/4}$, $c_{1/4}$, and $T_{1/4}$ such that  
+$\parallel \phi^{y'(t)}_c(t,\hat{x}(T_n))\parallel$ $\leq \frac{1}{4}$, $\mb\forall t \geq T_{1/4}$, 
+ $\forall c \geq c_{1/4}$, whenever $y'(t) \in B(0,r_{1/4}), \forall t \in [0,T]$.\\ 
+Now, let us pick $C_1>\max(c_{1/4},\frac{2}{r_{1/4}})$ and $T$ in Definition~\ref{deft} as $T\stackrel{def}{=}T_{1/4}$. Since $y'(t-T_n)=y_n(t)=\hat{y}(T_n), \forall t \in [T_n,T_{n+1}]$, we have for our choice of $C_1$, $y'(s)\in  B(0,r_{1/4}), \forall s \in [0,T]$. We also know from Lemma~\ref{scaleconv} that $\parallel 
+\hat{x}(T^{-}_{n+1})-x_n(T_{n+1})\parallel <\frac{1}{4}$ for sufficiently large $n$. 
+Since $\parallel x_n(T_{n+1})\parallel=\parallel \phi^{y'(t)}(T_{n+1}-T_n,\hat{x}(T_n))\parallel\leq 1/4$, 
+we have $\parallel \hat{x}(T^{-}_{n+1})\parallel \leq \parallel \hat{x}(T^{-}_{n+1})-x_n(T_{n+1})\parallel
++\parallel x_n(T_{n+1})\parallel \leq \frac{1}{2}$. Since $\frac{\bar{x}(T_{n+1})}{\bar{x}(T_{n})}=\frac{\hat{x}(T^{-}_{n+1})}{\hat{x}(T_{n})}$, it follows that $\parallel \bar{x}(T^{}_{n+1})\parallel <\frac{1+1/C_1}{2}
+\parallel \bar{x}(T_n)\parallel$, and the result holds by assuming without loss of generality that 
+$C_1>\max(c_{1/4},\frac{2}{r_{1/4}})>2$.
+\end{proof}
+\begin{comment}
+\begin{lemma}\label{lemmt}
+There exists a $C_1$ such that if
+\begin{align}\label{xgreat}
+||\bar{x}(T_n)||>C_1(1+||\bar{y}(T_n)||),
+\end{align}
+ then 
+\begin{align}
+||\bar{z}(T_{n+1})||< \frac{3}{4}||\bar{z}(T_{n})||.
+\end{align}
+\end{lemma}
+\begin{proof}
+From condition~\ref{scalex} of Assumption~\ref{lip}, we have $\lambda_\infty(0)=0$ and from Lemma~\ref{neartraj} there exist $\epsilon_0(<1)$, $c_{1/4}$, and $T_{1/4}$ such that  $||\phi^y_c(t,x)||\leq \frac{1}{2}, t \geq T_{1/4}, c \geq c_{1/4}$ and $y \in B(0,\epsilon_0)$. Note that \eqref{xgreat} implies that $r(n)>C_1$, and $||\hat{y}_{m(n)}||<\frac{1}{C_1}$. When we pick $C_1>\max(c_{1/4},\frac{1}{\epsilon_0})$ and $T=T_{1/4}$, since $\frac{\bar{x}(T_{n+1})}{\bar{x}(T_{n})}=\frac{\hat{x}(T^{-}_{n+1})}{\hat{x}(T_{n+1})}$ and $\frac{\bar{y}(T_{n+1})}{\bar{y}(T_{n})}=\frac{\hat{y}(T^{-}_{n+1})}{\hat{y}(T_{n+1})}$ from Lemma~\ref{scaleconv} it follows that $||\bar{x}(T^{}_{n+1})||<\frac{1}{2}||\bar{x}(T_n)||$ and $||\bar{y}(T_{n+1})||\leq \epsilon_0 ||\bar{y}(T_{n})||$. 
+\begin{align}
+||\bar{z}(T_{n+1})||&=\sqrt{||\bar{x}(T_{n+1})||^2+||\bar{y}(T_{n+1})||^2}\nn\\
+&\leq \sqrt{\frac{1}{4} ||\bar{x}(T_{n})||^2+ \epsilon_0||\bar{y}(T_n)||^2}\nn\\\
+&\leq \frac{3}{4} ||\bar{z}(T_{n})||\nn
+\end{align}
+\end{proof}
+\end{comment}
+
+\begin{corollary}\label{cormt}
+$\parallel \bar{x}(T_n)\parallel \leq C^*(1+\parallel \bar{y}(T_n)\parallel)$ almost surely, for some $C^*>0$.
+\end{corollary}
+\begin{proof}
+On a set of positive probability, let us assume on the contrary that 
+there exists a monotonically increasing sequence $\{n_k\}$ for which $C_{n_k} \uparrow \infty$ 
+as $k\ra \infty$ and $\parallel \bar{x}(T_{n_k})\parallel \geq C_{n_k}(1+\parallel \bar{y}(T_{n_k})
+\parallel)$. Now from Lemma~\ref{lemmt}, we know that if $\parallel \bar{x}(T_n)\parallel>C_1(1+
+\parallel \bar{y}(T_n)\parallel)$, then $\parallel \bar{x}(T_k)\parallel$ for $k\geq n$ falls at an 
+exponential rate until it is within the ball of radius $C_1(1+\parallel \bar{y}(T_k)\parallel)$. 
+Thus corresponding to the sequence $\{n_k\}$, there must exist another sequence $\{n'_k\}$ such that 
+$n_{k-1}\leq n'_k\leq n_k$ and $\parallel \bar{x}(T_{n'_k-1})\parallel$ is within the ball of radius 
+$C_1(1+\parallel \bar{y}(T_{n'_k-1})\parallel)$ but $\parallel \bar{x}(T_{n'_k})\parallel$ is greater 
+than $C_{n_k}(1+\parallel \bar{y}(T_{n'_k})\parallel)$. However, from Lemma~\ref{bdd} we know that the iterates can grow only by a factor of $K_2$ between $m(n'_k-1)$ and $m(n'_k)$. This leads to a contradiction. 
+So we conclude that $\parallel \bar{x}(T_n)\parallel \leq C^*(1+\parallel \bar{y}(T_n)\parallel)$ 
+for some $C^*>0$.
+\end{proof}
+\begin{theorem}\label{maintheorem}
+We have $\parallel x_n\parallel \leq K^*(1+\parallel y_n\parallel)$ almost surely for some $K^*>0$.
+\end{theorem}
+\begin{proof}
+From Corollary~\ref{cormt}, we know that $\parallel \bar{x}(T_n)\parallel \leq C^*(1+\parallel \bar{y}(T_n)
+\parallel)$. From Lemma~\ref{bdd}, we know that $\parallel \bar{z}(t)\parallel \leq K_2 \parallel \bar{z}(T_n)
+\parallel, \mb\forall t\in [T_n,T_{n+1})$. The result follows by choosing $K^*=K_2C^*$.
+\end{proof}
+Note, henceforth the quantity $K^*$ is to be understood as in Theorem~\ref{maintheorem}.
+\begin{theorem}\label{ftsres}
+Given any $\epsilon>0$ and $y\in \R^{d_2}$, define the set $A^{\epsilon}(y)\subset \R^{d_1}$ as 
+$A^{\epsilon}(y)\stackrel{def}{=}\{x\colon \parallel x-\lambda_\infty(y)\parallel <\epsilon\}$. For any 
+given $\epsilon>0$, there exists $c_{\epsilon}>0$ such that, if $r(n)>c_\epsilon$ for some $n$, then it follows that $(\hat{x}_{k},\hat{y}_{k}) \in (A^\epsilon(\hat{y}_{k}),\hat{y}_{k}), \forall n\geq k$.
+\end{theorem}
+\begin{proof}
+The proof follows by a repeated application of Lemma~\ref{scaleconv} and Lemma~\ref{neartraj} to the
+intervals $[T_k,T_{k+1}], \forall k\geq n$ and using the fact that $r(k)\geq r(n), \forall k\geq n$ 
+from Lemma~\ref{monotoner}.
+\end{proof}
+\begin{comment}
+\begin{proof}
+Let $(x_n(t),y_n(t))$ denote the solution of the ODEs in \eqref{xyodes} as in Lemma~\ref{scaleconv} with initial conditions $x_n(T_n)=\hat{x}_n$ and $y_n(T_n)=\hat{y}_n$. Now, since $x_n \in B(0,1)$ and $y_n\in B(0,1)$, then from Lemma~\ref{neartraj} if follows that there exists $T_\epsilon$ and $c_\epsilon$ such that $x_n(t)\in A^{\epsilon/2}(\lambda_\infty(y_n(t)),y_n(t)), \forall t\geq T_n+T_\epsilon$. Choose $T$ in Definition~\ref{deft} to be $T\stackrel{def}{=}T_\epsilon$. Now, from Lemma~\ref{scaleconv} it follows that for $n$ large $||x_n(t)-\hat{x}(t)||\leq \epsilon/2, \forall t \in [T_n,T_n+T]$. Thus $(\hat{x}_{m(n+1)},\hat{y}_{m(n+1)}) \in (A^\epsilon(\hat{y}_{m(n+1)}),\hat{y}_{m(n+1)})$. Now if rescaling again happens at iteration $m(n+1)$, i.e., if $r(n+1)>r(n)$ then if follows from Lemma~\ref{neartraj} that $x_{n+1} (t)\in A^{\epsilon/2}(\lambda_\infty(y_n(t)),y_n(t)), \forall t\in[T_{n+1},T_{n+2}]$\footnote{ Note that the results of Lemma~\ref{neartraj} holds for all scaling factors $c>c_\epsilon$ all times $t>T_n+T$}. Again, by appealing to Lemma~\ref{scaleconv} if follows that $(\hat{x}_{k},\hat{y}_{k}) \in (A^\epsilon(\hat{y}_{k}),\hat{y}_{k}), m(n+1)\leq k\leq m(n+2)$. The same argument can be repeated for further rescaling instants and the proof follows.
+\end{proof}\qed
+\end{comment}
+
+
+%$||x_{m(n)}||\leq C^*(1+||y_{m(n)}||)$
+%\frac{\hat{x}_{m(n)}}{\hat{x}_{m(n+1)}}=
+\begin{comment}
+\begin{lemma}\label{scaleconv}
+The iterates $(\hat{x}_k,\hat{y}_k)$ converge to an internally chain transitive invariant set of the following ODE:
+\begin{align}
+\label{hfodex} \dot{x}(t)&=h_c(x(t),y(t)),\\
+\label{hfodey}\dot{y}(t)&=0.
+\end{align}
+\end{lemma}
+\begin{proof}
+Follows from Lemma~$1$, Chapter~$6$, \cite{SA}.
+\end{proof}
+\end{comment}
+\begin{comment}
+\begin{theorem}\label{maintheorem}
+We have $||x_n||\leq K^*(1+||y_n||)$ for some $K^*>0$.
+\end{theorem}
+\begin{proof}
+From condition~\ref{scalex} of Assumption~\ref{lip}, we have $\lambda_\infty(0)=0$ and from Lemma~\ref{neartraj} there exist $\epsilon_0$, $c_{1/4}$, and $T_{1/4}$ such that  $||\phi^y_c(t,x)||\leq \frac{1}{2}, t \geq T_{1/4}, c \geq c_{1/4}$ and $y \in B(0,\epsilon_0)$. Now $T=T_{1/4}$ implies that $||\bar{x}(T_n)||\leq C^*(1+||\bar{y}(T_n)||)$, for some $C^*>0$. If this does not hold then we will have sequences $T_{n_1}, T_{n_2}, \ldots$, and $C_{n_1}, C_{n_2},\ldots$ such that $||\bar{x}(T_{n_k})||>C_{n_k}(1+||\bar{y}(T_{n_k})||)$ and $C_{n_k} \uparrow \infty$ as $k \rightarrow \infty$. It is easy to check that $r(n_k)\uparrow \infty$ as $k\rightarrow \infty$. Thus from definition of $\hat{y}(t)$ (Definition~\ref{hattraj}) and \eqref{hfodey} in Lemma~\ref{scaleconv} we know that $\hat{y}(T_{n_k})\ra 0$ as $k \ra \infty$. Pick any $k'$ such that $c_{n_{k'}}\geq c_{1/4}$ and $||\hat{y}(T_{n_{k'}})||<\epsilon_0$, then from Lemma~\ref{scaleconv} and Lemma~\ref{neartraj}, it follows that the iterates $\hat{x}_n, n\geq n_{k'}$ do not leave the unit ball so $C_{n_k} \uparrow \infty$, and hence $||\bar{x}(T_n)||\leq C^*(1+||\bar{y}(T_n)||)$. Proof is complete by choosing $K_2$ from Lemma~\ref{bdd} and letting $K^*=K_2C^*$.
+%Thus for any $c>c_{1/4}$ and $||\hat{y}_k||<\epsilon_0$, iterates $\hat{x}_k$ in \eqref{scaledttsarec} do not leave the unit ball and contradicts the fact that $C_{n_k} \uparrow \infty$ as $k\ra\infty$. Thus $||\bar{x}(T_n)||\leq C^*(1+||\bar{y}(T_n)||)$ must hold. Due to Gronwall inequality $||\hat{x}(t)||\leq (1+||h(0)||T)e^{LT}, t \in [0,T]$, and proof is comple $K^*=C^*(1+||h(0)||T)e^{LT}$.
+\end{proof}\qed
+\end{comment}
+

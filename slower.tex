@@ -1,0 +1,218 @@
+\subsection{Slower Timescale Analysis}\label{slower}
+We now use Theorem~\ref{maintheorem} of section~\ref{faster} to prove the stability of the slower timescale iterates. The `time points' in Definition~\ref{deft} are no longer valid here and we re-define these 
+suitably below.
+\begin{definition}\label{defts}
+\text{For $n=1,2,\ldots$ and $T>0$,}
+\begin{align}
+&t(0)=0,t(n)=\overset{n-1}{\underset{i=0}{\sum}} b(i),\nn\\
+&T_0=0, T_{n}=\min \{t(m) \colon t(m)\geq T_{n-1}+T\}.\nn\\
+&\text{Note that}\nn\\
+&T_n=t(m(n)), \mbox{for suitable } m(n)  \uparrow \infty  \mbox{ }\text{as} \mbox{ } n\uparrow \infty.
+\end{align}
+\end{definition}
+Note that $a(i)$ in Definition~\ref{deft} are now replaced by $b(i)$ (see Definition~\ref{defts}).
+We define the interpolated trajectory $\bar{z}(t)=(\bar{x}(t),\bar{y}(t))$ on the slower timescale 
+as follows:
+\begin{definition}\label{defply}
+\begin{align}
+\bar{z}(t)=z_n +(z_{n+1}-z_n)\frac{t-t(n)}{t(n+1)-t(n)}, t \in [t(n),t(n+1)].\nn
+\end{align}
+Also, we define $\hat{z}(T^{-}_{n+1})\stackrel{def}{=}\frac{\bar{z}(T_{n+1})}{r(n)}$. This is 
+the same as $\hat{z}(T_{n+1})$ if there is no jump at $T_{n+1}$ and is equal to 
+$\lim_{t\uparrow T_{n+1}}\hat{z}(t)$.
+\end{definition}
+\indent As with the case of the faster timescale, we keep the growth of the trajectory $\bar{z}(t)$ under 
+check, by monitoring it roughly every $T$ instants and then normalizing to the unit ball in 
+$\mathbf{R}^{d_1+d_2}$ as described below. 
+\begin{definition}\label{defs}
+Define the piecewise continuous trajectory $\hat{z}(t)=(\hat{x}(t),\hat{y}(t)), t\geq 0$, by
+\begin{align}
+&\hat{z}(t) = \frac{\bar{z}(t)}{r(n)} \text{~for~} t \in [T_n, T_{n+1}),\\
+&\text{~where~} r(n)\stackrel{def}{=}\max(r(n-1),\parallel \bar{z}(T_n)\parallel,1), n \geq 1, r(0)=1.\\
+\end{align}
+\end{definition}
+
+The scaled iterates for $m(n)\leq k <m(n+1)-1$ are given by
+\begin{subequations}\label{scaledttsarec}
+\begin{align}
+\hat{x}_{m(n)}&=\frac{x_{m(n)}}{r(n)},\\
+\hat{y}_{m(n)}&=\frac{y_{m(n)}}{r(n)},\\
+\hat{x}_{k+1}&=\hat{x}_k+a(k)[h_c(\hat{x}_k,\hat{y}_k)+\hat{M}^{(1)}_{k+1}],\\
+\hat{y}_{k+1}&=\hat{y}_k+b(k)[{g}'_c(\hat{x}_k,\hat{y}_k)+\hat{M}^{(2)}_{k+1}],
+\end{align}
+\end{subequations}
+where $c=r(n)$, $g'_c\stackrel{def}{=}\frac{g(cx,cy)}{c}$, $\hat{M}^{(1)}_{k+1}=\frac{{M}^{(1)}_{k+1}}{r(n)}$ and $\hat{M}^{(2)}_{k+1}=\frac{{M}^{(2)}_{k+1}}{r(n)}$.
+\begin{lemma}\label{exbddy}
+$\sup_t\mathbf{E}\parallel\hat{y}(t)\parallel^2<\infty$.
+\end{lemma}
+\begin{proof}
+Follows from Lemma~$4$, Chapter~$3$ of \cite{SA} upon using the fact that $\parallel\hat{x}(t)\parallel
+\leq K^*(1+\parallel \hat{y}(t)\parallel)$ from Theorem~\ref{maintheorem}. 
+\end{proof}
+\begin{comment}
+\begin{proof}
+It is sufficient to show that
+\begin{align}
+\underset{m(n)\leq k< m(n+1)}{\sup}\mathbf{E}[\parallel \hat{y}(t(k))\parallel^2] < M\nn
+\end{align}
+for some $M > 0$ independent of $n$.\\
+Fix $n$. Then for $m(n) \leq k < m(n+1)$,
+\begin{align}
+\hat{y}(t(k+1))=\hat{y}(t(k))+b(k)({g}_{r(n)}(\hat{x}(t(k)),\hat{y}(t(k)))+\hat{M}^{(2)}_{k+1}),
+\end{align}
+%where $\hat{M}^{(2)}_{k+1}=\frac{{M}^{(2)}_{k+1}}{r(n)}$. 
+Since $r(n)\geq 1$, it follows from $2$ of Assumption~\ref{lip} that $\hat{M}^{(2)}_{k+1}$ satisfies
+\begin{align}
+\mathbf{E}[\parallel \hat{M}^{(2)}_{k+1}\parallel^2|\mathcal{F}_k]&\leq K(1+\parallel
+\hat{z}(t(k))\parallel)\nn\\
+&\leq K(1+K^*+K^*\parallel\hat{y}(t(k))\parallel+\parallel\hat{y}(t(k))\parallel).
+\end{align}
+Thus $\mathbf{E}[\parallel\hat{M}^{(2)}_{k+1}\parallel^2]\leq K(1+\mathbf{E}[\parallel
+\hat{z}(t(k))\parallel^2])\leq K(1+\mathbf{E}[K^*+K^*\parallel\hat{y}(t(k))\parallel + \parallel
+\hat{y}(t(k))\parallel]) $, which gives us the bound (using the fact that $\sqrt{1+x^2}\leq (1+x)$)
+\begin{align}
+\mathbf{E}[\parallel \hat{M}^{(2)}_{k+1}\parallel^2]^{\frac{1}{2}}\leq \sqrt{K}(1+\mathbf{E}[\parallel
+\hat{z}(t(k))\parallel^2]^{\frac{1}{2}}).\nn
+\end{align}
+Using this and the bound $\parallel{g}_c(x,y)\parallel \leq K_0(1+\parallel x\parallel
++\parallel y\parallel)$ mentioned above, we have
+\begin{align}
+\mathbf{E}\parallel \hat{y}(t(k+1))\parallel \leq \mathbf{E}[\parallel 
+\hat{y}(t(k))\parallel]^{\frac{1}{2}}(1+b(k)K_1)+b(k)K_2,\nn
+\end{align}
+for suitable constants $K_1, K_2 > 0$ . Keeping in mind that
+\begin{align}
+\overset{m(n+1)-1}{\underset{k=m(n)}{\sum}}b(k) \leq T+1, \parallel \hat{z}(t(m(n)))\parallel \leq 1,\nn
+\end{align}
+a straightforward recursion leads to
+\begin{align}
+\mathbf{E}[\parallel \hat{y}(t(k+1))\parallel^2]^{\frac{1}{2}}\leq e^{K_1(T+1)}(1+K_2(T+1)).\nn
+\end{align}
+\end{proof}\\
+\end{comment}
+\begin{lemma}\label{bddy}
+For $0<k\leq m(n+1)-m(n)$, we have
+\begin{align}\label{yclaim}
+\parallel\hat{y}(t(m(n)+k))\parallel\leq K_3,
+\end{align}
+for some $K_3>0$. Also, there exists a $B>0$ such that $\parallel \hat{x}(t(m(n)+k))\parallel <B$.
+\end{lemma}
+\begin{proof}
+The claim \eqref{yclaim} can be shown in a manner similar to the proof of Lemma~$6$, Chapter~$3$, \cite{SA}. The proof is complete by choosing $B=K^*(1+K_3)$.
+\end{proof}\\
+
+\begin{comment}
+\begin{lemma}\label{ftsres}
+Define the set $A^\epsilon (y)\stackrel{def}{=}\{ x\colon ||x-\lambda_\infty(y)||<\epsilon\}$. For any $\epsilon>0$, there exists $c_\epsilon>1$ such that the trajectory $(\hat{x}(t),\hat{y}(t)) \in (A^\epsilon(\hat{y}(t)),\hat{y}(t)),  \mb \forall t\in [T_n,T_{n+1})$ if $r(n)>c_\epsilon$.
+%the iterates $(\hat{x}_k,\hat{y}_k)$ of \eqref{scaledttsarec} with $r(n)>c_\epsilon$ converge to a set $(A^\epsilon_k,\hat{y}_k),\mb \forall m(n)\leq k\leq m(n+1)$ as $n \ra \infty$.
+\end{lemma}
+\begin{proof}
+Proof follows from Lemmas~\ref{bddy}, as well as Lemma~$1$, Chapter~$6$, \cite{SA}, and picking $c_\epsilon$ as in Lemma~\ref{neartraj}.
+\end{proof}
+\end{comment}
+\begin{lemma}\label{tracky}
+Pick any $\epsilon >0$ and let $y_n(t)$ be the trajectory to the ODE $\dot{y}(t)=g_c(y(t)), t\in [T_n,T_{n+1})$, with $y_n(T_n)=\hat{y}(T_n)$. Then there exists a $c_\epsilon>0$ such that If $r(k)>c_\epsilon$ for some $k>0$, then for sufficiently large $n$ we have
+\begin{align}
+\sup_{t \in [T_n,T_{n+1})} \parallel \hat{y}(t)-y_n(t)\parallel \leq \epsilon LT e^{L(L+1)T}, a.s.
+\end{align}
+\end{lemma}
+\begin{proof}
+Follows in the same manner as Lemma~$1$, Chapter~$2$, \cite{SA} (see Appendix for a sketch of the proof).
+\end{proof}
+\begin{lemma}\label{haty}
+Let $K^*$ be as in Theorem~\ref{maintheorem}, then it follows that $\parallel \hat{y}(T_n)\parallel
+\geq \frac{1}{K^*+2}$ for sufficiently large $\parallel \bar{y}(T_n)\parallel$.
+\end{lemma}
+\begin{proof}
+From Theorem~\ref{maintheorem}, we know that
+\begin{align}
+\parallel r(n)\parallel &\leq \parallel \bar{y}(T_n)\parallel +K^*(1+\parallel \bar{y}(T_n)\parallel).\nn
+%\text{Hence,} \mbox{ }\frac{||r(n)||-K^*}{K^*+1}&\leq||\bar{y}(T_n)||.\label{prop}
+\end{align}
+Also,
+\begin{align}
+\parallel \hat{y}(T_n)\parallel &=\frac{\parallel \bar{y}(T_n)\parallel }{r(n)}\nn\\
+		    &\geq\frac{\parallel \bar{y}(T_n)\parallel}{\parallel\bar{y}(T_n)
+\parallel +K^*(1+\parallel \bar{y}(T_n)\parallel)}\nn\\
+		    &=\frac{1}{1+\frac{K^*}{\parallel \bar{y}(T_n)\parallel}+K^*}.\label{choicey}		    	
+\end{align}
+The claim follows for any $\parallel \bar{y}(T_n)\parallel >K^*$.
+\end{proof}\\
+Let $g_c\colon \R^{d_2} \ra \R^{d_2}$ and $g_\infty \colon \R^{d_2} \ra \R^{d_2}$ be functions as defined in 
+condition~\ref{scaley} of Assumption~\ref{lip}, and let $\chi_\infty(t,y)$ denote the solution to the ODE
+\begin{align}\label{odeiy}
+\dot{y}(t)=g_\infty(y(t)),
+\end{align} 
+with initial condition $y$, and let $\chi_c(t,y)$ denote the solution to the ODE
+\begin{align}\label{odecy}
+\dot{y}(t)=g_c(y(t)),
+\end{align} 
+with initial condition $y$.\\
+Note that the ODEs in \eqref{odeiy} and \eqref{odecy} are degenerate versions of the ODE in \eqref{odec} and \eqref{odei} in that there is no external input. However, results of Section~\ref{oderes} continue to hold for \eqref{odeiy} and \eqref{odecy} as well with $q=0$.
+\begin{lemma}\label{lemmtslow}
+For $n$ large there exists a $C>0$ such that if
+\begin{align}\label{ygreat}
+\parallel \bar{y}(T_n)\parallel >C,
+\end{align}
+ then 
+\begin{align}
+\parallel \bar{y}(T_{n+1})\parallel < \frac{1}{2}\parallel \bar{y}(T_{n})\parallel.
+\end{align}
+\end{lemma}
+\begin{proof}
+We make use of condition~\ref{scaley} of Assumption~\ref{lip} that $\mathbf{0}\in \R^{d_2}$ is the unique globally asymptotically stable equilibrium of \eqref{odeiy}, and as a consequence of Lemma~\ref{neartraj} there exist $c_{1/4}$ and $T_{1/4}$ such that $\parallel \chi_c(t,y)\parallel <\frac{1}{4(K^*+2)}, 
+\forall t\geq T_{1/4}, c>c_{1/4}$. \\
+Also, if $\parallel \bar{y}(T_n)\parallel >K^*$, it follows from Lemma~\ref{haty} that 
+$\parallel \hat{y}(T_n)\parallel \geq \frac{1}{K^*+2}$. We know from Lemma~\ref{tracky} that for 
+sufficiently large $n$, there exists $C_1>0$ such that $\parallel \hat{y}(T^{-}_{n+1})-y_n(T_{n+1})\parallel
+<\frac{1}{4(K^*+2)}$, for $r(n)>C_1$. Now, let us pick $C=\max(c_{1/4},C_1,K^*)$ and $T=T_{1/4}$. 
+Then for sufficiently large $n$ it follows that $\parallel \hat{y}(T^{-}_{n+1})\parallel
+\leq \parallel \hat{y}(T^{-}_{n+1})-y_n(T_{n+1})\parallel + \parallel y_n(T_{n+1})\parallel
+\leq \frac{1}{2(K^*+2)}$. Since $\frac{\bar{y}(T_{n+1})}{\bar{y}(T_{n})}=
+\frac{\hat{y}(T^{-}_{n+1})}{\hat{y}(T_{n})}$,  it follows that $\parallel
+\bar{y}(T^{}_{n+1})\parallel <\frac{1}{2}\parallel \bar{y}(T_n)\parallel$.
+\end{proof}
+
+\begin{corollary}\label{cormts}
+$\parallel \bar{y}(T_n)\parallel \leq C'$ a.s., for some $C'>0$.
+\end{corollary}
+\begin{proof}
+Let us assume on the contrary that on a set of positive probability,
+there exists a sequence $\{n_k\}$ such that $C_{n_k} \uparrow \infty$ as $k\ra \infty$ and $\parallel
+\bar{y}(T_{n_k})\parallel \geq C_{n_k}$. From Lemma~\ref{lemmtslow} we know that if $\parallel
+\bar{y}(T_n)\parallel >C$, then $\parallel \bar{y}(T_k)\parallel$ for $k\geq n$ falls at an exponential 
+rate to the ball of radius $C$. Thus corresponding to the sequence $\{n_k\}$, there exists another sequence 
+$\{n'_k\}$ such that $n_{k-1}\leq n'_k\leq n_k$ and $\parallel \bar{y}(T_{n'_k-1})\parallel$ 
+is within the ball of radius $C$  but jumps outside this ball of radius $C$ 
+(i.e.,$\parallel \bar{y}(T_{n'_k})\parallel>C$ ) to points which are at a distance greater than 
+$C_{n_k}$ from the origin. However, from Lemma~\ref{bddy} we know that the iterates can grow only by a 
+factor of $K_3$ between $m(n'_k-1)$ and $m(n'_k)$. This leads to a contradiction and the claim
+follows.
+\end{proof}
+
+\begin{theorem}\label{maintheoremslow}
+Under Assumptions~\ref{lip}, we have $\sup_n\parallel y_n\parallel < \infty$, almost surely.
+\end{theorem}
+\begin{proof}
+From Corollary~\ref{cormts}, we know that $\parallel \bar{y}(T_n)\parallel\leq C'$. 
+From Lemma~\ref{bddy}, we know that $\parallel \bar{y}(t)\parallel \leq K_3 \parallel \bar{y}(T_n)\parallel, 
+\mb\forall t\in [T_n,T_{n+1})$. The result follows by noting that $\parallel y_n\parallel \leq K_3C'$ almost
+surely.
+\end{proof}
+
+\begin{comment}
+\begin{theorem}\label{maintheoremslow}
+Under Assumptions~\ref{lip}, we have $\sup_n||y_n||< \infty$, almost surely.
+\end{theorem}
+\begin{proof}
+Since $0 \in \R^k$ is the unique globally asymptotically stable equilibrium of \eqref{odeiy}, choose $c_{1/8}$, and $T_{1/8}$ according to Lemma~\ref{neartraj} such that $||\chi_c(t,y)||<\frac{1}{4}, \forall t\geq T_{1/8}, c>c_{1/8}$. Pick $\epsilon$ and $c'_{1/8}=c_\epsilon$ in Lemma~\ref{tracky} such that $\epsilon L T_{1/8}e^{LT_{1/8}}<1/4$, for $c>c'_{1/8} $.
+We claim that $||\bar{y}(T_{n})||<C_1^*$ for some $C_1^*>0$. Suppose this is not true, then there is a sequence $C_{n_k}, k\geq 0$ such that $C_{n_k}\ra \infty$ as $k\ra \infty$. Then for any $k'$ such that $C_{n_k'}>\max(c_{1/8},c'_{1/8})$, and sufficiently large $k''>m(n_{k'})$, we have $||\hat{y}_n||<1, n\geq k''$, i.e., the iterates $\hat{y}_n$ do not leave the unit ball around origin, and since $||x_n||\leq K^*$, $C_{n_k}$ cannot grow to $\infty$ as $k \ra \infty$, which is a contradiction, so $||\bar{y}(T_{n})||<C_1^*$ for some $C_1^*>0$. From Lemma~\ref{bddy}, we have $||y_n||\leq K_3C_1^*$.
+\end{proof}\\
+\begin{theorem}\label{stabfull}
+$\sup_n||z_n|| < \infty$.
+\end{theorem}
+\begin{proof}
+Follows from Theorems~\ref{maintheoremslow} $\&$ ~\ref{maintheorem}. 
+\end{proof}
+\end{comment}
+

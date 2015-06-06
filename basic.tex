@@ -1,0 +1,44 @@
+\subsection{Basic Solution Methods} 
+\FloatBarrier 
+\begin{algorithm}[H]
+\caption{Value Iteration (VI)}
+\begin{algorithmic}[1]
+\STATE Initialize $J_0$.
+\FOR{$n= 0, 1, 2, \ldots$} 
+\STATE $J_{n+1}=TJ_{n}$.
+\ENDFOR 
+\end{algorithmic}
+\label{valiter}
+\end{algorithm}
+One can show that the iterates $J_n$ in Algorithm~\ref{valiter} converge to $J^*$, i.e., $J_n\ra J^*$ as $n\ra \infty$.\\
+\FloatBarrier 
+\begin{algorithm}[H]
+\caption{Policy Iteration (PI)}
+\begin{algorithmic}[1]
+\STATE Initialize a policy $u_0$.
+\FOR{$n= 0, 1, 2,\ldots$} 
+\STATE Policy Evaluation Step: Compute $J_{u_n}$ such that $J_{u_n}= T_{u_n}J_{u_n}$.
+\STATE Policy Improvement Step: $u_{n+1}(s)=\underset{a \in A}{\arg\max}(g_a(s)+\sum_{s'}p_a(s,s')J_{u_n}(s'))$.
+\ENDFOR
+\end{algorithmic}
+\label{politer}
+\end{algorithm}
+The policy iteration algorithm (Algorithm~\ref{politer}) has two important steps namely \emph{evaluation/prediction} and \emph{improvement/control}. PI is different from VI and LP in that it computes a sequence of policies $u_n$ and their corresponding value functions $J_{u_n}$.  One can show that in Algorithm~\ref{politer} as $n\ra \infty$ $u_n \ra u^*$ and $J_{u_{n+1}}\geq J_{u_n}, \forall n$.\\
+The linear programming (LP) formulation can be obtained by unfurling the $\max$ operator in the Bellman equation into a set of linear inequalities and is given by:
+\small
+\begin{align}\label{mdplp}
+\min_{J\in \R^n} &c^\top J\nn\\
+\text{s.t}\mb &J(s)\geq g_a(s)+\alpha\sum_{s'}p_a(s,s')J(s'), \mb\forall s\in S, a \in A,
+\end{align}
+\normalsize
+where $c\in \R^n_+$ is any vector whose components are all non-negative. One can show that $J^*$ is the solution to the LP formulation \eqref{mdplp} \cite{BertB}. 
+\begin{comment}
+The LP formulation in \eqref{mdplp} can be represented in short as,
+\begin{align}\label{mdplpshort}
+\min_{J\in \R^n} &c^\top J\nn\\
+\text{s.t}\mb &J\geq T J.
+\end{align}
+\end{comment}
+Also, note that the value iteration and linear programming formulations are value function based methods, i.e., they compute $J^*$ directly and then $u^*$ is obtained by plugging $J^*$ in \eqref{bellpol}.\\
+While the basic methods (i.e., VI, PI and LP) can be used to compute exact values $J^*$ and $u^*$ for MDPs with a small number of states, they are computationally expensive in the case of MDPs with a large number of states.\\
+

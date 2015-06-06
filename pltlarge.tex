@@ -1,0 +1,29 @@
+\begin{comment}
+\begin{tikzpicture}
+\begin{axis}[legend pos=north west, legend columns=2, scale=0.75]
+\addplot[mark=square,black]  plot file {./nips_exp/gjb};
+\addplot[mark=triangle,black]  plot file {./nips_exp/gtjb};
+%\addplot[mark=*,black]  plot file {./nips_exp/V};
+\addplot[mark=o,black]  plot file {./nips_exp/V_g};
+%\addplot[dashed,black]  plot file {./nips_exp/jb};
+\tiny
+\addlegendentry{$\Gamma\bj$}
+\addlegendentry{$\tg\bj$}
+%\addlegendentry{$J^*$}
+\addlegendentry{$\tv$}
+%\addlegendentry{$\bj$}
+\end{axis}
+\end{tikzpicture}
+\end{comment}
+\begin{tikzpicture}
+\begin{axis}[legend pos=south east,legend columns=1, scale=0.75,ymin=-2000,xlabel=\Large State,ylabel=\Large{N}egative of value function]
+\addplot[mark=.,black,blue]  plot file {../nips_exp_bkp/p9/Vl};
+\addplot[mark=.,dashed,black]  plot file {../nips_exp_bkp/p9/Vl_rlp};
+\addplot[mark=.,red]  plot file {../nips_exp_bkp/p999/Vl_rlp};
+\addplot[mark=.,only marks]  plot file {../nips_exp_bkp/p999/Vl_rlp};
+\Large
+\addlegendentry{$-J^*$}
+\addlegendentry{$-\hj, \zeta=0.9.$}
+\addlegendentry{$-\hj, \zeta=0.999.$}
+\end{axis}
+\end{tikzpicture}

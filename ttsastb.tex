@@ -1,0 +1,40 @@
+\documentclass[preprint]{elsarticle}    % Enable this line and disable the 
+                                     % preceding line to obtain a two-column 
+                                     % document whose style resembles the
+                                     % printed Automatica style.
+
+\input{pack.tex}          % Include this line if your 
+                               % document contains figures,
+%\usepackage[dvips]{epsfig}    % or this line, depending on which
+                               % you prefer.
+\usepackage{placeins}
+\begin{document}
+\begin{frontmatter}
+%\runtitle{Insert a suggested running title}  % Running title for regular 
+                                              % papers but only if the title  
+                                              % is over 5 words. Running title 
+                                              % is not shown in output.
+
+\title{A Stability Criterion for Two Timescale Stochastic Approximation Schemes}
+                                                % than 10 words.
+\author{Chandrashekar Lakshminarayanan\corref{cor1}}
+\ead{chandrurec5@gmail.com}
+\author{Shalabh Bhatnagar}
+\ead{shalabh@csa.iisc.ernet.in}
+\address{Department of Computer Science and Automation,\\ Indian Institute of Science,\\ Bangalore-560012,\\ India.}  % Please supply
+\cortext[cor1]{Corresponding Author: Chandrashekar Lakshminarayanan, Department of Computer Science and Automation, Indian Institute of Science, Bangalore-560012, India; Email, chandrurec5@gmail.com; Phone, 91-080-22932368.}                                              
+\input{abstract.tex}
+\begin{keyword}
+Simulation, two-timescale stochastic approximation, stability of iterates, limiting ODE, 
+reinforcement learning.
+\end{keyword}
+\end{frontmatter}
+\input{introduction.tex}
+\input{oderesults.tex}
+\input{main.tex}
+\input{example.tex}
+\input{disc.tex}
+\input{appendix.tex}
+\bibliographystyle{plain}        % Include this if you use bibtex 
+\bibliography{ref}
+\end{document}

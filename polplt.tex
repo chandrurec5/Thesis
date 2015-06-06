@@ -1,0 +1,26 @@
+\begin{comment}
+\begin{tikzpicture}
+\begin{axis}[legend pos=north west, legend columns=2, scale=0.75]
+\addplot[mark=square,black]  plot file {./nips_exp/gjb};
+\addplot[mark=triangle,black]  plot file {./nips_exp/gtjb};
+%\addplot[mark=*,black]  plot file {./nips_exp/V};
+\addplot[mark=o,black]  plot file {./nips_exp/V_g};
+%\addplot[dashed,black]  plot file {./nips_exp/jb};
+\tiny
+\addlegendentry{$\Gamma\bj$}
+\addlegendentry{$\tg\bj$}
+%\addlegendentry{$J^*$}
+\addlegendentry{$\tv$}
+%\addlegendentry{$\bj$}
+\end{axis}
+\end{tikzpicture}
+\end{comment}
+\begin{tikzpicture}
+\begin{axis}[legend pos=south east,legend columns=1, scale=0.7,ymin=-200,xlabel=state, ylabel=negative of value function]
+\addplot[mark=.,black]  plot file {../nips_exp_bkp/V};
+\addplot[mark=.,dashed]  plot file {../nips_exp_bkp/V_pol_rlp};
+\tiny
+\addlegendentry{$-J^*$}
+\addlegendentry{$-J_{\hu}$}
+\end{axis}
+\end{tikzpicture}

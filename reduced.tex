@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{axis}[xmax=5,xmin=-20,ymax=5,ymin=-5]
+\addplot[scale=1.0,domain=-5:5,dashed,variable=\y,black]  plot ({-5.200000+1.115000*\y},{\y});
+\addplot[scale=1.0,domain=-5:5,smooth,variable=\y,black]  plot ({-8.000000+0.830000*\y},{\y});
+\addplot[mark=o,red] plot file{nips_exp/r_ALP};
+\addplot[mark=*,blue] plot file{nips_exp/r_RLP};
+\addplot[scale=1.0,domain=-5:5,smooth,variable=\y,black]  plot ({-10.000000+-0.170000*\y},{\y});
+\addplot[scale=1.0,domain=-5:5,smooth,variable=\y,black]  plot ({-13.600000+-1.790000*\y},{\y});
+\addplot[scale=1.0,domain=-5:5,smooth,variable=\y,black]  plot ({-18.800000+-4.210000*\y},{\y});
+\addplot[scale=1.0,domain=-5:5,smooth,variable=\y,black]  plot ({-25.600000+-11.682500*\y},{\y});
+\addplot[scale=1.0,domain=-5:5,dashed,variable=\y,black]  plot ({-30.000000+-19.405000*\y},{\y});
+\tiny
+\addlegendentry{Active Constraints}
+\addlegendentry{Inactive Constraints}
+\addlegendentry{$\tr$}
+\addlegendentry{$\hr$}
+\end{axis}
+\end{tikzpicture}

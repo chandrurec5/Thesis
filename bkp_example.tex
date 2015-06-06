@@ -1,0 +1,44 @@
+\section{Example}
+We take up an example in the domain of controlled queues and demonstrate how to make use of the bounds developed in this paper to come up with the right GRLP. The queuing model we discuss here is similar to the one in Section~$5.2$ of \cite{ALP}. The state of the system is the queue length with state space given by $S=\{0,\ldots,n-1\}$, where $n-1$ is the maximum allowed buffer size. The action set $A=\{1,\ldots,d\}$ is related to the service rates. We let $s_t$ denote state at time $t$ and the state at time $t+1$ when action $a_t \in A $ is chosen is given by
+\vspace{-10pt}
+\FloatBarrier
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}\hline
+$0<s_t<n-1$& $s_t=0$ & $s_t=n-1$\\\hline
+$s_{t+1}=s_t+1$, w.p\footnote{with probability} $p$& $s_{t+1}=s_t+1$, w.p $p$& NA\\\hline
+$s_{t+1}=s_t-1$, w.p $q(a_t)$& NA & $s_{t+1}=s_t-1$, w.p $q(a_t)$\\\hline
+$s_{t+1}=s_t$, w.p $1-p-q(a_t)$ & $s_{t+1}=s_t$, w.p $1-p$ & $s_{t+1}=s_t$, w.p $1-q(a_t)$\\\hline
+\end{tabular}
+\end{table}
+\vspace{-10pt}
+The service rates satisfy $0<q(1)\leq \ldots\leq q(d)<1$ with $q(d)>p$ so as to ensure 'stabilizability' of the queue. The reward associated with the action $a \in A$ in state $s\in S$ is given by $g_a(s)=-(s+60q(a)^3)$.\\
+From the final error bound in \eqref{finalbnd} it is clear that for the GRLP to be useful we need to choose $\Phi$ and $W$ carefully. We make use of polynomial features in $\Phi$ since they are known to work well for this domain \cite{ALP}. This takes care of the term $||J^*-\Phi r^*||_\infty$ in \eqref{finalbnd}. We chose a $W$ matrix denoted by $W_G$ (where $G$ stands for \emph{good}} whose entries are described as follows: $\forall i=1,\ldots,m$
+\begin{align}\label{wdes}
+W_G(i,j)&=1, \mb\forall j\mb\text{s.t}\mb j=(i-1)\times\frac{n}{m}+k+(l-1)\times n, \mb k=1,\ldots,\frac{n}{m}, l=1,\ldots,d,\nn\\
+&=0,\mb\text{otherwise}.
+\end{align}
+The idea behind the above definition of $W$ is to average constraints corresponding to adjacent states. In order to compare we compute $||\Gamma\bj-\tg\bj||_\infty$ for $W$ (in \eqref{wdes}) and random choices of $W$. Though computing $||\Gamma\bj-\tg\bj||_\infty$ might be hard in the case of large $n$, since $||\Gamma\bj-\tg\bj||_\infty$ is completely dependent on the structure of $\Phi$, $T$ and $W$ we can compute it for small $n$ instead and use it as a surrogate.\\
+Accordingly, we first chose a smaller queuing system denoted by $Q_S$ with $n=10$, $d=2$, $k=2$, $m=5$, $q(1)=0.2$, $q(2)=0.4$ and $p=0.2$. In the case of $Q_S$, $W$ (as in \eqref{wdes}) turns out to be a $20 \times 5$ matrix such that $i^{th}$ constraint of the GRLP is the average of all constraints corresponding to states $(2i -1)$ and $2i$ (there are four corresponding to these two states). The various error terms are listed in Table~\ref{errterms} (Illustration of the feasible region and the various associated value functions are presented in the Figure~\ref{q1}). It is clear from Table~\ref{errterms} that choice of $W$ as in \eqref{wdes} is better than randomly generated positive matrices. Also, note that a higher $||\Gamma\bj-\tg\bj||_\infty$ implies a higher $||J^*-\hj||_{1,c}$.
+\FloatBarrier
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+Choice of W &$||J^*-\tv||_\infty$	&$||J^*-\hv||_\infty$	&$||\Gamma\bj-\tg\bj||_\infty$	&$||J^*-\tj||_\infty$	&$||J^*-\hj||_{1,c}$\\\hline
+As in \eqref{wdes}&	$42.25$&	$172.4$&	$54.15$&	$97.27$&		$29.43$\\\hline
+RANDOM&	$42.25$&	$1366$&		$251.83$&	$97.27$&	$112$\\\hline
+\end{tabular}
+\caption{Shows various error terms for $Q_S$.} %Second row corresponds to $W$ as in \eqref{wdes} and the third row shows quantities averaged over $10$ random positive $20\times 5$ matrices. $c$ was chosen to have uniform distribution.}
+\label{errterms}
+\end{table}
+\input{feas}
+\vspace{-10pt}
+Having validated the choice of $W$ on $Q_S$ we are ready to handle a larger queuing system (denoted by) $Q_L$ with $n=1000$ and $d=4$ with $q(1)=0.2$, $q(2)=0.4$, $q(3)=0.6$ and $q(4)=0.8$. In the case of $Q_L$ we chose $k=4$ (i.e we used $1, x,x^2$ and $x^3$ as basis vectors) and we chose $W$ as defined in \eqref{wdes} with $m=50$. We set $c(i)=(1-\zeta)^i \zeta, \mb\forall i=1,\ldots,999$, with $\zeta=0.9$ and $\zeta=0.999$. The results in Table~\ref{pref} show that the better performance metrics of $W$ (as in \eqref{wdes})
+The results presented in Table~\ref{pref} bolster the fact that our choice of $W$ (as in \eqref{wdes}) is better than random matrices.
+\begin{table}
+\begin{tabular}{|c|c|c|}\hline
+W&	$||J^*-\hj||_{1,c}$, with $\zeta=0.9$ &	$||J^*-\hj||_{1,c}$, with $\zeta=0.999$ \\\hline
+As in \eqref{wdes}& $220$&		$82$\\\hline
+RANDOM& $5.04\times 10^4$&	$1.25\times 10^7$\\\hline
+\end{tabular}
+\caption{Shows performance metrics for $Q_L$.}% Second row corresponds to $W$ as in \eqref{wdes} and the third row shows quantities averaged over $10$ random positive $4000\times 50$ matrices.}
+\label{pref}
+\end{table}

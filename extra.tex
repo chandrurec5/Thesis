@@ -1,0 +1,76 @@
+\begin{comment}
+The following arguments are similar in lines with Chapter $3$ of \cite{SA}. However, we deviate appropriately to suite the two timescale case. To this end we define functions $\hat{h}_c \colon \mathbf{R}^{d+k} \rightarrow \mathbf{R}^d$ and ${h}^y_c \colon\mathbf{R}^d \rightarrow \mathbf{R}^d$ as follows:
+\begin{align}
+\label{hhat}\hat{h}_c(x,y)&=\frac{h(cx,cy)}{c}\\
+\label{hy}{h}^y_c(x)&=\frac{h(cx,y)}{c}
+\end{align}
+Now we make the following assumption
+\begin{assumption}
+The functions ${h}^y_c(x) \rightarrow {h}^y_\infty(x)$ as $c \rightarrow \infty$, uniformly on compacts to some $h^y_\infty \in \mathcal{C}(\mathbf{R}^d)$. Further, the ODE
+\begin{align}
+\dot{x}(t)=h^y_\infty(x(t)).
+\end{align}
+has origin as its unique globally asymptotically stable equilibrium for all $y \in \mathbf{R}^k$.
+\end{assumption}
+Let $\Phi^y_\infty(t,x)$ denote the solution of the ODE $\dot{x}(t)=h^y_\infty(x(t))$ with initial condition $x(0)=x$.
+\begin{lemma}
+For all $y$ in the unit sphere ($y \in \{y\colon y\in \mathbf{R}^k,||y||\leq 1\}$), there exists a $T>0$ such that for all initial conditions $x$ on the unit sphere, $||\Phi^y_\infty(t,x)|| < \frac{1}{8}$ for all $t>T$
+\end{lemma}
+\begin{proof}
+Follows on the same line as Lemma~$1$ of Chapter~$3$ of \cite{SA}
+\end{proof}\\
+Let $\Phi^y_c(t,x)$ denote the solution of the ODE $\dot{x}(t)=h^y_c(t)$ with intial condition $x$.
+\begin{lemma}
+Let $K\subset \mathbf{R}^d$ be compact, and let $[0,T]$ be a given time interval. Then for $t \in [0,T]$ and $x_0 \in K$, and $y$ in the unit sphere
+\begin{align}
+||\Phi^y_c(t,x)-\Phi^y_\infty(t,x)||\leq [||x-x_0||+\epsilon(c)T]e^{LT}
+\end{align}
+where $\epsilon(c)$ is independent of $x_0 \in K$ and $\epsilon(c) \rightarrow 0$ as $c \rightarrow \infty$. In particular if $x=x_0$, then
+\begin{align}
+||\Phi^y_c(t,x_0)-\Phi^y_\infty(t,x_0)||\leq \epsilon(c)Te^{LT}.
+\end{align}
+\end{lemma}
+\begin{proof}
+Follows in the same manner as Lemma~$3$ of Chapter~$3$ of \cite{SA}
+\end{proof}
+\begin{corollary}\label{c_0}
+For any fixed $y$, there exists $c_0(y)>0$ and $T>0$ such that for all initial conditions $x$ on the unit sphere, $||\Phi^y_c(t,x)||<\frac{1}{4}$ for $t\in[T,T+1]$ and $c>c_0(y)$
+\end{corollary}
+\begin{proof}
+Follows from proof of Corollary~$3$ of Chapter~$3$ of \cite{SA}.
+\end{proof}\\
+We make the following assumption w.r.t to the constant $c_0(y)$ used in Corollary~\ref{c_0}
+\begin{assumption}
+For any $y \in \mathbf{R}^k$, $c_0(y) \leq K(1+||y||)$
+\end{assumption}
+\end{comment}
+The recursion \eqref{fast} is on the faster timescale and \eqref{slow} is on the slower timescale. Defining $z_n=(x_n,y_n)$ and re-writing \eqref{fast} and \eqref{slow} as a single faster timescale recursion in $z_n$ we get the below
+\begin{align}
+\label{combo}z_{n+1}=z_n+a(n)[f(z_n)+N_{n+1}]
+\end{align}
+where $f\colon\mathbf{R}^{d+k} \rightarrow \mathbf{R}^{d+k}$ and $f(z_n)=\left({\begin{array}{c} h(x_n,y_n) \\ \frac{b(n)}{a(n)}g(x_n,y_n) \end{array}}\right)$ and $N \in \mathbf{R}^{d+k}$ is defined as $N_{n+1}=\left({\begin{array}{c}M^{(1)}_{n+1}\\ \frac{b(n)}{a(n)}M^{(2)}_{n+1}\end{array}} \right)$. Now we repeat arguments preceeding Lemma~$4$ of Chapter~$3$ of \cite{SA}.\\
+Let $t(m)=\overset{m}{\underset{n=0}{\sum}}a(n)$. Let $T_0=0$ and $T_{n+1}=\min\{t(m)\colon t(m)\geq T_n+T\}$ for $n\geq 0$. Then $T_{n+1}\in [T_n+T,T_n+T+\bar{a}] \forall n$  , where $\bar{a}=\sup_n a(n)$, $T_n=t(m(n))$ for suitable $m(n) \uparrow \infty$. For notational simplicity, let $\bar{a}=1$ without loss of generality. Define the piecewise continuous trajectory $\hat{z}(t),t\geq 0$, by $\hat{z}(t)=\frac{\bar{z}(t)}{r(n)}$ for $t\in[T_n,T_{n+1}]$, where $r(n)\stackrel{def}{=}\min\{||\bar{x}(T_n)||,1\}, n\geq 0$. We also define $\hat{z}(T^-_{n+1})\stackrel{def}{=}\frac{\bar{x}(T_{n+1})}{r(n)}$. This is the same as $\hat{z}(T_{n+1})$ if there is no jump at $T_{n+1}$, and equal to $\lim_{t\uparrow T_{n+1}}\hat{z}(t)$ if there is a jump.
+For $n\geq0$, let $x^n(t), y^n(t), t\in [T_n,T_{n+1}]$, denote the trajectories of the ODEs \eqref{odefastx} and\eqref{odefasty} with $c=r(n)$, $x^n(T_n)=\hat{x}(T_n)$ and $y^n(T_n)=\hat{y}(T_n)$ respectively.
+\begin{align}
+\label{odefastx}\dot{x}(t)&=\hat{h}_{c}({x}(t),{y}(t)).\\
+\label{odefasty}\dot{y}(t)&=0
+\end{align}
+\begin{lemma}
+$\lim_{n\rightarrow \infty} \sup_{t\in[T_n,T_{n+1}]}||\hat{x}(t)-x^n(t)||=0$ and $\lim_{n\rightarrow \infty} \sup_{t\in[T_n,T_{n+1}]}||\hat{y}(t)-y^n(t)||=0$, a.s.
+\end{lemma}
+Using \eqref{odefasty} and definitions in \eqref{hhat} and \eqref{hy}, we can re-write the ODE in \eqref{odefastx} as
+\begin{align}
+\label{odehat}\dot{x}(t)&=\hat{h}_{c}({x}(t),\hat{y}_n).\\
+			&=\frac{h(cx(t),c\hat{y}_n)}{c}.\\
+			&=h^{y_n}_c(x(t)).
+\end{align}
+\begin{theorem}\label{maintheorem}
+Under Assumptions~$1$-$5$, we have $||x_n||\leq C^*(1+||y_n||)$ for some $C^*>0$
+\end{theorem}
+\begin{proof}
+We first show that $||\bar{x}(T_n)||<C(1+||\bar{y}(T_n)||)$, for some $C>0$. If this does not hold then we will have sequence $T_{n_1}, T_{n_2}, \ldots$, and $C_{n_1}, C_{n_2},\ldots$ such that $||\bar{x}(T_{n_k})||>C_{n_k}(1+||\bar{y}(T_{n_k})||)$ and $C_{n_k} \uparrow \infty$ as $k \rightarrow \infty$. We saw that for any fixed $y$ there exists constants $c_0(y)$ and $T$ such that for all initial conditions $x$ on the unit sphere, $||\Phi^y_c(t,x)||<\frac{1}{4}$ for $t \in [T,T+1]$ and $c>K(1+||y||)>c_0(y)>0$. If $r_n >K(1+||y_n||)$, $||\hat{x}(T_n)||=||x^n(T_n)||>\frac{1}{1+\frac{1}{K}}$, and $||x^n(T_{n+1})||<\frac{1}{4}$. But then by Lemma~\ref{odeconv}, $||\hat{x}(T^-_{n+1})||<\frac{1}{2}$ if $n$ is large. Thus for $r_n>K(1+||y_n||)$, and $n$ sufficiently large,
+\begin{align}
+\frac{||\bar{x}(T_{n+1})||}{||\bar{x}(T_n)||}=\frac{||\hat{x}(T^-_{n+1})||}{||\hat{x}(T_n)||}<\frac{1}{2}(1+\frac{1}{K})<\alpha.\nn
+\end{align}
+for some $\alpha<1$. We can now say that if $||\bar{x}(T_n)||>K(1+||\bar{y}(T_n)||)$, $\bar{x}(T_k)$, $k\geq n$ falls back to the ball of radius $K(1+||y_n||)$ at an exponential rate. Thus if $||\bar{x}(T_n)||>K(1+||\bar{y}(T_n)||)$, $||\bar{x}(T_{n-1})||$ is either even greater than $||\bar{x}(T_n)||$ or inside the ball of radius $K(1+||\bar{y}(T_n)||)$. Then there must have been an instance prior to $n$ where $\bar{x}(\cdot)$ jumps from inside this ball to outside the ball of radius $0.9 r_n$. Thus corresponding to sequence $T_{n_k}$ we will have jumps of $||\bar{x}(T_n)||$ from inside the ball of radius $K(1+||\bar{y}(T_n)||)$ to points increasingly far away from the ball. But, by a discrete Gronwall argument analogous to the one used in Lemma~$6$ of Chapter~$3$ of \cite{SA}, it follows that there is a bound on the amount by which $||\bar{x}(\cdot)||$ can increase over an interval of length $T+1$ when it is insider the ball of radius $||K(1+\bar{y}(T_n))||$ at the beginning of the interval. This leads to a contradiction. Thus $||\bar{x}(T_n)||<C(1+||\bar{y}(T_n)||)$. This implies that $||x_n||<C(1+||y_n||)K^*=C^*(1+||y_n||)$ for $K^*$ as in Lemma~$6$ of Chapter~$3$ of \cite{SA}.
+\end{proof}

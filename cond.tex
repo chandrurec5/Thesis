@@ -1,0 +1,10 @@
+\\
+\indent
+Given $\theta$, define quantity $\pi_c(\theta)\stackrel{def}{=}\pi^{c\theta}, c \geq 1$. For any $s$, let $a^*=\underset{a}{\arg\max} \phi^\top_{sa}\theta$, and let $\pi^\theta_\infty(s,a)\stackrel{def}{=}\mathbf{1}_{\{a=a^*\}}$, where $\mathbf{1}$ is the indicator function. We show that $\pi_c^\theta(s,a) \ra \pi^\theta_\infty(s,a)$, uniformly on compacts. For any $a\neq a^*$,
+\begin{align}
+\pi_c^\theta(s,a)&=\frac{e^{c\phi^\top_{sa}\theta}}{\sum_{a'}e^{c\phi^\top_{sa'} \theta}}\nn\\
+ &\leq \frac{e^{c\phi^\top_{sa}\theta}}{e^{c\phi^\top_{sa^*} \theta}}\nn\\
+&=e^{c(\phi^\top_{sa}-\phi^\top_{sa^*}) \theta}\nn
+\end{align}
+and since $a\neq a^*$ and $\pi^\theta_c(s,a^*)=1-\sum_{a\neq a^*} \pi^\theta_c(s,a)$, we have $\pi^\theta_c(s,a)\ra 0$, as $c \ra \infty$, $\forall s \in S, a \in A$, uniformly on compacts.
+

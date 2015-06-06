@@ -1,0 +1,68 @@
+\section{Single Timescale Stochastic Approximation}\label{stssa}
+\subsection{Stability and Convergence}
+We now state without proof, the convergence and stability results as in \cite{SA} for the single timescale SA scheme in \eqref{rmsa}. We assume the following on the quantities in \eqref{rmsa}:\\
+\begin{assumption}\label{both}
+\mbox{ }\\
+\begin{enumerate}
+\item The map $h \colon \mathbf{R}^d \rightarrow \mathbf{R}^d$ is Lipschitz: $||h(x)-h(y)|| \leq L||x-y||$ for some $0 <L<\infty$
+\item Step-sizes $\{a(n)\}$ are positive scalars satisfying
+\begin{align}
+\sum_n a(n)=\infty,\sum_n a(n)^2<\infty.
+\end{align}
+\item $\{M_n\}$ is a martingale difference sequence with respect to the increasing family of $\sigma$-fields
+\begin{align}
+\mathcal{F}_n\stackrel{def}{=}\sigma(x_m,M_m,m\leq n)=\sigma(x_0,M_1,\ldots,M_n), n\geq 0. \text{That is}\nn\\
+\mathbf{E}[M_{n+1}|\mathcal{F}_n]=0\mbox{ } a.s., n\geq 0.
+\end{align}
+Also, $\{M_n\}$ are square-integrable with
+\begin{align}
+\mathbf{E}[||M_{n+1}||^2|\mathcal{F}_n]\leq K(1+||x_n||^2) \mbox{ } a.s., n\geq0,
+\end{align}
+for some constant $K>0$.
+\item \label{scaleode} The functions $h_c(x)\stackrel{def}{=}\frac{h(cx)}{c}, c\geq 1, x \in \mathbf{R}^d$, satisfy $h_c(x)\rightarrow h_\infty(x)$ as $c\rightarrow \infty$ uniformly on compacts for some $h_\infty \in C(\mathbf{R}^d)$. Furthermore, the ODE
+\begin{align}\label{scalestab}
+\dot{x}(t)=h_\infty(x(t)),
+\end{align}
+has the origin in $\R^d$ as its unique globally asymptotically stable equilibrium.
+\end{enumerate}
+\end{assumption}
+\begin{theorem}\label{stssastab}
+Under Assumption~\ref{both} we have $\sup_n ||x_n||<\infty$.
+\end{theorem}
+\begin{proof}
+See proof of Theorem~$7$, Chapter~$3$ of \cite{SA}.
+\end{proof}\\
+We now define the timescale associated with \eqref{rmsa}.
+\begin{definition}
+Define timescale $t(n), n\geq0$, as $t(0)=0$, $t(n)=\sum^{n-1}_{m=0}a(m), n\geq0$. Note that $t(n)\uparrow \infty$ as $n\rightarrow \infty$.
+\end{definition}
+We now construct a interpolated trajectory $\bar{x}(t)$ using iterates $\{x_n\}, n\geq 0$ and $t(n)$ as below. 
+\begin{align}\label{traj}
+	\bar{x}(t(n))=&x_n\nn\\
+	\bar{x}(t)=&x_n+(x_{n+1}-x_n)	\frac{t-t(n)}{t(n+1)-t(n)}, t \in [t(n), t(n+1)].
+\end{align}
+ $\bar{x}(t)$ is continuous in $t$ and serves as a $\emph{continuous-time}$ representation of the iterates $x_n$. Let $x^s(t)$ be the solution to the ODE in \eqref{odebasic}, for $t \geq s$, with $x^s(s)=\bar{x}(s)$. Our aim is to establish a connection between $\bar{x}(t)$ and $x^s(t)$ for $t\geq s$. It turns out that (Theorem~\ref{stssaconv}) $\bar{x}(t)$ $\emph{tracks}$ $x^s(t)$. The following convergence result (Theorem~\ref{stssaconv}) is a consequence of Assumption~\ref{both} and Theorem~\ref{stssastab}. 
+\begin{theorem}\label{stssaconv}
+Under Assumption~\ref{both}, for any $T>0$,
+\begin{align}
+\lim_{s\rightarrow \infty}\sup_{t\in[s,s+T]}||\bar{x}(t)-x^s(t)|| =0, a.s.
+\end{align}
+Also, almost surely, the sequence $\{x_n\}$ converges to a compact connected internally chain transitive set of \eqref{odebasic}. In particular, if ODE \eqref{odebasic} has an unique globally asymptotically stable equilibrium $x^*$, then the iterates of \eqref{rmsa} converge to $x^*$.
+\end{theorem}
+\begin{proof}
+Proof follows form Theorem~\ref{stssastab}, Lemma~$1$ \& Theorem~$2$ of Chapter~$2$ of \cite{SA}.
+\end{proof}\\
+We hasten to point out that if the iterates $\{x_n\}$ evolve within a compact set then the result of Theorem~\ref{stssastab} holds trivially, i.e., $\sup_n||x_n||<\infty$. In such a scenario, condition $4$ of Assumption~\ref{both} can be dropped for the convergence result in Theorem~\ref{stssaconv}.\\
+We now quickly review the basic idea behind establishing stability of the SA scheme \eqref{rmsa} as presented in \cite{SA}.
+\subsection{Rough sketch of Stability Analysis}
+The idea behind the stability analysis is to monitor the interpolated trajectory $\bar{x}(t)$ at time instants $\{T_n\}, n\geq 0$ which are roughly $T>0$ apart (i.e., $T_{n+1}-T_n\approx T$). If the trajectory $\bar{x}(t)$ goes out of the unit ball around the origin, it is rescaled to the unit ball. The rescaled trajectory is denoted by $\hat{x}(t)$ and for $t \in [T_n,T_{n+1}]$ $\hat{x}(t)=\frac{\bar{x}(t)}{||\bar{x}(T_n)||}$. Since $\hat{x}(t)$ is always within the unit ball ($\sup_n||\hat{x}(t)|| <\infty$), convergence result (i.e., Theorem~\ref{stssaconv}) can be applied to it. Due to condition $4$ of Assumption~\ref{both}, we know that if $\bar{x}(t)$ drifts to infinity then $\hat{x}(t)$ will track the limiting ODE in \eqref{scalestab}. Since \eqref{scalestab} has origin as its unique asymptotically stable equilibrium the rescaled trajectory has to drift towards origin. Since the original trajectory and the rescaled trajectory differ by a scaling factor, $\bar{x}(t)$ cannot drift to infinity.
+\begin{comment}
+Application of stability result (Theorem~\ref{stssastab}) for the recursion in \eqref{couprec} is not straightforward due to the presence of two timescales $t^f$ and $t^s$. It is not clear whether one needs to rescale with respect to one of the timescales (faster/slower) or both. 
+%It turns out that we have to scale the interpolated trajectory with respect to both timescales. 
+For instance, if we scale with respect to the faster timescale, we cannot immediately conclude the boundedness of $x_n$ because $y_n$ couples through $h(x_n,y_n)$ and we do not know about the boundedness of $y_n$. To add to the difficulty $y_n$ evolve along a slower timescale. In this paper, we tackle these issues by,
+\begin{enumerate}
+\item \textbf{Step 1:} First studying the interpolated trajectories with respect to the faster timescale and rescale them every $T^f_n$ time instants in the faster timescale, to show that the faster timescale iterates are bounded with a ball whose radius is proportional to the slower timescale iterates.
+\item \textbf{Step 2:} Then studying the interpolated trajectories with respect to the slower timescale and rescale them every $T^s_n$ time instants in the slower timescale. Use result from \textbf{Step 1} to establish the boundedness of the slower timescale iterates and the boundedness of the faster timescale iterates follows automatically.
+\end{enumerate}
+We also make appropriate assumptions on the scaled ODEs.
+\end{comment}

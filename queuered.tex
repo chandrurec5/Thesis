@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+\begin{axis}[scale=0.8,xmin=-500,xmax=400,transpose legend,
+legend columns=1,
+legend style={at={(0.5,-0.1)},anchor=north},
+]
+\addplot[domain=-60:60,smooth,variable=\y,black]  plot ({-133.000000+1.950000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,red]  plot ({-74.000000+-1.000000*\y},{\y});
+\addplot[domain=-60:60,dotted,variable=\y,black]  plot ({-333.000000+-9.400000*\y},{\y});
+\addplot[mark=*,green] plot file{../nips_exp/r_RLP};
+\addplot[mark=o,blue] plot file{../nips_exp/r_ALP};
+\addplot[domain=-60:60,smooth,variable=\y,black]  plot ({-233.000000+-7.400000*\y},{\y});
+\addplot[domain=-60:60,dotted,variable=\y,black]  plot ({-433.000000+-11.400000*\y},{\y});
+\addplot[domain=-60:60,dotted,variable=\y,black]  plot ({-533.000000+-18.300000*\y},{\y});
+\addplot[domain=-60:60,dashed,variable=\y,red]  plot ({-242.000000+-10.800000*\y},{\y});
+\addlegendentry{Active Constraints of GRLP}
+\addlegendentry{Active Constraints of ALP}
+\addlegendentry{Inactive Constraints of GRLP}
+\addlegendentry{$\tj$}
+\addlegendentry{$\hj$}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,70 @@
+% This document describes how to use iiscthesis style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,twosides]{iiscthes}
+\pagestyle{bfheadings}
+%\input{sym}
+\input{pack}
+% Put your macros here
+%\newfont{\punkbx}{punkbx20}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The frontmatter environment for everything that comes with roman numbering
+\begin{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Everything is optional in the front matter.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         THE TITLEPAGE                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Reinforcement Learning- Results in Approximate Dynamic Programming and Stochastic Approximation
+	}
+\author{Chandrashekar Lakshminarayanan}
+% For all the parameters below, take default values
+\submitdate{JUNE 2015}
+\dept{Computer Science and Automation}
+\enggfaculty
+%\degreein{Computer Science and Engineering}
+%\mscengg
+%\me
+\iisclogotrue % Default is false
+% \figurespagefalse %default is true
+\tablespagetrue %default is false
+\maketitle
+%\makecontents
+\vspace{10MM}
+\noindent
+\end{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{intro}
+\input{mdp}
+\input{adp}
+\input{lp}
+\input{constsamp}
+\input{grlp}
+\input{lubp}
+\input{alubp}
+\input{strel}
+\input{improv}
+\input{polbnd}
+\input{samp}
+\input{resdisc}
+\input{concl}
+\input{introduction}
+\input{oderesults}
+\input{main}
+\input{example}
+\input{disc}
+\input{appendix}
+% Bibliography or References
+\bibtitle{References}
+\bibliographystyle{plain}
+\bibliography{ref}
+
+%\begin{thebibliography}{99}
+%\bibitem{latex}
+ % Lamport, L.  LaTeX:~A Documentation System, Addison-Wesley Publishing Company, 1986.
+%\end{thebibliography}
+\end{document}

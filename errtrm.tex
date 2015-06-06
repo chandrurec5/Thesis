@@ -1,0 +1,18 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[legend pos=north west, legend columns=2, scale=0.75, xlabel=state, ylabel=negative of value function]
+\addplot[mark=square,green]  plot file {../nips_exp/gjb};
+\addplot[mark=triangle,red]  plot file {../nips_exp/gtjb};
+%\addplot[mark=*,black]  plot file {./nips_exp/V};
+%\addplot[mark=o,black]  plot file {./nips_exp/V_g};
+%\addplot[dashed,black]  plot file {./nips_exp/jb};
+\tiny
+\addlegendentry{$-\Gamma\bj$}
+\addlegendentry{$-\tg\bj$}
+%\addlegendentry{$J^*$}
+%\addlegendentry{$-\tv$}
+%\addlegendentry{$\bj$}
+\end{axis}
+\end{tikzpicture}
+\end{figure}

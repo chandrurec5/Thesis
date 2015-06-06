@@ -1,0 +1,60 @@
+Our goal is to study the stability of the iterates in the following coupled stochastic recursions (we repeat the same here for convenience):
+\begin{subequations}\label{ttsarec}
+\begin{align}
+\label{fast}x_{n+1}&=x_n+a(n)[h(x_n,y_n)+M^{(1)}_{n+1}],\\
+\label{slow}y_{n+1}&=y_n+b(n)[g(x_n,y_n)+M^{(2)}_{n+1}],
+\end{align}
+\end{subequations}
+where the iterates $x_n \in \mathbf{R}^{d_1}$ and $y_n \in \mathbf{R}^{d_2}$. As and when necessary we use 
+$z_n \in \mathbf{R}^{d_1+d_2}$ to denote $z_n=(x_n,y_n)$, $n\geq 0$. 
+\begin{comment}
+We now define certain $\emph{scaled}$ functions, since we would require them in our analysis. 
+\begin{definition}
+\mbox{ }\\
+\begin{enumerate}
+\item Define $h^f_c \colon \R^{d+k} \ra \R^d$, such that $h^f_c(x,y)\stackrel{def}{=}\frac{h(cx,y)}{c}, c\geq 1$.
+\item Define $h^s_c \colon \R^{d+k} \ra \R^k$, such that $h^f_c(x,y)\stackrel{def}{=}\frac{h(cx,cy)}{c}, c\geq 1$. 
+\item Define $g_c \colon \R^{d+k} \ra \R^{k}$, such that $g_c(x,y)\stackrel{def}{=}\frac{g(cx,cy)}{c}, c\geq 1$.
+\end{enumerate}
+\end{definition}
+\begin{lemma}\label{lipschitz}
+The maps  $h^f_c$, $h^s_c$ and $g_c$ , are Lipschitz continuous.
+\end{lemma}
+\begin{proof}
+See Appendix.
+\end{proof}\\
+\end{comment}
+We now state the conditions that will be seen to show stability of two timescale SA schemes.
+\begin{assumption}\label{lip}
+\mbox{ }\\
+\begin{enumerate}
+\item $h\colon\mathbf{R}^{d_1+d_2} \rightarrow \mathbf{R}^{d_1}$ and $g\colon\mathbf{R}^{d_1+d_2} 
+\rightarrow \mathbf{R}^{d_2}$ are Lipschitz continuous functions.
+\item $\{M^{(1)}_n\}$, $\{M^{(2)}_n\}$ are martingale difference sequences w.r.t.~the increasing sequence 
+of $\sigma$-fields $\{\mathcal{F}_n\}$, where
+\begin{align}
+\mathcal{F}_n\stackrel{def}{=} \sigma(x_m,y_m,M^{(1)}_m,M^{(2)}_m,m\leq n), n \geq 0,\nn
+\end{align}
+and such that
+\begin{align}
+\mathbf{E}[\parallel M^{(i)}_{n+1}\parallel^2|\mathcal{F}_n]\leq K(1+\parallel x_n\parallel^2+
+\parallel y_n\parallel^2), i=1, 2, n\geq 0,
+\end{align}
+for some constant $K>0$.
+\item  $\{a(n)\}$, $\{b(n)\} $ are step-size schedules satisfying
+\begin{align}
+&a(n) > 0,\mbox{ } b(n) >0,\mbox{ } \underset{n}{\sum} a(n) = \underset{n}{\sum} b(n) =\infty, \underset{n}{\sum}(a(n)^2+b(n)^2) < \infty,\nn\\ &\frac{b(n)}{a(n)} \rightarrow 0 \mb \text{as}\mb n \ra \infty.
+\end{align}
+\item \label{scalex} The functions $h_c(x,y)\stackrel{def}{=}\frac{h(cx,cy)}{c} ,\mb c>1$, satisfy $h_c \rightarrow h_\infty$ as $c \rightarrow \infty$, uniformly on compacts for some $h_\infty$. Also, the ODE
+\begin{align}\label{odefastinf}
+\dot{x}(t)=h_\infty(x(t),y)
+\end{align}
+has a unique globally asymptotically stable equilibrium $\lambda_\infty(y)$, where $\lambda_\infty \colon \mathbf{R}^{d_2} \ra \mathbf{R}^{d_1}$, is a Lipschitz map. Further $\lambda_\infty(0)=0$, i.e., the ODE $\dot{x}(t)=h_\infty(x(t),0)$ has the origin in $\R^{d_1}$ as its unique globally a.s.e.
+\item  \label{scaley}  The functions $g_c(y) \stackrel{def}{=}\frac{g(c\lambda_\infty(y),cy)}{c}, c\geq 1$, satisfy $g_c \rightarrow g_\infty$ as $c \rightarrow \infty$, uniformly on compacts for some $g_\infty$. Also, theODE
+\begin{align}\label{odeslowinf}
+\dot{y}(t)=g_\infty(y(t))
+\end{align}
+has the origin in $\R^{d_2}$ as its unique globally asymptotically stable equilibrium.
+\end{enumerate}
+\end{assumption}
+

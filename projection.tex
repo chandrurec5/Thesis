@@ -1,0 +1,30 @@
+\section{Least Upper Bound (LUB) Projections}
+We introduce a variant of the ALP called the Pointed Cone Approximate Linear Program (PCALP), wherein we restrict our search space to a pointed cone in $\R^n_+$ instead of a subspace. To this end we make following assumptions:
+\begin{assumption}\label{phiassump}
+\mb\\
+\vspace{-20pt}
+\begin{enumerate}
+\item $\Phi \in \R^{n\times k}_+$, i.e., all the entries of $\Phi$ are positive.
+\item $\one \in \R^n$ as part of the basis. Without loss of generality we assume that the first column (of $\Phi$) $\phi_1$  is $\one$.
+\end{enumerate}
+\end{assumption}
+To assume that $\Phi \in \R^{n\times k}_+$ is reasonable because if the reward function is strictly positive $J^*\in \R^n_+$ and also several well known basis functions such as the radial basis function, the polynomial basis (when the state takes only positive values) obey this property.
+Given a $n\times k$ feature matrix satisfying Assumption~\ref{phiassump}, and $c \in \R^n_+$, the PCALP is given by
+\begin{align}\label{pcalp}
+\min_{r\in \R^k_+} &c^\top \Phi r\nn\\
+\text{s.t}\mb &\Phi r\geq T \Phi r.
+\end{align}
+Given a $n\times k$ matrix $\Phi$ satisfying Assumption~\ref{phiassump} we define the least upper bound (LUB) projection operator $\Gamma \colon \R^n_+ \ra \R^n_+$ as follows:
+\begin{align}\label{lubp}
+\text{For}\mb J\in \R^n_+, \Gamma J&\stackrel{\Delta}=\Phi r^*,\text{where}\nn\\
+r^*&=\min_{r \in \R^k_+} c^\top \Phi r\nn\\
+&\mb\mb\quad\text{s.t}\quad\Phi r\geq J.
+\end{align}
+It is straightforward to notice the relationship between LUB projection operator $\Gamma$ in \eqref{lubp} and the PCALP in \eqref{pcalp}. We also further assume throughout the paper that the PCALP and the linear program in \eqref{lubp} have unique solutions (since this assumption is mild we refrain from stating it explicitly). Under Assumption~\ref{phiassump} the projection operator $\Gamma$ is well defined and $\Gamma J$ exists $\forall J \in R^n_+$. 
+We now present Lemmas~\ref{mono} and ~\ref{shift} that characterize the projection operator $\Gamma$ in \eqref{lubp}.
+\begin{lemma}\label{mono}
+Let $J_1, J_2\in \R^n$ be such that $J_1\geq J_2$, then $\Gamma J_1\geq \Gamma J_2$.
+\end{lemma}
+\begin{proof}
+Let $\Gamma J_1=\Phi r_1^*$ and $\Gamma J_2=\Phi r_2^*$. Proof follows from noting the fact that $r_1^*$ is feasible for the linear program associated with $\Gamma J_2$, and $c>0$.
+\end{proof}
