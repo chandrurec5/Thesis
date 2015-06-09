@@ -1,0 +1,45 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Markov Decision Processes}{1}
+\contentsline {section}{\numberline {1.2}Practical Issues}{2}
+\contentsline {section}{\numberline {1.3}Approximate Dynamic Programming}{3}
+\contentsline {section}{\numberline {1.4}Linear Function Approximation}{4}
+\contentsline {subsection}{\numberline {1.4.1}Projected Bellman Equation}{5}
+\contentsline {subsection}{\numberline {1.4.2}Approximate Linear Programming}{6}
+\contentsline {section}{\numberline {1.5}Reinforcement Learning}{8}
+\contentsline {chapter}{\numberline {2}Markov Decision Processes (MDPs)}{10}
+\contentsline {section}{\numberline {2.1}Definition}{10}
+\contentsline {section}{\numberline {2.2}Inifinte Horizon Discounted Reward}{11}
+\contentsline {section}{\numberline {2.3}Bellman Equation}{12}
+\contentsline {section}{\numberline {2.4}Bellman Operator}{13}
+\contentsline {section}{\numberline {2.5}Basic Solution Methods}{14}
+\contentsline {chapter}{\numberline {3}Value Function Based Approximate Dynamic Programming}{16}
+\contentsline {chapter}{\numberline {4}Approximate Dynamic Programming in $(\qopname \relax m{min},+)$ linear basis}{17}
+\contentsline {chapter}{\numberline {5}Approximate Linear Program}{18}
+\contentsline {chapter}{\numberline {6}Generalized Reduced Linear Program}{19}
+\contentsline {section}{\numberline {6.1}Approximate Dynamic Programming}{19}
+\contentsline {subsection}{\numberline {6.1.1}Value-Function based ADP}{19}
+\contentsline {subsection}{\numberline {6.1.2}Linear Function Approximation}{20}
+\contentsline {section}{\numberline {6.2}Approximate Linear Programming}{22}
+\contentsline {section}{\numberline {6.3}Constraint sampling}{24}
+\contentsline {section}{\numberline {6.4}Generalized Reduced Linear Program}{27}
+\contentsline {section}{\numberline {6.5}Least Upper Bound Projection}{28}
+\contentsline {section}{\numberline {6.6}Approximate Least Upper Bound Projection}{33}
+\contentsline {section}{\numberline {6.7}A simple bound}{35}
+\contentsline {section}{\numberline {6.8}Improved Bounds}{37}
+\contentsline {section}{\numberline {6.9}Discussion}{41}
+\contentsline {subsection}{\numberline {6.9.1}On Error Terms}{41}
+\contentsline {subsection}{\numberline {6.9.2}On Constraint Reduction and Approximation}{42}
+\contentsline {subsection}{\numberline {6.9.3}Numerical Illustration}{44}
+\contentsline {subsection}{\numberline {6.9.4}Reinforcement Learning}{46}
+\contentsline {section}{\numberline {6.10}Conclusion}{47}
+\contentsline {chapter}{\numberline {7}Stochastic Approximation and Reinforcement Learning}{48}
+\contentsline {chapter}{\numberline {8}Stability of Iterates in Two Timescale Stochastic Approximation}{49}
+\contentsline {section}{\numberline {8.1}Introduction}{49}
+\contentsline {section}{\numberline {8.2}Results for the Scaled ODE}{53}
+\contentsline {section}{\numberline {8.3}Stability of Two Timescale Stochastic Approximation Algorithms}{59}
+\contentsline {subsection}{\numberline {8.3.1}Faster Timescale Results}{60}
+\contentsline {subsection}{\numberline {8.3.2}Slower Timescale Analysis}{65}
+\contentsline {section}{\numberline {8.4}An Application in Reinforcement Learning}{69}
+\contentsline {section}{\numberline {8.5}Conclusions}{76}
+\contentsline {section}{\numberline {8.6}Appendix}{77}
+\contentsline {subsection}{\numberline {8.6.1}Gronwall Inequalities}{77}

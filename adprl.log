@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.5)  6 JUN 2015 18:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.5)  9 JUN 2015 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**adprl.tex
+**adprl
 (./adprl.tex
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
@@ -973,6 +973,9 @@ LaTeX Warning: Unused global option(s):
 
 (./adprl.aux
 
+LaTeX Warning: Label `mdplp' multiply defined.
+
+
 LaTeX Warning: Label `ineq' multiply defined.
 
 
@@ -1103,7 +1106,25 @@ Typesetting IISc Logo ...
 [0
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./intro.tex
+(./adprl.toc [1
+
+])
+\tf@toc=\write7
+\openout7 = `adprl.toc'.
+
+ [2] (./adprl.lot)
+\tf@lot=\write8
+\openout8 = `adprl.lot'.
+
+ [3
+
+] (./adprl.lof)
+\tf@lof=\write9
+\openout9 = `adprl.lof'.
+
+ [4
+
+] (./intro.tex
 Chapter 1.
 [1
 
@@ -1127,166 +1148,197 @@ Overfull \hbox (52.9531pt too wide) in paragraph at lines 62--66
 [8]) (./mdp.tex [9]
 Chapter 2.
 
-Package natbib Warning: Citation `BertB' on page 10 undefined on input line 3.
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
 
-
-Package natbib Warning: Citation `Puter' on page 10 undefined on input line 3.
+ []
 
 [10
 
 ]
 
-Package natbib Warning: Citation `BertB' on page 11 undefined on input line 16.
+Package natbib Warning: Citation `BertB' on page 11 undefined on input line 24.
 
 
 
-Package natbib Warning: Citation `Puter' on page 11 undefined on input line 16.
+Package natbib Warning: Citation `Puter' on page 11 undefined on input line 24.
 
 
 [11]
 
-Package natbib Warning: Citation `BertB' on page 12 undefined on input line 43.
+Package natbib Warning: Citation `BertB' on page 12 undefined on input line 52.
 
 
+[12] (./propT.tex
 
-Package natbib Warning: Citation `BertB' on page 12 undefined on input line 62.
-
-
-[12]
-
-Package natbib Warning: Citation `BertB' on page 13 undefined on input line 74.
+Package natbib Warning: Citation `BertB' on page 13 undefined on input line 11.
 
 
+)
 
-Package natbib Warning: Citation `BertB' on page 13 undefined on input line 81.
+Package natbib Warning: Citation `BertB' on page 13 undefined on input line 64.
 
-
-) (./adp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 80--1
-
- []
 
 [13]
 
-Package natbib Warning: Citation `lspi' on page 14 undefined on input line 2.
+Package natbib Warning: Citation `BertB' on page 14 undefined on input line 71.
 
 
-Package natbib Warning: Citation `lspe' on page 14 undefined on input line 2.
+(./basic.tex
+Underfull \hbox (badness 10000) in paragraph at lines 70--1
+
+ []
 
 
-Package natbib Warning: Citation `ALP' on page 14 undefined on input line 2.
-
-
-Package natbib Warning: Citation `wang2014approximate' on page 14 undefined on 
-input line 2.
-
-Excluding 'comment' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
 [14]
 
-Package natbib Warning: Citation `dpchapter' on page 15 undefined on input line
+Package natbib Warning: Citation `BertB' on page 15 undefined on input line 34.
+
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 32--44
+
+ []
+
+)) (./valadp.tex [15]
+Chapter 3.
+) (./p1.tex [16
+
+]
+Chapter 4.
+) (./alp.tex [17
+
+]
+Chapter 5.
+) (./p2.tex [18
+
+]
+Chapter 6.
+(./adp.tex
+
+Package natbib Warning: Citation `lspi' on page 19 undefined on input line 2.
+
+
+Package natbib Warning: Citation `lspe' on page 19 undefined on input line 2.
+
+
+Package natbib Warning: Citation `ALP' on page 19 undefined on input line 2.
+
+
+Package natbib Warning: Citation `wang2014approximate' on page 19 undefined on 
+input line 2.
+
+[19
+
+] Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+
+Package natbib Warning: Citation `dpchapter' on page 20 undefined on input line
  45.
 
 
-Package natbib Warning: Citation `dpchapter' on page 15 undefined on input line
+Package natbib Warning: Citation `dpchapter' on page 20 undefined on input line
  45.
 
 
-Package natbib Warning: Citation `ALP' on page 15 undefined on input line 48.
+Package natbib Warning: Citation `ALP' on page 20 undefined on input line 48.
 
 
-Package natbib Warning: Citation `ALP' on page 15 undefined on input line 48.
+Package natbib Warning: Citation `ALP' on page 20 undefined on input line 48.
 
 
-Package natbib Warning: Citation `CS' on page 15 undefined on input line 48.
+Package natbib Warning: Citation `CS' on page 20 undefined on input line 48.
 
 
-Package natbib Warning: Citation `CST' on page 15 undefined on input line 48.
+Package natbib Warning: Citation `CST' on page 20 undefined on input line 48.
 
 
-Package natbib Warning: Citation `CS' on page 15 undefined on input line 48.
+Package natbib Warning: Citation `CS' on page 20 undefined on input line 48.
 
-Excluding 'comment' comment.) (./lp.tex [15] [16] Excluding 'comment' comment.
-[17]
+Excluding 'comment' comment.) (./lp.tex [20] [21] Excluding 'comment' comment.
+[22]
 
-Package natbib Warning: Citation `ALP' on page 18 undefined on input line 55.
+Package natbib Warning: Citation `ALP' on page 23 undefined on input line 55.
+
+[23]
+
+Package natbib Warning: Citation `ALP' on page 24 undefined on input line 62.
 
 
-Package natbib Warning: Citation `ALP' on page 18 undefined on input line 62.
-
-[18]
-
-Package natbib Warning: Citation `ALP' on page 19 undefined on input line 70.
+Package natbib Warning: Citation `ALP' on page 24 undefined on input line 70.
 
 ) (./constsamp.tex
 
-Package natbib Warning: Citation `CS' on page 19 undefined on input line 2.
+Package natbib Warning: Citation `CS' on page 24 undefined on input line 2.
 
-[19]
+[24]
 
-Package natbib Warning: Citation `ALP' on page 20 undefined on input line 23.
-
-
-Package natbib Warning: Citation `SALP' on page 20 undefined on input line 23.
+Package natbib Warning: Citation `ALP' on page 25 undefined on input line 23.
 
 
-Package natbib Warning: Citation `CST' on page 20 undefined on input line 23.
+Package natbib Warning: Citation `SALP' on page 25 undefined on input line 23.
 
 
-Package natbib Warning: Citation `SALP' on page 20 undefined on input line 23.
+Package natbib Warning: Citation `CST' on page 25 undefined on input line 23.
 
 
-Package natbib Warning: Citation `CS' on page 20 undefined on input line 23.
+Package natbib Warning: Citation `SALP' on page 25 undefined on input line 23.
 
 
-Package natbib Warning: Citation `CS' on page 20 undefined on input line 23.
+Package natbib Warning: Citation `CS' on page 25 undefined on input line 23.
 
 
-Package natbib Warning: Citation `CS' on page 20 undefined on input line 33.
+Package natbib Warning: Citation `CS' on page 25 undefined on input line 23.
 
-[20]
 
-Package natbib Warning: Citation `CS' on page 21 undefined on input line 48.
+Package natbib Warning: Citation `CS' on page 25 undefined on input line 33.
 
-) (./grlp.tex [21] [22]
+[25]
 
-LaTeX Warning: Reference `schematic' on page 23 undefined on input line 20.
+Package natbib Warning: Citation `CS' on page 26 undefined on input line 48.
 
-) (./lubp.tex [23] [24] Excluding 'comment' comment. [25] (./perfbnds.tex
-[26])) (./alubp.tex [27] Excluding 'comment' comment. [28] [29]) (./strel.tex
-[30] Excluding 'comment' comment.
+[26]) (./grlp.tex [27]
+
+LaTeX Warning: Reference `schematic' on page 28 undefined on input line 20.
+
+) (./lubp.tex [28] [29] Excluding 'comment' comment. [30] [31] (./perfbnds.tex)
+) (./alubp.tex [32] Excluding 'comment' comment. [33] [34]) (./strel.tex
+[35] Excluding 'comment' comment.
 Underfull \hbox (badness 10000) in paragraph at lines 37--47
 
  []
 
-) (./improv.tex [31] Excluding 'comment' comment. Excluding 'comment' comment.
-[32]
-
-Package natbib Warning: Citation `ALP' on page 33 undefined on input line 84.
-
-[33]) (./polbnd.tex [34] [35]) (./samp.tex) (./resdisc.tex
-
-Package natbib Warning: Citation `ALP' on page 36 undefined on input line 10.
-
-
-Package natbib Warning: Citation `CS' on page 36 undefined on input line 12.
-
-[36] Excluding 'comment' comment.
-
-Package natbib Warning: Citation `ALP' on page 37 undefined on input line 42.
-
-
-Package natbib Warning: Citation `CST' on page 37 undefined on input line 42.
-
-
-Package natbib Warning: Citation `SALP' on page 37 undefined on input line 42.
-
+[36]) (./improv.tex Excluding 'comment' comment. Excluding 'comment' comment.
 [37]
 
-Package natbib Warning: Citation `dolgov' on page 38 undefined on input line 47
+Package natbib Warning: Citation `ALP' on page 38 undefined on input line 84.
+
+[38]) (./polbnd.tex [39] [40]) (./samp.tex) (./resdisc.tex
+
+Package natbib Warning: Citation `ALP' on page 41 undefined on input line 10.
+
+
+Package natbib Warning: Citation `CS' on page 41 undefined on input line 12.
+
+[41] Excluding 'comment' comment.
+
+Package natbib Warning: Citation `ALP' on page 42 undefined on input line 42.
+
+
+Package natbib Warning: Citation `CST' on page 42 undefined on input line 42.
+
+
+Package natbib Warning: Citation `SALP' on page 42 undefined on input line 42.
+
+[42]
+
+Package natbib Warning: Citation `dolgov' on page 43 undefined on input line 47
 .
 
 
@@ -1294,226 +1346,233 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--54
 
  []
 
-[38]
+[43]
 
-Package natbib Warning: Citation `ALP' on page 39 undefined on input line 55.
-
-
-Package natbib Warning: Citation `ALP' on page 39 undefined on input line 58.
+Package natbib Warning: Citation `ALP' on page 44 undefined on input line 55.
 
 
-Package natbib Warning: Citation `ALP' on page 39 undefined on input line 60.
+Package natbib Warning: Citation `ALP' on page 44 undefined on input line 58.
 
 
-Package natbib Warning: Citation `CS' on page 39 undefined on input line 61.
-
-[39] [40]
-
-Package natbib Warning: Citation `CST' on page 41 undefined on input line 96.
+Package natbib Warning: Citation `ALP' on page 44 undefined on input line 60.
 
 
-Package natbib Warning: Citation `CS' on page 41 undefined on input line 96.
+Package natbib Warning: Citation `CS' on page 44 undefined on input line 61.
+
+[44] [45]
+
+Package natbib Warning: Citation `CST' on page 46 undefined on input line 96.
 
 
-Package natbib Warning: Citation `ALP-Bor' on page 41 undefined on input line 9
+Package natbib Warning: Citation `CS' on page 46 undefined on input line 96.
+
+
+Package natbib Warning: Citation `ALP-Bor' on page 46 undefined on input line 9
 9.
 
 
-Package natbib Warning: Citation `ALP-Bor' on page 41 undefined on input line 9
+Package natbib Warning: Citation `ALP-Bor' on page 46 undefined on input line 9
 9.
 
-Excluding 'comment' comment. [41]) (./concl.tex) (./introduction.tex
+Excluding 'comment' comment. [46]) (./concl.tex)) (./sarl.tex [47]
+Chapter 7.
+) (./p3.tex [48
 
-Package natbib Warning: Citation `kushner' on page 42 undefined on input line 2
-.
+]
+Chapter 8.
+(./introduction.tex
 
-[42]
-
-Package natbib Warning: Citation `NAC' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `IAC' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `KAC' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `BAC' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `BSPSA' on page 43 undefined on input line 12.
-
-
-
-Package natbib Warning: Citation `Pet-Sch' on page 43 undefined on input line 1
-2.
-
-
-Package natbib Warning: Citation `ALP-Bor' on page 43 undefined on input line 1
-2.
-
-
-Package natbib Warning: Citation `SB1' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `Bax-Bar' on page 43 undefined on input line 1
-2.
-
-
-Package natbib Warning: Citation `Amari' on page 43 undefined on input line 12.
-
-
-
-Package natbib Warning: Citation `SMSM' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `Kak' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `SP' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `SPSA' on page 43 undefined on input line 12.
-
-
-Package natbib Warning: Citation `TTSPSA' on page 43 undefined on input line 12
+Package natbib Warning: Citation `kushner' on page 49 undefined on input line 2
 .
 
 
-Package natbib Warning: Citation `SB-VB' on page 43 undefined on input line 12.
+Package natbib Warning: Citation `NAC' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `IAC' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `KAC' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BAC' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BSPSA' on page 49 undefined on input line 12.
 
 
 
-Package natbib Warning: Citation `Mar-Tsit' on page 43 undefined on input line 
+Package natbib Warning: Citation `Pet-Sch' on page 49 undefined on input line 1
+2.
+
+
+Package natbib Warning: Citation `ALP-Bor' on page 49 undefined on input line 1
+2.
+
+
+Package natbib Warning: Citation `SB1' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `Bax-Bar' on page 49 undefined on input line 1
+2.
+
+
+Package natbib Warning: Citation `Amari' on page 49 undefined on input line 12.
+
+
+
+Package natbib Warning: Citation `SMSM' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `Kak' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `SP' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `SPSA' on page 49 undefined on input line 12.
+
+
+Package natbib Warning: Citation `TTSPSA' on page 49 undefined on input line 12
+.
+
+
+Package natbib Warning: Citation `SB-VB' on page 49 undefined on input line 12.
+
+
+
+Package natbib Warning: Citation `Mar-Tsit' on page 49 undefined on input line 
 12.
 
 
-Package natbib Warning: Citation `SB-VB2' on page 43 undefined on input line 12
+Package natbib Warning: Citation `SB-VB2' on page 49 undefined on input line 12
 .
 
 
-Package natbib Warning: Citation `SB3' on page 43 undefined on input line 12.
+Package natbib Warning: Citation `SB3' on page 49 undefined on input line 12.
 
 
-Package natbib Warning: Citation `BTS' on page 43 undefined on input line 12.
+Package natbib Warning: Citation `BTS' on page 49 undefined on input line 12.
 
 
-Package natbib Warning: Citation `BO' on page 43 undefined on input line 12.
+Package natbib Warning: Citation `BO' on page 49 undefined on input line 12.
 
 
-Package natbib Warning: Citation `BADA' on page 43 undefined on input line 12.
+Package natbib Warning: Citation `BADA' on page 49 undefined on input line 12.
 
 
-Package natbib Warning: Citation `kushner' on page 43 undefined on input line 1
+Package natbib Warning: Citation `kushner' on page 49 undefined on input line 1
 3.
 
 
-Package natbib Warning: Citation `SA' on page 43 undefined on input line 13.
+Package natbib Warning: Citation `SA' on page 49 undefined on input line 13.
+
+[49
+
+]
+
+Package natbib Warning: Citation `SA' on page 50 undefined on input line 25.
 
 
-Package natbib Warning: Citation `SA' on page 43 undefined on input line 25.
-
-
-Package natbib Warning: Citation `BMSTAB' on page 43 undefined on input line 25
-.
-
-[43]
-
-Package natbib Warning: Citation `SA' on page 44 undefined on input line 36.
-
-
-Package natbib Warning: Citation `BMSTAB' on page 44 undefined on input line 54
+Package natbib Warning: Citation `BMSTAB' on page 50 undefined on input line 25
 .
 
 
-Package natbib Warning: Citation `TTSAP' on page 44 undefined on input line 62.
+Package natbib Warning: Citation `SA' on page 50 undefined on input line 36.
 
+[50]
 
-
-Package natbib Warning: Citation `BADA' on page 44 undefined on input line 62.
-
-
-Package natbib Warning: Citation `SB-VB2' on page 44 undefined on input line 62
+Package natbib Warning: Citation `BMSTAB' on page 51 undefined on input line 54
 .
 
 
-Package natbib Warning: Citation `TTSPSA' on page 44 undefined on input line 62
+Package natbib Warning: Citation `TTSAP' on page 51 undefined on input line 62.
+
+
+
+Package natbib Warning: Citation `BADA' on page 51 undefined on input line 62.
+
+
+Package natbib Warning: Citation `SB-VB2' on page 51 undefined on input line 62
 .
 
 
-Package natbib Warning: Citation `BO' on page 44 undefined on input line 62.
-
-
-Package natbib Warning: Citation `BTS' on page 44 undefined on input line 62.
-
-[44]
-
-Package natbib Warning: Citation `NAC' on page 45 undefined on input line 83.
-
-
-Package natbib Warning: Citation `IAC' on page 45 undefined on input line 83.
-
-
-Package natbib Warning: Citation `KAC' on page 45 undefined on input line 83.
-
-
-Package natbib Warning: Citation `TTSAP' on page 45 undefined on input line 83.
-
-
-
-Package natbib Warning: Citation `SB-VB2' on page 45 undefined on input line 83
+Package natbib Warning: Citation `TTSPSA' on page 51 undefined on input line 62
 .
 
 
-Package natbib Warning: Citation `BTS' on page 45 undefined on input line 83.
+Package natbib Warning: Citation `BO' on page 51 undefined on input line 62.
 
 
-Package natbib Warning: Citation `TTSAP' on page 45 undefined on input line 88.
+Package natbib Warning: Citation `BTS' on page 51 undefined on input line 62.
+
+
+Package natbib Warning: Citation `NAC' on page 51 undefined on input line 83.
+
+
+Package natbib Warning: Citation `IAC' on page 51 undefined on input line 83.
+
+
+Package natbib Warning: Citation `KAC' on page 51 undefined on input line 83.
+
+
+Package natbib Warning: Citation `TTSAP' on page 51 undefined on input line 83.
 
 
 
-Package natbib Warning: Citation `SA' on page 45 undefined on input line 89.
-
-
-Package natbib Warning: Citation `BMSTAB' on page 45 undefined on input line 93
+Package natbib Warning: Citation `SB-VB2' on page 51 undefined on input line 83
 .
 
 
-Package natbib Warning: Citation `SA' on page 45 undefined on input line 93.
+Package natbib Warning: Citation `BTS' on page 51 undefined on input line 83.
 
 
-Package natbib Warning: Citation `SA' on page 45 undefined on input line 96.
-
-
-Package natbib Warning: Citation `TTSAP' on page 45 undefined on input line 96.
+Package natbib Warning: Citation `TTSAP' on page 51 undefined on input line 88.
 
 
 
-Package natbib Warning: Citation `SA' on page 45 undefined on input line 97.
-
-[45]
-
-Package natbib Warning: Citation `SA' on page 46 undefined on input line 108.
+Package natbib Warning: Citation `SA' on page 51 undefined on input line 89.
 
 
-Package natbib Warning: Citation `SA' on page 46 undefined on input line 123.
-
-
-Package natbib Warning: Citation `TTSAP' on page 46 undefined on input line 123
+Package natbib Warning: Citation `BMSTAB' on page 51 undefined on input line 93
 .
 
 
-Package natbib Warning: Citation `SA' on page 46 undefined on input line 129.
+Package natbib Warning: Citation `SA' on page 51 undefined on input line 93.
 
-) (./oderesults.tex [46]
 
-Package natbib Warning: Citation `SA' on page 47 undefined on input line 18.
+Package natbib Warning: Citation `SA' on page 51 undefined on input line 96.
 
-[47] [48]
 
-Package natbib Warning: Citation `SA' on page 49 undefined on input line 86.
+Package natbib Warning: Citation `TTSAP' on page 51 undefined on input line 96.
 
-[49] [50] [51] Excluding 'comment' comment.
+
+
+Package natbib Warning: Citation `SA' on page 51 undefined on input line 97.
+
+[51]
+
+Package natbib Warning: Citation `SA' on page 52 undefined on input line 108.
+
+
+Package natbib Warning: Citation `SA' on page 52 undefined on input line 123.
+
+
+Package natbib Warning: Citation `TTSAP' on page 52 undefined on input line 123
+.
+
+
+Package natbib Warning: Citation `SA' on page 52 undefined on input line 129.
+
+[52]) (./oderesults.tex
+
+Package natbib Warning: Citation `SA' on page 53 undefined on input line 18.
+
+[53] [54]
+
+Package natbib Warning: Citation `SA' on page 55 undefined on input line 86.
+
+[55] [56] [57] Excluding 'comment' comment.
 Overfull \hbox (17.2241pt too wide) in paragraph at lines 181--210
 \OT1/cmr/m/n/12 Since $\OML/cmm/m/it/12 ^^Q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
 T[]; ^^Q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T[]; p\OT1/cmr/m/n/12 )) \OMS/cmsy/
@@ -1523,26 +1582,26 @@ m/n/12 2 \OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/
 OML/cmm/m/it/12 T[]; p\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
  []
 
-) (./main.tex (./main_window.tex [52] Excluding 'comment' comment.
+) (./main.tex (./main_window.tex [58] Excluding 'comment' comment.
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-[53]) (./faster.tex [54] [55]
+[59]) (./faster.tex [60] [61]
 
-Package natbib Warning: Citation `SA' on page 56 undefined on input line 67.
-
-
-Package natbib Warning: Citation `SA' on page 56 undefined on input line 68.
+Package natbib Warning: Citation `SA' on page 62 undefined on input line 67.
 
 
-Package natbib Warning: Citation `SA' on page 56 undefined on input line 77.
+Package natbib Warning: Citation `SA' on page 62 undefined on input line 68.
 
-[56]
 
-Package natbib Warning: Citation `SA' on page 57 undefined on input line 93.
+Package natbib Warning: Citation `SA' on page 62 undefined on input line 77.
 
-[57] Excluding 'comment' comment.
+[62]
+
+Package natbib Warning: Citation `SA' on page 63 undefined on input line 93.
+
+[63] Excluding 'comment' comment.
 Overfull \hbox (13.51233pt too wide) in paragraph at lines 117--151
 \OT1/cmr/m/n/12 We also know from Lemma 49[] that there ex-ists $\OML/cmm/m/it/
 12 r[]$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/12 c[]$\OT1/cmr/m/n/12 , and $\OML/cmm/
@@ -1551,116 +1610,116 @@ m/it/12 T[]$ \OT1/cmr/m/n/12 such that $\OMS/cmsy/m/n/12 k \OML/cmm/m/it/12 ^^^
 OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 k$
  []
 
-[58] Excluding 'comment' comment. Excluding 'comment' comment.
-Excluding 'comment' comment.) (./slower.tex [59]
+[64] Excluding 'comment' comment. Excluding 'comment' comment.
+Excluding 'comment' comment.) (./slower.tex [65]
 
-Package natbib Warning: Citation `SA' on page 60 undefined on input line 49.
+Package natbib Warning: Citation `SA' on page 66 undefined on input line 49.
 
 Excluding 'comment' comment.
 
-Package natbib Warning: Citation `SA' on page 60 undefined on input line 101.
+Package natbib Warning: Citation `SA' on page 66 undefined on input line 101.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 100--103
 
  []
 
-Excluding 'comment' comment. [60]
+Excluding 'comment' comment. [66]
 
-Package natbib Warning: Citation `SA' on page 61 undefined on input line 120.
+Package natbib Warning: Citation `SA' on page 67 undefined on input line 120.
 
-[61] [62] Excluding 'comment' comment.)) (./example.tex
+[67] [68] Excluding 'comment' comment.)) (./example.tex
 
-Package natbib Warning: Citation `NAC' on page 63 undefined on input line 2.
-
-
-Package natbib Warning: Citation `NAC' on page 63 undefined on input line 2.
+Package natbib Warning: Citation `NAC' on page 69 undefined on input line 2.
 
 
-Package natbib Warning: Citation `NAC' on page 63 undefined on input line 2.
-
-[63]
-
-Package natbib Warning: Citation `NAC' on page 64 undefined on input line 49.
-
-[64]
-
-Package natbib Warning: Citation `NAC' on page 65 undefined on input line 86.
+Package natbib Warning: Citation `NAC' on page 69 undefined on input line 2.
 
 
-Package natbib Warning: Citation `NAC' on page 65 undefined on input line 87.
+Package natbib Warning: Citation `NAC' on page 69 undefined on input line 2.
+
+[69]
+
+Package natbib Warning: Citation `NAC' on page 70 undefined on input line 49.
+
+[70]
+
+Package natbib Warning: Citation `NAC' on page 71 undefined on input line 86.
 
 
-Package natbib Warning: Citation `NAC' on page 65 undefined on input line 89.
-
-[65]
-
-Package natbib Warning: Citation `NAC' on page 66 undefined on input line 104.
+Package natbib Warning: Citation `NAC' on page 71 undefined on input line 87.
 
 
-Package natbib Warning: Citation `NAC' on page 66 undefined on input line 106.
+Package natbib Warning: Citation `NAC' on page 71 undefined on input line 89.
+
+[71]
+
+Package natbib Warning: Citation `NAC' on page 72 undefined on input line 104.
 
 
-Package natbib Warning: Citation `ndp' on page 66 undefined on input line 115.
+Package natbib Warning: Citation `NAC' on page 72 undefined on input line 106.
 
-[66]
 
-Package natbib Warning: Citation `NAC' on page 67 undefined on input line 121.
+Package natbib Warning: Citation `ndp' on page 72 undefined on input line 115.
 
-[67]
+[72]
+
+Package natbib Warning: Citation `NAC' on page 73 undefined on input line 121.
+
+[73]
 Underfull \hbox (badness 10000) in paragraph at lines 138--140
 
  []
 
 
-Package natbib Warning: Citation `PJS' on page 68 undefined on input line 158.
+Package natbib Warning: Citation `PJS' on page 74 undefined on input line 158.
 
 
-Package natbib Warning: Citation `PJS' on page 68 undefined on input line 165.
+Package natbib Warning: Citation `PJS' on page 74 undefined on input line 165.
 
-[68]
+[74]
 
-Package natbib Warning: Citation `NAC' on page 69 undefined on input line 186.
+Package natbib Warning: Citation `NAC' on page 75 undefined on input line 186.
 
 
-Package natbib Warning: Citation `sitavg' on page 69 undefined on input line 18
+Package natbib Warning: Citation `sitavg' on page 75 undefined on input line 18
 6.
 
 
-Package natbib Warning: Citation `NAC' on page 69 undefined on input line 189.
+Package natbib Warning: Citation `NAC' on page 75 undefined on input line 189.
 
 
-Package natbib Warning: Citation `NAC' on page 69 undefined on input line 189.
+Package natbib Warning: Citation `NAC' on page 75 undefined on input line 189.
 
-[69]
+[75]
 
-Package natbib Warning: Citation `NAC' on page 70 undefined on input line 206.
+Package natbib Warning: Citation `NAC' on page 76 undefined on input line 206.
 
 ) (./disc.tex
 
-Package natbib Warning: Citation `SA' on page 70 undefined on input line 6.
+Package natbib Warning: Citation `SA' on page 76 undefined on input line 6.
 
-) (./appendix.tex [70] [71]
+) (./appendix.tex [76] [77]
 
-Package natbib Warning: Citation `SA' on page 72 undefined on input line 38.
+Package natbib Warning: Citation `SA' on page 78 undefined on input line 38.
 
 
-Package natbib Warning: Citation `SA' on page 72 undefined on input line 38.
+Package natbib Warning: Citation `SA' on page 78 undefined on input line 38.
 
 
 Overfull \hbox (48.52614pt too wide) in paragraph at lines 76--76
 [] 
  []
 
-[72]
+[78]
 
-Package natbib Warning: Citation `SA' on page 73 undefined on input line 84.
+Package natbib Warning: Citation `SA' on page 79 undefined on input line 84.
 
-[73]
+[79]
 
-Package natbib Warning: Citation `SA' on page 74 undefined on input line 89.
+Package natbib Warning: Citation `SA' on page 80 undefined on input line 89.
 
-) (./adprl.bbl [74]
+)) (./adprl.bbl [80]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
@@ -1669,7 +1728,7 @@ No file adprl.ind.
 
 Package natbib Warning: There were undefined citations.
 
-[75
+[81
 
 ] (./adprl.aux)
 
@@ -1680,13 +1739,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 30495 strings out of 493109
- 748467 string characters out of 6135011
- 1074764 words of memory out of 5000000
- 33198 multiletter control sequences out of 15000+600000
- 21536 words of font info for 89 fonts, out of 8000000 for 9000
+ 30544 strings out of 493109
+ 748965 string characters out of 6135011
+ 1074733 words of memory out of 5000000
+ 33214 multiletter control sequences out of 15000+600000
+ 24848 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,16n,77p,3250b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,16n,77p,3246b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1699,21 +1758,22 @@ r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
 local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
 cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
 l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssdc10.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/latxfont/lcmss8.pfb>
-Output written on adprl.pdf (76 pages, 490822 bytes).
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmssdc10.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf
+-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/public/amsfonts/latxfont/lcmss8.pfb>
+Output written on adprl.pdf (86 pages, 507305 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
+ 406 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
