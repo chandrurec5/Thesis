@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.5)  9 JUN 2015 12:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.5)  9 JUN 2015 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1201,7 +1201,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
  []
 
-[17])) (./p1.tex [18]
+[17])) (./minpadp.tex [18]
 Chapter 3.
 (./pbe.tex
 
@@ -1251,52 +1251,12 @@ ut line 21.
 Package natbib Warning: Citation `Gaubert' on page 22 undefined on input line 2
 1.
 
-[22] Excluding 'comment' comment.) (./fenchel.tex
-
-LaTeX Warning: Reference `smproj' on page 23 undefined on input line 2.
-
-
-LaTeX Warning: Reference `FT' on page 23 undefined on input line 10.
-
-
-LaTeX Warning: Reference `FTRR' on page 23 undefined on input line 14.
-
-
-LaTeX Warning: Reference `ST' on page 23 undefined on input line 18.
-
-
-LaTeX Warning: Reference `ST' on page 23 undefined on input line 18.
-
-
-LaTeX Warning: Reference `FT' on page 23 undefined on input line 18.
-
-[23]
-
-LaTeX Warning: Reference `ST' on page 24 undefined on input line 22.
-
+[22] Excluding 'comment' comment.) (./fenchel.tex [23]
 
 LaTeX Warning: Reference `AST' on page 24 undefined on input line 22.
 
 
-LaTeX Warning: Reference `smproj' on page 24 undefined on input line 22.
-
-
-LaTeX Warning: Reference `ST' on page 24 undefined on input line 22.
-
-
-LaTeX Warning: Reference `smproj' on page 24 undefined on input line 22.
-
-
 LaTeX Warning: Reference `mpproj' on page 24 undefined on input line 27.
-
-
-LaTeX Warning: Reference `ST' on page 24 undefined on input line 27.
-
-
-LaTeX Warning: Reference `ST' on page 24 undefined on input line 33.
-
-
-LaTeX Warning: Reference `smproj' on page 24 undefined on input line 33.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 32--35
@@ -1318,10 +1278,10 @@ l.43 ...lot[smooth,black] plot file {mfile/f.dat};
 ? x
  
 Here is how much of TeX's memory you used:
- 30555 strings out of 493109
- 755336 string characters out of 6135011
- 1073129 words of memory out of 5000000
- 33297 multiletter control sequences out of 15000+600000
+ 30558 strings out of 493109
+ 755380 string characters out of 6135011
+ 1073206 words of memory out of 5000000
+ 33300 multiletter control sequences out of 15000+600000
  22726 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,16n,85p,3246b,1374s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1343,7 +1303,7 @@ ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/
 texmf-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcmss8.pfb>
-Output written on adprl.pdf (27 pages, 278717 bytes).
+Output written on adprl.pdf (27 pages, 278661 bytes).
 PDF statistics:
  191 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams
