@@ -1,9 +1,0 @@
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Shows values of Error Terms for $Q_L$.}}{47}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Shows performance metrics for $Q_L$. Here $||J^*||_{1,c}=-439.26$ for $\zeta =0.9$ and $||J^*||_{1,c}=-2.0603e+04$ for $\zeta =0.999$ and a random policy yields a total reward of $-1.2661e+03 $.}}{47}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
