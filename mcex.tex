@@ -25,17 +25,18 @@ y_1&=-0.07<y_2<\ldots<y_k=0.07,\nn\\ \mb &\text{with} \mb y_{n+1}-y_n=\frac{0.14
 \caption{Various centers for the basis functions.}
 \end{figure}
 \end{comment}
-\begin{figure}
+\FloatBarrier
+\begin{figure}[H]
 \begin{tikzpicture}
 \begin{axis}
 \addplot3 [surf] gnuplot [raw gnuplot] {
 set dgrid3d 50,50 spline;
-splot 'basisf.dat';       
+splot './mfiles/basisf.dat';       
 };
 \end{axis}
 \end{tikzpicture}
-\label{basisf}
 \caption{Basis Function centered at $(0,0)$.}
+\label{basisf}
 \end{figure}
 It is easy to check that the feature vectors as defined in \eqref{basisdef} have the property given in \eqref{orth}. Further, the feature vector/basis function as defined in \eqref{basisdef} is the $\minp$ equivalent of radial basis functions in the conventional algebra, i.e., the basis function centered at $c=(x,y)$ takes a value equal to the multiplicative identity (in $\minp$ algebra) i.e., $0$, at the state $c$, and the values for states away from the $c$ tend towards the additive identity in $\minp$ algebra, i.e., $+\infty$. Fig.~\ref{basisf} shows the basis function centered at $(0,0)$.\\
 %The WMPADP algorithm (Algorithm~\ref{algo2}) made use of $Z$ as in Definition~\ref{constsamp} with the set of states $\Ls$ given by $\Ls=\{(x_i^s,x_j^s), i=1,\ldots,k_1,j=1,\ldots,k_2\}$.\\
@@ -47,14 +48,10 @@ It is easy to check that the feature vectors as defined in \eqref{basisdef} have
 \caption{Mountain Car}
 \end{figure}
 \end{comment}
-\begin{figure}
-\centering
-\includegraphics[scale=1.0]{careps1.eps}
-\caption{Mountain Car}
-\label{mcar}
-\end{figure}
+\input{mcar}
 In our experiments, we chose $\Ls=\{(x_i^s,y_j^s), 1\leq i,j \leq k_1\}$, where $x_i^s$ and $y_j^s$ were generated according to \eqref{centers} with $k=k_1$. We also fixed $\beta=100$ and $\gamma=2$, and varied $k=5, 7, 9, 11$ and $k_1=30,40,50$, the discount factor was set to $\alpha=0.95$, and $\epsilon=1e^{-5}$. The approximate value function computed by the WMPADP algorithm is shown in Fig.~\ref{ValFunc} and the actual value function is presented in Fig.~\ref{actvalfunc}. The approximate value functions computed in the various settings were used to generate corresponding greedy policies whose performance is shown in Table~\ref{episode}. The performance is evaluated via the number of steps taken by the car to reach the goal using the respective greedy policy.
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
 \begin{tabular}{|c|c|c|} \hline
 $k$ & $k_1$ &Steps to reach the goal\\ \hline	
 $5$ &30 &285 \\ \hline
@@ -75,14 +72,15 @@ $5$ &30 &285 \\ \hline
 \end{tabular}
 \caption{Number of steps taken by the $\emph{Greedy}$ policy}
 \label{episode}
-\end{table}\\
+\end{table}
 The near-optimal policy derived from the actual value function for this problem is known to achieve the goal within $150$ steps \cite{rl}. However, finding the actual value function in this case requires significantly more computation.
-\begin{figure}
+\FloatBarrier
+\begin{figure}[H]
 \begin{tikzpicture}
 \begin{axis}
 \addplot3 [surf] gnuplot [raw gnuplot] {
 set dgrid3d 50,50 spline;
-splot 'val.dat';       
+splot 'mfiles/val.dat';       
 };
 \end{axis}
 \end{tikzpicture}
@@ -90,8 +88,9 @@ splot 'val.dat';
 \label{actvalfunc}
 \end{figure}
 
-%\begin{comment}
-\begin{figure*}
+
+\FloatBarrier
+\begin{figure*}[H]
 \begin{minipage}{1\textwidth}
 \resizebox{\columnwidth}{!}{
 \begin{tabular}{ccc}
@@ -99,7 +98,7 @@ splot 'val.dat';
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 30,30 spline;
-        splot 'data730.dat';       
+        splot 'mfiles/data730.dat';       
     };
     \end{axis}
     \end{tikzpicture}
@@ -108,7 +107,7 @@ splot 'val.dat';
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 40,40 spline;
-        splot 'data740.dat';       
+        splot 'mfiles/data740.dat';       
     };
     \end{axis}
     \end{tikzpicture}
@@ -117,7 +116,7 @@ splot 'val.dat';
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 50,50 spline;
-        splot 'data750.dat';       
+        splot 'mfiles/data750.dat';       
     };
     \end{axis}
     \end{tikzpicture}\\
@@ -127,7 +126,7 @@ ${k=5,k_1=30,V_{\max}=2.83e3 V_{\min}=0.73e3}$ & $k=5,k_1=40,V_{\max}=3.29e3, V_
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 30,30 spline;
-        splot 'data930.dat';       
+        splot 'mfiles/data930.dat';       
     };
     \end{axis}
     \end{tikzpicture}
@@ -136,7 +135,7 @@ ${k=5,k_1=30,V_{\max}=2.83e3 V_{\min}=0.73e3}$ & $k=5,k_1=40,V_{\max}=3.29e3, V_
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 40,40 spline;
-        splot 'data940.dat';       
+        splot 'mfiles/data940.dat';       
     };
     \end{axis}
     \end{tikzpicture}
@@ -145,7 +144,7 @@ ${k=5,k_1=30,V_{\max}=2.83e3 V_{\min}=0.73e3}$ & $k=5,k_1=40,V_{\max}=3.29e3, V_
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 50,50 spline;
-        splot 'data950.dat';       
+        splot 'mfiles/data950.dat';       
     };
     \end{axis}
     \end{tikzpicture}\\
@@ -154,7 +153,7 @@ ${k=7,k_1=30,V_{\max}=2.60e3, V_{\min}=0.45e3}$ &$k=7,k_1=40,V_{\max}=2.83e3, V_
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 30,30 spline;
-        splot 'data1130.dat';       
+        splot 'mfiles/data1130.dat';       
     };
     \end{axis}
     \end{tikzpicture}
@@ -163,7 +162,7 @@ ${k=7,k_1=30,V_{\max}=2.60e3, V_{\min}=0.45e3}$ &$k=7,k_1=40,V_{\max}=2.83e3, V_
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 40,40 spline;
-        splot 'data1140.dat';       
+        splot 'mfiles/data1140.dat';       
     };
     \end{axis}
     \end{tikzpicture}
@@ -172,7 +171,7 @@ ${k=7,k_1=30,V_{\max}=2.60e3, V_{\min}=0.45e3}$ &$k=7,k_1=40,V_{\max}=2.83e3, V_
     \begin{axis}
     \addplot3 [surf] gnuplot [raw gnuplot] {
         set dgrid3d 50,50 spline;
-        splot 'data1150.dat';       
+        splot 'mfiles/data1150.dat'; 
     };
     \end{axis}
     \end{tikzpicture}\\
@@ -183,5 +182,5 @@ ${k=11,k_1=30,V_{\max}=2.32e3, V_{\min}=0.18e3}$ &$k=11,k_1=40,V_{\max}=2.42e3, 
 \caption{Approximate Value Function for various values of $k$ and $k_1$}
 \label{ValFunc}
 \end{figure*}
-%\end{comment}
+
 

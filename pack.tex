@@ -7,7 +7,6 @@
 \usepackage[all]{xy}
 \usepackage{graphicx}
 \usepackage{etex}
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{comment}
@@ -16,6 +15,7 @@
 \usepackage{xspace}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \usepackage{pgf}
 \usepackage{natbib}
 \usepackage{algorithmic}
@@ -23,10 +23,14 @@
 %\usepackage{algorithm2e}
 \usepackage{algorithm}
 \usepackage{savesym}
+\usepackage{gnuplotluatikz}
+\usepackage{gnuplottex}
 \savesymbol{AND}
 \usepackage{xspace}
 \usepackage{placeins}
-
+\pgfplotsset{filter discard warning=false}
+\usepgfplotslibrary{external} 
+\tikzexternalize[optimize=false] 
 %\usepackage{style/ssltr}
 %\usepackage{style/macros}
 \usetikzlibrary{intersections}
@@ -44,9 +48,11 @@
 \newcommand{\V}{\mathcal{V}}
 \newcommand{\R}{\mathbf{R}}
 \newcommand{\Rm}{\mathbf{R}_{\min}}
+\newcommand{\Ls}{\mathcal{L}}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\om}{\otimes}
 \newcommand{\op}{\oplus}
+\newcommand{\nd}{n\times d}
 \newcommand{\RA}{\Rightarrow}
 \newcommand{\LA}{\Leftarrow}
 \newcommand{\E}{\mathbf{E}}

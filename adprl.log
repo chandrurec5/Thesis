@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.5)  9 JUN 2015 12:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.5)  9 JUN 2015 16:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -703,13 +703,32 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
 ks.code.tex
 File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
-))) (/usr/local/texlive/2014/texmf-dist/tex/latex/natbib/natbib.sty
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplotstable 2015/01/31 v1.12 Table typesetting and Pretty-printing (
+1.12)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+.coltype.code.tex))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen209
+\extrarowheight=\dimen210
+\NC@list=\toks45
+\extratabsurround=\skip51
+\backup@length=\skip52
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip51
-\bibsep=\skip52
+\bibhang=\skip53
+\bibsep=\skip54
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count140
-) (/usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithmic.sty
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
@@ -719,8 +738,8 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \c@ALC@line=\count142
 \c@ALC@rem=\count143
 \c@ALC@depth=\count144
-\ALC@tlm=\skip53
-\algorithmicindent=\skip54
+\ALC@tlm=\skip55
+\algorithmicindent=\skip56
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
@@ -729,26 +748,31 @@ nment
 (/usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count145
-\float@exts=\toks45
+\float@exts=\toks46
 \float@box=\box45
-\@float@everytoks=\toks46
+\@float@everytoks=\toks47
 \@floatcapt=\box46
 )
-\@float@every@algorithm=\toks47
+\@float@every@algorithm=\toks48
 \c@algorithm=\count146
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/savesym/savesym.sty
 Package: savesym 2013/09/02 v1.2 Saves and restores symbols (JG)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/placeins/placeins.sty
-Package: placeins 2005/04/18  v 2.2
+(./gnuplotluatikz.sty
+
+LaTeX Warning: You have requested package `gnuplotluatikz',
+               but the package provides `gnuplot-lua-tikz'.
+
+Package: gnuplot-lua-tikz 2009/03/29 (rev. 96) GNUPLOT Lua terminal style
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count147
+\XC@countmixins=\count148
 )
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibraryintersections.code.tex
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryinterse
-ctions.code.tex
-\pgf@intersect@solutions=\count147
-))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
@@ -756,7 +780,93 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
 code.tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
-\arrowsize=\dimen209
+\arrowsize=\dimen211
+))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.0 (rcs-revision 1.2)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex
+File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.0 (rcs-revision 1.13)
+))
+\gpvcharsize=\dimen212
+\gphcharsize=\dimen213
+\gpbasems=\dimen214
+\gpbaselw=\dimen215
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/gnuplottex/gnuplottex.sty
+Package: gnuplottex 2013/11/24 v0.8 gnuplot graphs in LaTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/moreverb/moreverb.sty
+Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks49
+\verbatim@line=\toks50
+\verbatim@in@stream=\read3
+)
+\tab@position=\count149
+\tab@size=\count150
+\listing@line=\count151
+)
+\verbatim@out=\write7
+runsystem(touch w18-test-2015691019.tex)...disabled (restricted).
+
+runsystem(rm -f w18-test-2015691019.tex)...disabled (restricted).
+
+
+
+Package gnuplottex Warning: Shell escape not enabled.
+(gnuplottex)                You'll need to convert the graphs yourself..
+
+\c@fignum=\count152
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
+ts.external.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/libraries/tikzl
+ibraryexternal.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzexternalshared.code.tex))
+Package pgfplots external lib: loading complementary code for your PGF version.
+..
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+\pgfexternal@startupbox=\box47
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_tikzlibraryexternal.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_tikzexternalshared.code.tex))
+Package pgfplots external lib: patching system driver code for your PGF version
+...
+)
+\openout6 = `adprl.auxlock'.
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryintersections.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryinterse
+ctions.code.tex
+\pgf@intersect@solutions=\count153
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarycalc.code.tex
@@ -766,14 +876,6 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.9)
 s/tikzlibraryfit.code.tex
 File: tikzlibraryfit.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.5)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarypatterns.code.tex
-File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.0 (rcs-revision 1.2)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
-s.code.tex
-File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.0 (rcs-revision 1.13)
-))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
@@ -819,26 +921,26 @@ File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
 shapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.0 (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box47
-\pgfnodeparttwobox=\box48
-\pgfnodepartthreebox=\box49
-\pgfnodepartfourbox=\box50
-\pgfnodeparttwentybox=\box51
-\pgfnodepartnineteenbox=\box52
-\pgfnodeparteighteenbox=\box53
-\pgfnodepartseventeenbox=\box54
-\pgfnodepartsixteenbox=\box55
-\pgfnodepartfifteenbox=\box56
-\pgfnodepartfourteenbox=\box57
-\pgfnodepartthirteenbox=\box58
-\pgfnodeparttwelvebox=\box59
-\pgfnodepartelevenbox=\box60
-\pgfnodeparttenbox=\box61
-\pgfnodepartninebox=\box62
-\pgfnodeparteightbox=\box63
-\pgfnodepartsevenbox=\box64
-\pgfnodepartsixbox=\box65
-\pgfnodepartfivebox=\box66
+\pgfnodepartlowerbox=\box48
+\pgfnodeparttwobox=\box49
+\pgfnodepartthreebox=\box50
+\pgfnodepartfourbox=\box51
+\pgfnodeparttwentybox=\box52
+\pgfnodepartnineteenbox=\box53
+\pgfnodeparteighteenbox=\box54
+\pgfnodepartseventeenbox=\box55
+\pgfnodepartsixteenbox=\box56
+\pgfnodepartfifteenbox=\box57
+\pgfnodepartfourteenbox=\box58
+\pgfnodepartthirteenbox=\box59
+\pgfnodeparttwelvebox=\box60
+\pgfnodepartelevenbox=\box61
+\pgfnodeparttenbox=\box62
+\pgfnodepartninebox=\box63
+\pgfnodeparteightbox=\box64
+\pgfnodepartsevenbox=\box65
+\pgfnodepartsixbox=\box66
+\pgfnodepartfivebox=\box67
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryshapes.gates.logic.US.code.tex
@@ -867,8 +969,8 @@ File: tikzlibraryautomata.code.tex 2008/07/14 v3.0.0 (rcs-revision 1.3)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.3)
-\pgf@layerbox@background=\box67
-\pgf@layerboxsaved@background=\box68
+\pgf@layerbox@background=\box68
+\pgf@layerboxsaved@background=\box69
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarychains.code.tex
@@ -902,12 +1004,12 @@ File: tikzlibrarycalendar.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.3)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.
 tex
 File: pgfcalendar.code.tex 2007/07/23 v3.0.0 (rcs-revision 1.11)
-\pgfcalendarcurrentjulian=\count148
+\pgfcalendarcurrentjulian=\count154
 )))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryfolding.code.tex
 File: tikzlibraryfolding.code.tex 2013/08/28 v3.0.0 (rcs-revision 1.3)
-\tikz@lib@fold@length=\dimen210
+\tikz@lib@fold@length=\dimen216
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryfadings.code.tex
@@ -937,9 +1039,9 @@ brarydecorations.shapes.code.tex))
 s/tikzlibrarydecorations.text.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.text.code.tex
-\pgf@lib@dec@text@box=\box69
+\pgf@lib@dec@text@box=\box70
 )
-\tikz@lib@dec@te@box=\box70
+\tikz@lib@dec@te@box=\box71
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarydecorations.footprints.code.tex
@@ -955,18 +1057,18 @@ File: tikzlibraryshadows.code.tex 2008/01/13 v3.0.0 (rcs-revision 1.3)
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/circuits/tikzlibrarycircuits.code.tex
-\tikz@lib@circ@count=\count149
-\tikzcircuitssizeunit=\dimen211
+\tikz@lib@circ@count=\count155
+\tikzcircuitssizeunit=\dimen217
 )
-\c@theorem=\count150
-\c@assumption=\count151
-\c@corollary=\count152
-\c@remark=\count153
-\c@example=\count154
-\c@note=\count155
-\c@subequation=\count156
-\c@algostep=\count157
-\c@acalgorithm=\count158
+\c@theorem=\count156
+\c@assumption=\count157
+\c@corollary=\count158
+\c@remark=\count159
+\c@example=\count160
+\c@note=\count161
+\c@subequation=\count162
+\c@algostep=\count163
+\c@acalgorithm=\count164
 )
 
 LaTeX Warning: Unused global option(s):
@@ -975,6 +1077,39 @@ LaTeX Warning: Unused global option(s):
 (./adprl.aux
 
 LaTeX Warning: Label `mdplp' multiply defined.
+
+
+LaTeX Warning: Label `monotone' multiply defined.
+
+
+LaTeX Warning: Label `shift' multiply defined.
+
+
+LaTeX Warning: Label `ineq' multiply defined.
+
+
+LaTeX Warning: Label `ineq' multiply defined.
+
+
+LaTeX Warning: Label `ineq' multiply defined.
+
+
+LaTeX Warning: Label `pref' multiply defined.
+
+
+LaTeX Warning: Label `defs' multiply defined.
+
+
+LaTeX Warning: Label `scaledttsarec' multiply defined.
+
+
+LaTeX Warning: Label `fast' multiply defined.
+
+
+LaTeX Warning: Label `slow' multiply defined.
+
+
+LaTeX Warning: Label `ineq' multiply defined.
 
 )
 \openout1 = `adprl.aux'.
@@ -1009,31 +1144,18 @@ Package xypdf Info: Line width: 0.47998pt on input line 10.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count159
-\scratchdimen=\dimen212
-\scratchbox=\box71
-\nofMPsegments=\count160
-\nofMParguments=\count161
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count162
-\MPscratchDim=\dimen213
-\MPnumerator=\count163
-\makeMPintoPDFobject=\count164
-\everyMPtoPDFconversion=\toks49
-) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+\scratchcounter=\count165
+\scratchdimen=\dimen218
+\scratchbox=\box72
+\nofMPsegments=\count166
+\nofMParguments=\count167
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count168
+\MPscratchDim=\dimen219
+\MPnumerator=\count169
+\makeMPintoPDFobject=\count170
+\everyMPtoPDFconversion=\toks52
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -1072,31 +1194,31 @@ your preamble.
  on input line 10.
 
 (./iisclogo.sty
-\log@xunitlength=\skip55
-\log@yunitlength=\skip56
+\log@xunitlength=\skip57
+\log@yunitlength=\skip58
 )
 Typesetting IISc Logo ...
  ... done
 [0
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./adprl.toc)
-\tf@toc=\write7
-\openout7 = `adprl.toc'.
+(./adprl.toc [1
 
- [1
+])
+\tf@toc=\write8
+\openout8 = `adprl.toc'.
 
-] (./adprl.lot)
-\tf@lot=\write8
-\openout8 = `adprl.lot'.
-
- [2
-
-] (./adprl.lof)
-\tf@lof=\write9
-\openout9 = `adprl.lof'.
+ [2] (./adprl.lot)
+\tf@lot=\write9
+\openout9 = `adprl.lot'.
 
  [3
+
+] (./adprl.lof)
+\tf@lof=\write10
+\openout10 = `adprl.lof'.
+
+ [4
 
 ] (./intro.tex
 Chapter 1.
@@ -1172,7 +1294,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 Package natbib Warning: Citation `BertB' on page 15 undefined on input line 34.
 
 
-Excluding 'comment' comment.
+
 Underfull \hbox (badness 10000) in paragraph at lines 32--44
 
  []
@@ -1251,14 +1373,7 @@ ut line 21.
 Package natbib Warning: Citation `Gaubert' on page 22 undefined on input line 2
 1.
 
-[22] Excluding 'comment' comment.) (./fenchel.tex [23]
-
-LaTeX Warning: Reference `AST' on page 24 undefined on input line 22.
-
-
-LaTeX Warning: Reference `mpproj' on page 24 undefined on input line 27.
-
-
+[22]) (./fenchel.tex [23]
 Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
  []
@@ -1266,47 +1381,575 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
 LaTeX Warning: Reference `minptrans' on page 24 undefined on input line 35.
 
+) (./adpminp.tex [24] [25]
 
-! Package pgfplots Error: sorry, plot file{mfile/f.dat} could not be opened.
+LaTeX Warning: Reference `shiftH' on page 26 undefined on input line 35.
 
-See the pgfplots package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.43 ...lot[smooth,black] plot file {mfile/f.dat};
-                                                  
-? x
- 
+
+Overfull \hbox (5.82751pt too wide) in paragraph at lines 34--37
+\OT1/cmr/m/n/12 Lemma 13[]. Sim-i-larly $^^E[]\OML/cmm/m/it/12 HQ[] \OMS/cmsy/m
+/n/12 ^^@ \OT1/cmr/m/n/12 ^^E[]\OML/cmm/m/it/12 HQ[] \OMS/cmsy/m/n/12 ^^T \OML/
+cmm/m/it/12 ^^O\OT1/cmr/bx/n/12 1$\OT1/cmr/m/n/12 , so it fol-lows that $\OMS/
+cmsy/m/n/12 jj\OT1/cmr/m/n/12 ^^E[]\OML/cmm/m/it/12 HQ[] \OMS/cmsy/m/n/12 ^^@ \
+OT1/cmr/m/n/12 ^^E[]\OML/cmm/m/it/12 HQ[]\OMS/cmsy/m/n/12 jj[] ^^T
+ []
+
+) (./weakproj.tex) (./anaerror.tex [26] [27]) (./expminp.tex
+
+LaTeX Warning: Reference `algo1' on page 28 undefined on input line 2.
+
+[28] [29]
+
+LaTeX Warning: Reference `algo1' on page 30 undefined on input line 41.
+
+
+LaTeX Warning: Reference `algo1' on page 30 undefined on input line 43.
+
+
+LaTeX Warning: Reference `Vapp' on page 30 undefined on input line 47.
+
+) (./mcex.tex
+
+LaTeX Warning: Reference `adderr' on page 30 undefined on input line 1.
+
+[30]
+===== Image 'adprl-figure0' is up-to-date. ======
+[31] (./mcar.tex
+Underfull \hbox (badness 10000) in paragraph at lines 41--1
+
+ []
+
+===== Image 'adprl-figure1' is up-to-date. ======
+)
+
+LaTeX Warning: Reference `ValFunc' on page 32 undefined on input line 52.
+
+[32 <./adprl-figure0.pdf> <./adprl-figure1.pdf>]
+
+Package natbib Warning: Citation `rl' on page 33 undefined on input line 76.
+
+===== Image 'adprl-figure2' is up-to-date. ======
+[33]
+===== Image 'adprl-figure3' is up-to-date. ======
+===== Image 'adprl-figure4' is up-to-date. ======
+===== Image 'adprl-figure5' is up-to-date. ======
+===== Image 'adprl-figure6' is up-to-date. ======
+===== Image 'adprl-figure7' is up-to-date. ======
+===== Image 'adprl-figure8' is up-to-date. ======
+===== Image 'adprl-figure9' is up-to-date. ======
+===== Image 'adprl-figure10' is up-to-date. ======
+===== Image 'adprl-figure11' is up-to-date. ======
+)) (./alp.tex [34 <./adprl-figure2.pdf>]
+Chapter 4.
+(./lp.tex [35
+
+] [36]
+
+Package natbib Warning: Citation `ALP' on page 37 undefined on input line 55.
+
+
+Package natbib Warning: Citation `ALP' on page 37 undefined on input line 62.
+
+
+Package natbib Warning: Citation `ALP' on page 37 undefined on input line 70.
+
+) (./lyapu.tex) (./constsamp.tex
+
+Package natbib Warning: Citation `CS' on page 37 undefined on input line 2.
+
+[37]
+
+Package natbib Warning: Citation `ALP' on page 38 undefined on input line 23.
+
+
+Package natbib Warning: Citation `SALP' on page 38 undefined on input line 23.
+
+
+Package natbib Warning: Citation `CST' on page 38 undefined on input line 23.
+
+
+Package natbib Warning: Citation `SALP' on page 38 undefined on input line 23.
+
+
+Package natbib Warning: Citation `CS' on page 38 undefined on input line 23.
+
+
+Package natbib Warning: Citation `CS' on page 38 undefined on input line 23.
+
+[38]
+
+Package natbib Warning: Citation `CS' on page 39 undefined on input line 33.
+
+[39]
+
+Package natbib Warning: Citation `CS' on page 40 undefined on input line 48.
+
+)) (./p2.tex [40]
+Chapter 5.
+(./grlp.tex [41
+
+]
+
+LaTeX Warning: Reference `schematic' on page 42 undefined on input line 20.
+
+[42]) (./lubp.tex [43] [44] [45] (./perfbnds.tex)) (./alubp.tex [46] [47]
+[48]) (./strel.tex [49]
+Underfull \hbox (badness 10000) in paragraph at lines 37--47
+
+ []
+
+[50]) (./improv.tex [51]
+
+Package natbib Warning: Citation `ALP' on page 52 undefined on input line 84.
+
+[52]) (./polbnd.tex [53] [54]) (./samp.tex) (./resdisc.tex
+
+Package natbib Warning: Citation `ALP' on page 55 undefined on input line 10.
+
+
+Package natbib Warning: Citation `CS' on page 55 undefined on input line 12.
+
+[55]
+
+Package natbib Warning: Citation `ALP' on page 56 undefined on input line 42.
+
+
+Package natbib Warning: Citation `CST' on page 56 undefined on input line 42.
+
+
+Package natbib Warning: Citation `SALP' on page 56 undefined on input line 42.
+
+[56]
+
+Package natbib Warning: Citation `dolgov' on page 57 undefined on input line 47
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
+
+ []
+
+[57]
+
+Package natbib Warning: Citation `ALP' on page 58 undefined on input line 55.
+
+
+Package natbib Warning: Citation `ALP' on page 58 undefined on input line 58.
+
+
+Package natbib Warning: Citation `ALP' on page 58 undefined on input line 60.
+
+
+Package natbib Warning: Citation `CS' on page 58 undefined on input line 61.
+
+[58] [59]
+
+Package natbib Warning: Citation `CST' on page 60 undefined on input line 96.
+
+
+Package natbib Warning: Citation `CS' on page 60 undefined on input line 96.
+
+
+Package natbib Warning: Citation `ALP-Bor' on page 60 undefined on input line 9
+9.
+
+
+Package natbib Warning: Citation `ALP-Bor' on page 60 undefined on input line 9
+9.
+
+[60]) (./concl.tex)) (./sarl.tex [61]
+Chapter 6.
+) (./p3.tex [62
+
+]
+Chapter 7.
+(./introduction.tex
+
+Package natbib Warning: Citation `kushner' on page 63 undefined on input line 2
+.
+
+
+Package natbib Warning: Citation `NAC' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `IAC' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `KAC' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BAC' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BSPSA' on page 63 undefined on input line 12.
+
+
+
+Package natbib Warning: Citation `Pet-Sch' on page 63 undefined on input line 1
+2.
+
+
+Package natbib Warning: Citation `ALP-Bor' on page 63 undefined on input line 1
+2.
+
+
+Package natbib Warning: Citation `SB1' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `Bax-Bar' on page 63 undefined on input line 1
+2.
+
+
+Package natbib Warning: Citation `Amari' on page 63 undefined on input line 12.
+
+
+
+Package natbib Warning: Citation `SMSM' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `Kak' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `SP' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `SPSA' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `TTSPSA' on page 63 undefined on input line 12
+.
+
+
+Package natbib Warning: Citation `SB-VB' on page 63 undefined on input line 12.
+
+
+
+Package natbib Warning: Citation `Mar-Tsit' on page 63 undefined on input line 
+12.
+
+
+Package natbib Warning: Citation `SB-VB2' on page 63 undefined on input line 12
+.
+
+
+Package natbib Warning: Citation `SB3' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BTS' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BO' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `BADA' on page 63 undefined on input line 12.
+
+
+Package natbib Warning: Citation `kushner' on page 63 undefined on input line 1
+3.
+
+
+Package natbib Warning: Citation `SA' on page 63 undefined on input line 13.
+
+[63
+
+]
+
+Package natbib Warning: Citation `SA' on page 64 undefined on input line 25.
+
+
+Package natbib Warning: Citation `BMSTAB' on page 64 undefined on input line 25
+.
+
+
+Package natbib Warning: Citation `SA' on page 64 undefined on input line 36.
+
+[64]
+
+Package natbib Warning: Citation `BMSTAB' on page 65 undefined on input line 54
+.
+
+
+Package natbib Warning: Citation `TTSAP' on page 65 undefined on input line 62.
+
+
+
+Package natbib Warning: Citation `BADA' on page 65 undefined on input line 62.
+
+
+Package natbib Warning: Citation `SB-VB2' on page 65 undefined on input line 62
+.
+
+
+Package natbib Warning: Citation `TTSPSA' on page 65 undefined on input line 62
+.
+
+
+Package natbib Warning: Citation `BO' on page 65 undefined on input line 62.
+
+
+Package natbib Warning: Citation `BTS' on page 65 undefined on input line 62.
+
+
+Package natbib Warning: Citation `NAC' on page 65 undefined on input line 83.
+
+
+Package natbib Warning: Citation `IAC' on page 65 undefined on input line 83.
+
+
+Package natbib Warning: Citation `KAC' on page 65 undefined on input line 83.
+
+
+Package natbib Warning: Citation `TTSAP' on page 65 undefined on input line 83.
+
+
+
+Package natbib Warning: Citation `SB-VB2' on page 65 undefined on input line 83
+.
+
+
+Package natbib Warning: Citation `BTS' on page 65 undefined on input line 83.
+
+
+Package natbib Warning: Citation `TTSAP' on page 65 undefined on input line 88.
+
+
+
+Package natbib Warning: Citation `SA' on page 65 undefined on input line 89.
+
+
+Package natbib Warning: Citation `BMSTAB' on page 65 undefined on input line 93
+.
+
+
+Package natbib Warning: Citation `SA' on page 65 undefined on input line 93.
+
+
+Package natbib Warning: Citation `SA' on page 65 undefined on input line 96.
+
+
+Package natbib Warning: Citation `TTSAP' on page 65 undefined on input line 96.
+
+
+
+Package natbib Warning: Citation `SA' on page 65 undefined on input line 97.
+
+[65]
+
+Package natbib Warning: Citation `SA' on page 66 undefined on input line 108.
+
+
+Package natbib Warning: Citation `SA' on page 66 undefined on input line 123.
+
+
+Package natbib Warning: Citation `TTSAP' on page 66 undefined on input line 123
+.
+
+
+Package natbib Warning: Citation `SA' on page 66 undefined on input line 129.
+
+[66]) (./oderesults.tex
+
+Package natbib Warning: Citation `SA' on page 67 undefined on input line 18.
+
+[67] [68]
+
+Package natbib Warning: Citation `SA' on page 69 undefined on input line 86.
+
+[69] [70] [71]
+Overfull \hbox (17.2241pt too wide) in paragraph at lines 181--210
+\OT1/cmr/m/n/12 Since $\OML/cmm/m/it/12 ^^Q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 
+T[]; ^^Q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T[]; p\OT1/cmr/m/n/12 )) \OMS/cmsy/
+m/n/12 2 \OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/
+12 (\OML/cmm/m/it/12 q\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^N=\OT1/cmr/m/n/12 2
+)$ and from [] we can con-clude that $\OML/cmm/m/it/12 ^^Q[]\OT1/cmr/m/n/12 (2\
+OML/cmm/m/it/12 T[]; p\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
+ []
+
+) (./main.tex (./main_window.tex [72]
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
+
+ []
+
+[73]) (./faster.tex [74] [75]
+
+Package natbib Warning: Citation `SA' on page 76 undefined on input line 67.
+
+
+Package natbib Warning: Citation `SA' on page 76 undefined on input line 68.
+
+
+Package natbib Warning: Citation `SA' on page 76 undefined on input line 77.
+
+[76]
+
+Package natbib Warning: Citation `SA' on page 77 undefined on input line 93.
+
+[77]
+Overfull \hbox (13.51233pt too wide) in paragraph at lines 117--151
+\OT1/cmr/m/n/12 We also know from Lemma 56[] that there ex-ists $\OML/cmm/m/it/
+12 r[]$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/12 c[]$\OT1/cmr/m/n/12 , and $\OML/cmm/
+m/it/12 T[]$ \OT1/cmr/m/n/12 such that $\OMS/cmsy/m/n/12 k \OML/cmm/m/it/12 ^^^
+[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 T[]\
+OT1/cmr/m/n/12 )) \OMS/cmsy/m/n/12 k$
+ []
+
+[78]) (./slower.tex [79]
+
+Package natbib Warning: Citation `SA' on page 80 undefined on input line 49.
+
+
+Package natbib Warning: Citation `SA' on page 80 undefined on input line 101.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
+
+ []
+
+[80]
+
+Package natbib Warning: Citation `SA' on page 81 undefined on input line 120.
+
+[81] [82])) (./example.tex
+
+Package natbib Warning: Citation `NAC' on page 83 undefined on input line 2.
+
+
+Package natbib Warning: Citation `NAC' on page 83 undefined on input line 2.
+
+
+Package natbib Warning: Citation `NAC' on page 83 undefined on input line 2.
+
+[83]
+
+Package natbib Warning: Citation `NAC' on page 84 undefined on input line 49.
+
+[84]
+
+Package natbib Warning: Citation `NAC' on page 85 undefined on input line 86.
+
+
+Package natbib Warning: Citation `NAC' on page 85 undefined on input line 87.
+
+
+Package natbib Warning: Citation `NAC' on page 85 undefined on input line 89.
+
+[85]
+
+Package natbib Warning: Citation `NAC' on page 86 undefined on input line 104.
+
+
+Package natbib Warning: Citation `NAC' on page 86 undefined on input line 106.
+
+
+Package natbib Warning: Citation `ndp' on page 86 undefined on input line 115.
+
+[86]
+
+Package natbib Warning: Citation `NAC' on page 87 undefined on input line 121.
+
+[87]
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
+
+ []
+
+
+Package natbib Warning: Citation `PJS' on page 88 undefined on input line 158.
+
+
+Package natbib Warning: Citation `PJS' on page 88 undefined on input line 165.
+
+[88]
+
+Package natbib Warning: Citation `NAC' on page 89 undefined on input line 186.
+
+
+Package natbib Warning: Citation `sitavg' on page 89 undefined on input line 18
+6.
+
+
+Package natbib Warning: Citation `NAC' on page 89 undefined on input line 189.
+
+
+Package natbib Warning: Citation `NAC' on page 89 undefined on input line 189.
+
+[89]
+
+Package natbib Warning: Citation `NAC' on page 90 undefined on input line 206.
+
+) (./disc.tex
+
+Package natbib Warning: Citation `SA' on page 90 undefined on input line 6.
+
+) (./appendix.tex [90] [91]
+
+Package natbib Warning: Citation `SA' on page 92 undefined on input line 38.
+
+
+Package natbib Warning: Citation `SA' on page 92 undefined on input line 38.
+
+
+Overfull \hbox (48.52614pt too wide) in paragraph at lines 76--76
+[] 
+ []
+
+[92]
+
+Package natbib Warning: Citation `SA' on page 93 undefined on input line 84.
+
+[93]
+
+Package natbib Warning: Citation `SA' on page 94 undefined on input line 89.
+
+))
+No file adprl.bbl.
+No file adprl.ind.
+
+Package natbib Warning: There were undefined citations.
+
+[94] (./adprl.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 30558 strings out of 493109
- 755380 string characters out of 6135011
- 1073206 words of memory out of 5000000
- 33300 multiletter control sequences out of 15000+600000
- 22726 words of font info for 93 fonts, out of 8000000 for 9000
+ 31909 strings out of 493109
+ 789145 string characters out of 6135011
+ 1128490 words of memory out of 5000000
+ 34483 multiletter control sequences out of 15000+600000
+ 24848 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,16n,85p,3246b,1374s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+ 57i,20n,77p,3246b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
 local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
 cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
 l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
 texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssdc10.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/
-texmf-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcmss8.pfb>
-Output written on adprl.pdf (27 pages, 278661 bytes).
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmssdc10.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014/texmf
+-dist/fonts/type1/public/amsfonts/euler/eurb10.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/public/amsfonts/latxfont/lcmss8.pfb>
+Output written on adprl.pdf (99 pages, 555092 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
+ 480 PDF objects out of 1000 (max. 8388607)
+ 323 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 97 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

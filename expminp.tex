@@ -2,8 +2,9 @@
 We test our MPADP algorithm (Algorithm~\ref{algo1}) on a $10 \times 10$ grid world problem. There are a total of $100$ states, i.e., $S=\{1,2,\ldots,100\}$, and a grid position with the co-ordinate $(i,j)$ is encoded as the state $s=(i-1)\times 10+j$. The reward matrix is as given in Table~\ref{reward}, where each entry is an integer between $1$ and $10$. 
 The grid world problem is used to model terrain exploration by autonomous decision making agents (robots).
 In each grid position, the agent has $8$ actions corresponding to the $8$ possible directions. In the corners, fewer directions are feasible, and the rest of the directions lead to the current grid position. So $A=\{1,2,\ldots,8\}$. Actions fail with probability of $0.1$ when no movement is made and the same grid position is retained, i.e., $p_a(s,s)=0.1, \mb \forall \mb a \in A, \mb \forall \mb s \in S$, and with probability $0.9$ the agent reaches the intended grid position.
-\begin{table}
-\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c}\hline
+\FloatBarrier
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
 &$x_{1}$	&$x_{2}$	&$x_{3}$	&$x_{4}$	&$x_{5}$	&$x_{6}$	&$x_{7}$	&$x_{8}$	&$x_{9}$	&$x_{10}$	\\ \hline 
 $y_{1}$	&2	&5	&9	&5	&8	&3	&6	&10	&7	&3	\\ \hline 
 $y_{2}$	&10	&10	&7	&1	&4	&4	&3	&8	&4	&4	\\ \hline 
@@ -19,6 +20,7 @@ $y_{10}$	&9	&2	&3	&2	&1	&5	&1	&8	&6	&5	\\ \hline
 \caption{Grid world with rewards}
 \label{reward}
 \end{table}
+
 Let $\{\phi_j, j=1,\ldots,k\}, \phi_j \in \Rm^n$ and $\{\phi^i,i=1,\ldots,n\}, \phi^i \in \Rm^k$ be the columns and rows respectively of the feature matrix $\Phi$. Choice of features in the $\minp$ basis is similar to the way features are designed in the conventional basis, wherein it is desirable to have the features $\phi^{s}$ and $\phi^{s'}$ of states $s$ and $s'$ to be orthogonal if the states $s$ and $s'$ are unrelated or dissimilar. This translates to the following condition in the case of $\minp$ basis:
 \begin{align}\label{orth}
 <\phi^s,\phi^{s'}>=+\infty.
@@ -43,7 +45,9 @@ The error values are given in Table~\ref{errtable} for discount factors $0.9$ an
 \tilde{u}=\underset{a \in A}{\arg\max}\bigg( g(s)+\alpha \sum p_a(s,s')\tilde{J}(s')\bigg), \\\text{where} \mbox{ } \tilde{J}=\Phi\om r_{opt}.\nn
 \end{align}
 The results are plotted in Fig.~\ref{Vapp}. Note that $\tilde{J}\geq J^*$. Also the error values seen in the table obey the error bounds. We also note that the algorithm finds the optimal actions for about $75$ states.
-\begin{table}
+
+\FloatBarrier
+\begin{table}[H]
 \begin{tabular}{|c|c|c|}\hline
 Error Term & Error for $\alpha=0.9$ & Error for $\alpha=0.99$\\ \hline
 $||J^*-\Phi\om r_{opt}||_\infty$ & $9.2768$ & $18.657$\\ \hline
@@ -53,7 +57,7 @@ $||J^*-J_{\tilde{u}}||_\infty$ & $9.3248$ & $99.149$\\ \hline
 \label{errtable}
 \end{table}
 
-%\begin{comment}
+\begin{comment}
 \begin{figure}
 \begin{minipage}{0.45\textwidth}
 \begin{tabular}{c}
@@ -91,4 +95,4 @@ $||J^*-J_{\tilde{u}}||_\infty$ & $9.3248$ & $99.149$\\ \hline
 \caption{Optimal, Approximate and Greedy Policy Value Functions}
 \label{Vapp}
 \end{figure}
-%\end{comment}
+\end{comment}

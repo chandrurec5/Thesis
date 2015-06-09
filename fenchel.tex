@@ -34,22 +34,24 @@ Also, it is important to note that \eqref{ST} deals with projecting a function, 
 \begin{example}
 Let $f(x)=x^2$, and let $a=(a(j),j=1,\ldots,5)=(-0.8,-0.4,0,0.4,0.8)$, and $\phi_j(x)=2|x-a(j)|$. Then $\minp$ LFA of $f(x)$ via the $\min$-Transform using the $\{\phi_j(x),j=1,\ldots,5\}$ as the $\minp$ basis, is given in the Figure~\ref{minptrans}.
 \end{example}
+\begin{comment}
 \begin{figure}\label{illust}
 \begin{tikzpicture}[scale=1]
     \begin{axis}[
 	xlabel=x,
         ylabel=f(x),
 	]
-    \addplot[smooth,black] plot file {mfile/f.dat};
-    \addplot[smooth,black] plot file {mfile/fproj.dat};
-    \addplot[dashed,black] plot file {mfile/f1.dat};
-    \addplot[dashed,black] plot file {mfile/f2.dat};
-    \addplot[dashed,black] plot file {mfile/f3.dat};
-    \addplot[dashed,black] plot file {mfile/f4.dat};
-    \addplot[dashed,black] plot file {mfile/f5.dat};
-%    \addplot[dashed,black] plot file {mfile/f6.dat};
+    \addplot[smooth,black] plot file {mfiles/f.dat};
+    \addplot[smooth,black] plot file {mfiles/fproj.dat};
+    \addplot[dashed,black] plot file {mfiles/f1.dat};
+    \addplot[dashed,black] plot file {mfiles/f2.dat};
+    \addplot[dashed,black] plot file {mfiles/f3.dat};
+    \addplot[dashed,black] plot file {mfiles/f4.dat};
+    \addplot[dashed,black] plot file {mfiles/f5.dat};
+%    \addplot[dashed,black] plot file {mfiles/f6.dat};
     \end{axis}
     \end{tikzpicture}
     \caption{$\minp$ LFA of $f(x)$}
     \label{minptrans}
 \end{figure}
+\end{comment}

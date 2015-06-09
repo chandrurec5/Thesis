@@ -1,0 +1,39 @@
+\section{ Approximate $Q$ Iteration}\label{adpminp}
+We now present an ADP scheme based on solving the PBE in $\minp$ basis to compute $\tilde{Q}(\approx Q^*)$. Our ADP scheme successfully addresses the two shortcomings of the ADP scheme in conventional basis. First, we establish contraction of the projected Bellman operator in the $L_\infty$ norm. This enables us to show that our recursion to compute $\tilde{Q}$ converges. We compute a greedy policy $\tilde{u}(s)=\max_a\tilde{Q}(s,a)$, and an approximate value function $\tilde{J}(s)=\max_a\tilde{Q}(s,a)$. Secondly, we also bound $||\tilde{Q}-Q^*||$ in the $\max$ norm which along with Lemma~\ref{subopt} gives a guarantee for $J_{\tilde{u}}$.\\
+We are interested in solving the following PBE:%\footnote{We did not consider $\Phi \om r^*=\Pi_M T \Phi \om r^*$ since it approximates only $J^*$ and is superseded by \eqref{qpbe} which computes approximate $Q^*\approx\tilde{Q}$. Thus \eqref{qpbe} addresses both $\emph{prediction}$ and $\emph{control}$ problems. We wish to remind the reader of the discussion in section~\ref{appqlearn} on the issues with \eqref{qpbe} in conventional basis.}
+\begin{align}\label{qpbe}
+\Phi \om r^*=\Pi_M H \Phi \om r^*.
+\end{align}
+Since we want to approximate $Q^*$, $\Phi$ is an $nd\times k$ feature matrix, and $Q^*(s,a)\approx\tilde{Q}(s,a)=\phi^{(s-1)\times d+a}\om r^*$, where $\phi^i$ is the $i^{th}$ row of $\Phi$.
+The Approximate $Q$ Iteration (AQI) algorithm is given by
+\begin{align}\label{projqiter}
+\Phi \om r_{n+1}=\Pi_M H \Phi \om r_n.
+\end{align}
+The following results help us to establish the fact that the projected Bellman operator $\Pi_M H\colon \Rm^{\nd}\ra \Rm^{\nd}$ is a contraction map in the $L_\infty$ norm. In the discussion that follows, $\mathbf{1} \in \R^\nd$ is a vector with all components equal to $1$.
+\begin{lemma}\label{monotone}
+For $Q_1, Q_2 \in \Rm^{\nd}$, such that $Q_1\geq Q_2$, we have $\Pi_M Q_1\geq \Pi_M Q_2$.
+\end{lemma}
+\begin{proof}
+Follows from the definition of $\Pi_M$ in \eqref{smproj}.
+\end{proof}
+\begin{lemma}\label{shift}
+Let $Q\in \Rm^{\nd}$, $V_1=\Pi_M Q$ be its projection onto $\V$. For $k\in \R$ the projection of $Q+k\mathbf{1}$ is $V_2=\Pi_M Q+k\mathbf{1}$.
+\end{lemma}
+\begin{proof}
+We know that since $V_1\geq Q$, $V_1+k\mathbf{1}\geq Q+k\mathbf{1}$, and from the definition of the $\Pi_M$ in \eqref{smproj} $V_2\leq V_1+k\mathbf{1}$. Similarly $V_2-k\mathbf{1}\geq Q$, so $V_1\leq V_2-k\mathbf{1}$.
+\end{proof}
+\begin{theorem}\label{contra}
+The projected Bellman operator $\Pi_M H$ is a contraction map in $L_\infty$ norm with modulus $\alpha$.
+\end{theorem}
+\begin{proof}
+Let $Q_1,Q_2\in\Rm^{\nd}$, and $\epsilon\stackrel{def}{=}||Q_1-Q_2||_\infty$, then by Lemma~\ref{monotone} we have
+\begin{align}
+\Pi_M H Q_1- \Pi_M HQ_2&\leq \Pi_M H (Q_2+\epsilon\mathbf{1})-\Pi_M HQ_2\nn\\
+				&=\Pi_M (H Q_2 +\alpha\epsilon\mathbf{1})-\Pi_M HQ_2\nn\\
+				&=\alpha\epsilon\mathbf{1}.
+\end{align}
+Here the equality in second line is due to Lemma~\ref{shiftH}, and the final line follows from Lemma~\ref{shift}. Similarly $\Pi_M H Q_2- \Pi_M HQ_1\leq \alpha\epsilon\mathbf{1}$, so it follows that $||\Pi_M HQ_1-\Pi_MHQ_2||_\infty\leq \alpha ||Q_1-Q_2||_\infty$.
+\end{proof}
+\begin{corollary}\label{minpaviconv}
+AQI in \eqref{projqiter} converges to a fixed point $r^*$ such that $\Phi \om r^*=\Pi_M H \Phi \om r^*$.
+\end{corollary}
