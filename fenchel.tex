@@ -1,0 +1,55 @@
+\section{Fenchel Dual and Projection on Subsemimodules}\label{fenchel}
+In this section, we demonstrate the connections between the $\emph{Fenchel-Legendre}$ transform (FLT) and the $\minp$ projection defined in \eqref{smproj}. Given a function $f \colon \R^n \rightarrow \R$, its FLT is defined by $f^* \colon \R^n \ra \R$, with
+\begin{align}\label{FT}
+f^*(y)=\sup_{x \in \R^n}(y^\top x-f(x)), y \in \R^n.
+\end{align}
+If $f$ is convex, then it can be recovered as $f=f^{*^*}$, i.e.,
+\begin{align}\label{FFT}
+f(x)=f^{*^*}(x)=\sup_{y \in \R^n}(x^\top y-f^*(y)), x \in \R^n.
+\end{align}
+We can rewrite \eqref{FT} as below
+\begin{align}\label{FTRR}
+f^*(y)=\sup_{x \in \R^n}(f_y(x)-f(x)), y \in \R^n, \text{ where }f_y(x)=y^\top x.
+\end{align}
+Now instead of considering functions $f_y(x)$ indexed by $y \in \R^n$, we consider the sequence $\{\phi_j\}, j \in \mathcal{J}=\{1,2,\ldots,k\}, \phi_j \colon \R^n \ra \R$. Then \eqref{FTRR} can be modified as below:
+\begin{align}\label{ST}
+f^*(j)=\sup_{x \in \R^n}(\phi_j(x)-f(x)), j \in \mathcal{J}.
+\end{align}
+We call \eqref{ST}, the $\sup$-Transform or the $\max$-Transform. It is easy to check that $\phi_j(x)-f^*(j) <f(x), \forall x \in \R^n, j \in \mathcal{J}$. Since our index set in \eqref{ST} is finite (as opposed to $\R^n$ as in \eqref{FT} ), it is not necessary that the original function $f$ can be $\emph{reconstructed}$ from $f^*(j), j \in \mathcal{J}$. However, we can get an approximation $\tilde{f}$ as below:
+\begin{align}\label{AST}
+f(x)\approx\tilde{f}(x)=\sup_{j \in \mathcal{J}}(\phi_j(x)-f^*(j)).
+\end{align}
+In the light of \eqref{ST} and \eqref{AST}, the projection in \eqref{smproj} is nothing but the $\min$-Transform (as opposed to the $\max$-Transform \eqref{ST}). It is more clear if we rewrite \eqref{smproj} for the case when $\mathcal{V}=Span\{\phi_j|\phi_j \in \Rm^n, j=1,\ldots,k)$. Let $\Pi_M u=\Phi \om r^u$, then one can see that
+\begin{align}
+\Pi_M u&=\{\min\Phi\om r|\Phi \om r \geq u, r \in \Rm^k\}.\\
+r^u(j)&= \min_{i =1,2,\ldots, n} (\phi_j(i)-u(i)), \forall j=1,2,\ldots,k.\label{mpproj}
+\end{align}
+Note the similarity between $r^u(j)$ in \eqref{mpproj} and $f^*(j)$ in \eqref{ST}.
+Then the approximation/projection of $u$ onto $\mathcal{V}$ is given by $\tilde{u}=\Pi_M u=\Phi \om r^u$ with
+\begin{align}\label{mplfa}
+\Pi_M u(i)&=-\min_{j=1,\ldots,k}(\phi_j(i)+r^u(j))\nn\\
+&=\phi_1(i) \om r^u(1)\op \ldots \op \phi_k(i) \om r^u(k).
+\end{align}
+Also, it is important to note that \eqref{ST} deals with projecting a function, while \eqref{smproj} deals with projecting the elements of $n$-dimensional semimodule. Nevertheless, the spirit of the projection is similar in both cases. Also, $\phi_j(i)+r^u_j -u(i)>0$, i.e., the $\min$-Transform approximates the given element $u$ by point-wise minimum of functions that upper bound $u$. We end this section with the following illustration.\\
+\begin{example}
+Let $f(x)=x^2$, and let $a=(a(j),j=1,\ldots,5)=(-0.8,-0.4,0,0.4,0.8)$, and $\phi_j(x)=2|x-a(j)|$. Then $\minp$ LFA of $f(x)$ via the $\min$-Transform using the $\{\phi_j(x),j=1,\ldots,5\}$ as the $\minp$ basis, is given in the Figure~\ref{minptrans}.
+\end{example}
+\begin{figure}\label{illust}
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[
+	xlabel=x,
+        ylabel=f(x),
+	]
+    \addplot[smooth,black] plot file {mfile/f.dat};
+    \addplot[smooth,black] plot file {mfile/fproj.dat};
+    \addplot[dashed,black] plot file {mfile/f1.dat};
+    \addplot[dashed,black] plot file {mfile/f2.dat};
+    \addplot[dashed,black] plot file {mfile/f3.dat};
+    \addplot[dashed,black] plot file {mfile/f4.dat};
+    \addplot[dashed,black] plot file {mfile/f5.dat};
+%    \addplot[dashed,black] plot file {mfile/f6.dat};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{$\minp$ LFA of $f(x)$}
+    \label{minptrans}
+\end{figure}

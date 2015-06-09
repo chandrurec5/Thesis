@@ -1,0 +1,38 @@
+\section{$\minp$ linear functions}\label{semiring}
+The $\Rm$ semiring is obtained by replacing multiplication ($\times$) by $+$, and addition ($+$) by $\min$.
+\begin{definition}
+\begin{align}
+&\text{Addition:} &x \op y&= \min(x,y).\nn\\
+&\text{Multiplication:} &x \om y&= x+y.\nn
+\end{align}
+\end{definition}
+Henceforth we use, $(+, \times)$ and $(\op,\om)$ to respectively denote the conventional and $\Rm$ addition and multiplication respectively.
+%We later justify the choice of $\minp$ linear basis for the discounted reward MDP setting.\\
+A Semimodule over a semiring can be defined in a similar manner to vector spaces over fields. In particular we are interested in the semimodule $\mathcal{M}=\Rm^n$ (since $J^* \in \Rm^n$). Given $u, v \in \Rm^n$, and $\lambda \in \Rm$, we define addition and scalar multiplication as follows:
+\begin{definition}
+\begin{align}
+(u\op v)(i)&=\min\{u(i),v(i)\}=u(i)\op v(i), \forall i=1,2,\ldots,n.\nn\\
+(u\om \lambda)(i)&=u(i)\om \lambda=u(i)+\lambda, \forall i=1,2,\ldots,n.\nn
+\end{align}
+\end{definition}
+Similarly one can define the $\R_{\max}$ semiring which has the operators $\max$ as addition and $+$ as multiplication.\\
+\indent It is a well known fact that deterministic optimal control problems with cost/reward criterion are $\minp$/$\maxp$ linear (\cite{akian,Gaubert,mc2009,gaubert2011} ). However, it is straightforward to show that the Bellman operator $T$ (as well as $H$) in \eqref{bellops}  corresponding to infinite horizon discounted reward MDPs is neither $\minp$ linear nor $\maxp$ linear. Nevertheless, the motivation behind developing ADP methods based on $\minp$ LFAs is to explore them as an alternative to the conventional basis representation. \\
+%Thus the aim is to understand the kind of convergence guarantees and error bounds that are possible in the $\minp$ LFAs.\\
+Given a set of basis functions $\{\phi_i,i=1,\ldots,k\}$, we define the $\minp$ linear span to be $\mathcal{V}=\{v|v=\Phi\om r\stackrel{def}{=}\min(\phi_1+r(1),\ldots,\phi_k+r(k)), r \in \Rm^k\}$. Thus $\mathcal{V}$ is a subsemimodule. In the context of value function approximation, we would want to project quantities in $\Rm^n$ onto $\mathcal{V}$. The $\minp$ projection operator $\Pi_M$ works as follows (\cite{akian,cohen1996kernels,Gaubert}):
+\begin{align}\label{smproj}
+\Pi_M u=\min\{ v | {v \in \mathcal{V}}, v \geq u\}, \forall u \in \mathcal{M}.
+\end{align}
+We can write the PBE in the $\minp$ basis:
+\begin{align}\label{projminpbasic}
+v&=\Pi_M Tv, v\in \V\nn\\
+\Phi \om r^*&=\min\{\Phi \om r^*\in \V|\Phi\om r^*\geq T \Phi \om r^*\}.
+\end{align}
+%Our choice of $\minp$ basis for reward problem is justified by the similarity in the structure of \eqref{projminpbasic} and the linear programming (LP) formulation of the infinite horizon discounted reward MDP.
+Thus by making use of $\minp$ LFAs and the projection operator $\Pi_M$ we aim to find the minimum upper bound to $J^*$/$Q^*$. 
+%A closely related ADP method is the approximate linear program (ALP), however, significantly differs from the formulation in \eqref{projminpbasic} in the algorithmic implementation and performance bounds, and a detailed discussion is out of scope of the paper.
+\begin{comment}
+\begin{align}\label{alp}
+ &\mbox{ }\min ~c^\top \Phi r \\
+      &\quad s.t\quad \Phi r(s)\geq g(s,a)+\alpha\sum_{s'}p_a(s,s')(\Phi r)(s'),\forall s \in S, a \in A\nn
+\end{align}
+\end{comment}

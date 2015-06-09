@@ -1,0 +1,59 @@
+\section{Variational Approximate Q Iteration}\label{weakproj}
+The projection operator $\Pi_M$ used in \eqref{projqiter} is exact. Let $v=\Pi_M u$, then for test vectors $w_i \in \Rm^n, i=1,\ldots,m$ it follows from the definition of $\Pi_M$ that
+\begin{align}
+w_i^\top v\geq w_i^\top u\nn
+\end{align}
+where the dot product $x^\top y=\min^n_{i=1}(x(i)+y(i))$. Let $W$ denote the $nd\times m$ test matrix whose columns are $w_i$. Now we shall define the approximate projection operator to be
+\begin{align}\label{appproj}
+\Pi^W_M u=\min\{v \in \mathcal{V}| W^\top v\geq W^\top u \}.
+\end{align}
+The superscript in $\Pi_M^W$ denotes the test matrix $W$. The Variational Approximate $Q$ Iteration (VAQI) is given by
+\begin{align}\label{appprojqiter}
+\Phi \om r_{n+1}= \Pi^W_M H\Phi \om r_n.
+\end{align}
+Lemmas~\ref{monotone},~\ref{shift}, and Theorem~\ref{contra} continue to hold if $\Pi_M$ is replaced with $\Pi^W_M$. Thus by Corollary~\ref{minpaviconv}, we know that \eqref{appprojqiter} converges to a unique fixed point $r^*_W$ such that $\Phi \om r^*_W=\Pi^W_M H\Phi \om r^*_W$.\vspace{-2pt}
+\begin{comment}
+\begin{theorem}\label{eboundapp}
+Let $\tilde{r}$ be such that $\tilde{r}=\arg\min_r||Q^*-\Phi\om r||_\infty$. Let $r^*$ be the fixed point of the iterates in \eqref{appprojqiter}, then
+\begin{align}
+||Q^*-\Phi\om r^*||_\infty&\leq \frac{2}{1+\alpha}(||Q^*-\Phi\om \tilde{r}||_\infty\nn\\&\mbox{  }+||\Phi\om \tilde{r}-\Pi_M^W \Phi\om \tilde{r}||_\infty)
+\end{align}
+\end{theorem} 
+\begin{proof}
+Let $\epsilon=||Q^*-\Phi\om\tilde{r}||_\infty$, by contraction property of $H$ (Lemma~\ref{maxnorm}) we know that
+\begin{align}
+||HQ^*-H\Phi\om \tilde{r}||_\infty\leq \alpha \epsilon. \nn
+\end{align}
+So have $||\Phi\om\tilde{r}-H\Phi\om\tilde{r}||_\infty\leq (1+\alpha)\epsilon$. Then
+\begin{align}
+||\Phi\om\tilde{r}-\Pi^W_M H\Phi \om \tilde{r}||_\infty&=||\Phi\om\tilde{r}-\Pi^W_M \Phi \om \tilde{r}||_\infty\nn\\&+||\Pi^W_M\Phi\om\tilde{r}-\Pi^W_M H\Phi \om \tilde{r}||_\infty\nn
+\end{align}
+Now
+\begin{align}
+\Pi^W_M \Phi\om\tilde{r}-\Pi^W_M H\Phi \om \tilde{r}&\leq\Pi^W_M \Phi\om\tilde{r}\nn\\&-\Pi^W_M (\Phi \om \tilde{r}-(1+\alpha)\epsilon)\nn\\
+&=(1+\alpha)\epsilon\nn
+\end{align}
+Similarly $\Pi^W_M H\Phi \om \tilde{r}-\Pi^W_M\Phi\om\tilde{r}\leq (1+\alpha)\epsilon$, and hence 
+\begin{align}
+||\Phi\om\tilde{r}-\Pi^W_M H\Phi \om \tilde{r}||_\infty\leq (1+\alpha)\epsilon+\beta,
+\end{align}
+where $\beta=||\Phi\om\tilde{r}-\Pi^W_M \Phi \om \tilde{r}||_\infty$. 
+Now consider the iterative scheme in \eqref{appprojqiter} with $r_0=\tilde{r}$, and 
+\begin{align}
+||Q^*-\Phi\om r^*||_\infty&=||Q^*-\Phi\om r_0+\Phi\om r_0\nn\\&-\Phi\om r_1+\ldots-\Phi\om r^*||_\infty\nn\\
+&\leq ||Q^*-\Phi\om r_0||_\infty+||\Phi\om r_0-\Phi\om r_1||_\infty\nn\\&+||\Phi\om r_1-\Phi\om r_2||_\infty+\ldots\nn\\
+&\leq \epsilon+(1+\alpha)\epsilon+\beta+\alpha((1+\alpha)\epsilon+\beta)+\ldots\nn\\
+&=\epsilon(\frac{1+\alpha}{1-\alpha}+1)+\frac{\beta}{1-\alpha}\nn\\
+&=\frac{2\epsilon+\beta}{1-\alpha}\nn
+\end{align}
+\end{proof}
+\begin{corollary}\label{polperf}
+Let $r^*$ and $r^*_W$ be the fixed points of iterations \eqref{projqiter} and \eqref{appprojqiter} respectively, and let $\tilde{Q}=\Phi \om r^*$, $\tilde{Q}_W=\Phi \om r^*_W$. The greedy policies $\tilde{u}(s)=\arg\max_a \tilde{Q}(s,a)$ and $\tilde{u}_W(s)=\arg\max_a \tilde{Q}_W(s,a)$ obey
+\begin{align}
+||J_{\tilde{u}}-J^*||\leq \frac{2(2\epsilon)}{(1-\alpha)^2}, ||J_{\tilde{u}_W}-J^*||\leq \frac{2(2\epsilon+\beta)}{(1-\alpha)^2}
+\end{align}
+\end{corollary}
+\begin{proof}
+Follows from Theorem~\ref{eboundapp} and Lemma~\ref{subopt}, and the observation that the term $\beta$ is the error due to the usage of $\Pi^W_M$. Thus for solution to \eqref{qpbe} $\beta=0$.
+\end{proof}
+\end{comment}

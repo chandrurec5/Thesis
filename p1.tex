@@ -1,1 +1,37 @@
 \chapter{Approximate Dynamic Programming in $\minp$ linear basis}
+A host of ADP methods are based on the PBE and have been found to be useful in practice. The main application of the PBE is for approximate policy evaluation, i.e., to compute $\tilde{J}_u$, an approximation to the value function $J_u$ of policy $u$. Due to the mismatch in the norms, i.e, the linear least squares projection operator based on the $L_2$-norm and the $L_\infty$-norm of the Bellman operator $T$, one cannot use the PBE to obtain a direct approximation to $J^*$. Thus in order to solve the problem of control, $\tilde{J}_u$ is used to compute a one-step greedy policy. However, again due to the mismatch in the norms, i.e., $L_2$-norm of the linear least squares projection and the $L_\infty$ norm required for policy improvement (Lemma~\ref{subopt}), the one-step greedy policy need not necessarily be an improvement. This leads to a phenomenon called \emph{policy-chattering} \cite{dpchapter} where looping within of bad policies can occur. Further, such policy-chattering can be demonstrated in simple examples as well \cite{dpchapter}. Thus, though the approximate value function obtained by solving the PBE offers guarantees for prediction it does not offer any guarantees for the control problem, a significant shortcoming of the PBE based methods.\\
+%However, an important shortcoming of the PBE based methods is the phenomenon called \emph{policy-chattering}. Such policy-chattering behavior can be demonstrated even on simple MDPs. 
+%This happens due to the mismatch in the norms, i.e, the linear least squares projection operator based on the $L_2$-norm and the $L_\infty$ norm required for policy improvement (Lemma~\ref{subopt}). Thus, though the approximate value function obtained by the solving the PBE offers guarantees for prediction it does not offer any guarantees for the control problem, a significant shortcoming of the PBE based methods.\\
+\section{Projected Bellman Equation}
+A large class of ADP methods compute $r^*$ to be the solution to the projected Bellman equation (PBE) given below:
+\begin{align}\label{pbelong}
+\Phi r^*=\Phi (\Phi ^\top D_u\Phi)^{-1}\Phi^\top T_u\Phi r^*,
+\end{align}
+where $T_u$ is the Bellman operator corresponding to an SDP $u$ and $D_u$ is a $n\times n$ diagonal matrix whose diagonal entries are the stationary probabilities of the states under the SDP $u$. The PBE can be written in short as 
+\begin{align}\label{pbe}
+\Phi r^*=\Pi T_u \Phi r^*,
+\end{align} where $\Pi=\Phi (\Phi ^\top D_u\Phi)^{-1}\Phi^\top$ is the projection operator. Notice that approximate value function $\tj=\Phi r^*$ obtained by solving the PBE \eqref{pbe} is an approximation only to $J_u$ and not $J^*$. This scenario is unavoidable because $T_u$ cannot be replaced by $T$ in \eqref{pbe}, since $\Pi T$ cannot be guaranteed to be a contraction map. As a result, an equation of the form $\Phi r=\Pi T\Phi r$ need not have a solution. Thus, the PBE can only be used for approximate policy evaluation, i.e., to compute $\tilde{J}_u\approx J_u$. Nevertheless, the solution to the PBE offers error bounds for the prediction problem and is given below:
+\begin{align}\label{errbnd}
+||J_u-\Phi r^*||_D \leq \frac{1}{\sqrt{1-\alpha^2}}||J_u-\Pi J_u||_D.
+\end{align}
+In order to address the problem of control, one resorts to approximate policy improvement (API) wherein a one-step look ahead policy is derived. The API scheme is given in Algorithm~\ref{appoliter}
+\FloatBarrier 
+\begin{algorithm}[H]
+\caption{Approximate Policy Iteration (API)}
+\begin{algorithmic}[1]
+\STATE Start with any policy $u_0$
+\FOR{$i=0,1,\ldots,n$} 
+\STATE \label{appeval}Approximate policy evaluation $\tilde{J}_{i}= \Phi r^*_i$, where $\Phi r^*_i=\Pi T_{u_i}\Phi r^*_i$.
+\STATE Improve policy $u_{i+1}(s)=\arg\max_a (g_a(s)+\alpha\sum_{s'}p_a(s,s')\tilde{J}_{i}(s'))$.
+\ENDFOR
+\RETURN $u_n$
+\end{algorithmic}
+\label{appoliter}
+\end{algorithm}
+The performance guarantee of API can be stated as follows:
+\begin{lemma}\label{pgapi}
+If at each step $i$ one can guarantee that $||\tilde{J}_i-J_{u_i}||_\infty\leq \delta$, then one can show that $\lim_{n\ra\infty}||J_{u_i}-J^*||\leq \frac{2\delta\alpha}{(1-\alpha)^2}$.
+\end{lemma}
+Note that the error bound required by Lemma~\ref{pgapi} is in the $L_\infty$ norm, whereas \eqref{errbnd} is only in the $L_2$ norm. So API cannot guarantee an approximate policy improvement at each step which is a shortcoming. Also, even-though each evaluation step (line~\ref{appeval} of Algorithm~\ref{appoliter}) converges, the sequence ${u_n}, n\geq0$ is not guaranteed to converge. This is known as policy $\emph{chattering}$. Thus the problem of $\emph{control}$ is only partially addressed by API, i.e, suffers in both convergence and performance guarantees. \\
+In short, whilst the approximate value function obtained by the solving the PBE offers guarantees for prediction it does not offer any guarantees for the control problem. \\
+In the next section, we discuss the approximate linear programming (ALP) formulation, the basic results and present prior results in literature as well as motivate the problem that we address in this paper. 

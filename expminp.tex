@@ -1,0 +1,94 @@
+\subsection{Experiment in Grid World}\label{exper}
+We test our MPADP algorithm (Algorithm~\ref{algo1}) on a $10 \times 10$ grid world problem. There are a total of $100$ states, i.e., $S=\{1,2,\ldots,100\}$, and a grid position with the co-ordinate $(i,j)$ is encoded as the state $s=(i-1)\times 10+j$. The reward matrix is as given in Table~\ref{reward}, where each entry is an integer between $1$ and $10$. 
+The grid world problem is used to model terrain exploration by autonomous decision making agents (robots).
+In each grid position, the agent has $8$ actions corresponding to the $8$ possible directions. In the corners, fewer directions are feasible, and the rest of the directions lead to the current grid position. So $A=\{1,2,\ldots,8\}$. Actions fail with probability of $0.1$ when no movement is made and the same grid position is retained, i.e., $p_a(s,s)=0.1, \mb \forall \mb a \in A, \mb \forall \mb s \in S$, and with probability $0.9$ the agent reaches the intended grid position.
+\begin{table}
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c}\hline
+&$x_{1}$	&$x_{2}$	&$x_{3}$	&$x_{4}$	&$x_{5}$	&$x_{6}$	&$x_{7}$	&$x_{8}$	&$x_{9}$	&$x_{10}$	\\ \hline 
+$y_{1}$	&2	&5	&9	&5	&8	&3	&6	&10	&7	&3	\\ \hline 
+$y_{2}$	&10	&10	&7	&1	&4	&4	&3	&8	&4	&4	\\ \hline 
+$y_{3}$	&1	&2	&4	&10	&3	&9	&8	&5	&9	&5	\\ \hline 
+$y_{4}$	&8	&3	&6	&10	&5	&1	&2	&5	&6	&3	\\ \hline 
+$y_{5}$	&9	&2	&5	&5	&1	&1	&7	&5	&4	&9	\\ \hline 
+$y_{6}$	&9	&2	&1	&5	&2	&2	&2	&4	&10	&2	\\ \hline 
+$y_{7}$	&1	&9	&3	&4	&10	&7	&4	&6	&9	&3	\\ \hline 
+$y_{8}$	&4	&6	&2	&10	&10	&8	&7	&6	&6	&2	\\ \hline 
+$y_{9}$	&3	&6	&2	&4	&6	&7	&8	&9	&7	&3	\\ \hline 
+$y_{10}$	&9	&2	&3	&2	&1	&5	&1	&8	&6	&5	\\ \hline 
+\end{tabular}
+\caption{Grid world with rewards}
+\label{reward}
+\end{table}
+Let $\{\phi_j, j=1,\ldots,k\}, \phi_j \in \Rm^n$ and $\{\phi^i,i=1,\ldots,n\}, \phi^i \in \Rm^k$ be the columns and rows respectively of the feature matrix $\Phi$. Choice of features in the $\minp$ basis is similar to the way features are designed in the conventional basis, wherein it is desirable to have the features $\phi^{s}$ and $\phi^{s'}$ of states $s$ and $s'$ to be orthogonal if the states $s$ and $s'$ are unrelated or dissimilar. This translates to the following condition in the case of $\minp$ basis:
+\begin{align}\label{orth}
+<\phi^s,\phi^{s'}>=+\infty.
+\end{align}
+The condition in \eqref{orth} arises from the fact that $+\infty$ is the additive identity in the $\minp$ basis. The exact choice of the basis however changes from problem to problem. We now present the basis used for the grid problem.\\
+We partition the state space into $k$ aggregate states based on the immediate reward. Let $g_{\min} = \min_s g(s), s \in S$, $g_{\max}=\max_s g(s), s \in S$ and $L=g_{\max}-g_{\min}$, then we select the features as follows:
+\begin{align}\label{feature}
+%$$
+\phi^{s}(i) = \left\{
+        \begin{array}{ll}
+            0 & : g(s) \in [g_{\min}+\frac{(i-1)L}{k},g_{\min}+\frac{(i)L}{k}] \\
+       +\infty & : g(s) \notin [g_{\min}+\frac{(i-1)L}{k},g_{\min}+\frac{(i)L}{k}],
+        \end{array}
+    \right.\nn\\
+%$$
+\forall  i=1,\ldots,k.
+\end{align}
+The basis definition in \eqref{feature} generates features such that the features corresponding to different partitions are orthogonal. In the experiments, we use $1000$ in place of $+\infty$ and set $\epsilon=0$ (see Algorithm~\ref{algo1}). 
+%It is easy to verify that $\Phi$ in \eqref{feature} has the enumerated properties. 
+The error values are given in Table~\ref{errtable} for discount factors $0.9$ and $0.99$ respectively. In Table~\ref{errtable} $r_{opt}$ denotes the result returned by the MPADP in  Algorithm~\ref{algo1}, and $\tilde{u}$ is the greedy policy given by
+\begin{align}
+\tilde{u}=\underset{a \in A}{\arg\max}\bigg( g(s)+\alpha \sum p_a(s,s')\tilde{J}(s')\bigg), \\\text{where} \mbox{ } \tilde{J}=\Phi\om r_{opt}.\nn
+\end{align}
+The results are plotted in Fig.~\ref{Vapp}. Note that $\tilde{J}\geq J^*$. Also the error values seen in the table obey the error bounds. We also note that the algorithm finds the optimal actions for about $75$ states.
+\begin{table}
+\begin{tabular}{|c|c|c|}\hline
+Error Term & Error for $\alpha=0.9$ & Error for $\alpha=0.99$\\ \hline
+$||J^*-\Phi\om r_{opt}||_\infty$ & $9.2768$ & $18.657$\\ \hline
+$||J^*-J_{\tilde{u}}||_\infty$ & $9.3248$ & $99.149$\\ \hline
+\end{tabular}
+\caption{Error Table}
+\label{errtable}
+\end{table}
+
+%\begin{comment}
+\begin{figure}
+\begin{minipage}{0.45\textwidth}
+\begin{tabular}{c}
+\begin{tikzpicture}[scale=0.75]
+    \begin{axis}[
+	xlabel=State,
+        ylabel=Discounted Cost,
+	ymin=65,
+	legend pos= south west,
+	title={$\alpha=0.9$}
+]
+    \addplot[smooth,mark=.,blue] plot file {v_p9.dat};
+    \addplot[dashed,mark=.,red] plot file {valp_p9.dat};
+    \addplot[dotted,mark=.,black] plot file {valppol_p9.dat};
+     \legend{$J^*$,$\tilde{J}=\Phi\om r_{opt}$, $J_{\tilde{u}}$}
+    \end{axis}
+    \end{tikzpicture}
+\\
+
+\begin{tikzpicture}[scale=0.75]
+    \begin{axis}[
+	xlabel=State,
+        ylabel=Discounted Cost,
+	legend pos=south west,
+	title={$\alpha=0.99$}
+]
+    \addplot[smooth,mark=.,blue] plot file {v_p99.dat};
+    \addplot[dashed,mark=.,red] plot file {valp_p99.dat};
+    \addplot[dotted,mark=.,black] plot file {valppol_p99.dat};
+     \legend{$J^*$,$\tilde{J}=\Phi\om r_{opt}$, $J_{\tilde{u}}$}
+    \end{axis}
+    \end{tikzpicture}
+\end{tabular}
+\end{minipage}
+\caption{Optimal, Approximate and Greedy Policy Value Functions}
+\label{Vapp}
+\end{figure}
+%\end{comment}

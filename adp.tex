@@ -1,6 +1,6 @@
-\section{Approximate Dynamic Programming}
+\section{Curse of Dimentionality}
 \emph{Curse-of-Dimensionality} is a term used to denote the fact that the number of states grows exponentially in the number of state variables. Most MDPs arising in practical applications suffer from the curse, i.e., have large number of states and it is difficult to compute $J^*/J_u\in \R^n$ exactly in such scenarios. Approximate dynamic programming (ADP) \cite{lspi,lspe,ALP,wang2014approximate} methods compute an approximate value function $\tilde{J}$ instead of $J^*/J_u$. In order to tackle the curse, ADP methods resort to dimensionality reduction by parameterizing the value function and/or the policy. Value-function based ADP methods form an important subclass of ADP methods whose brief overview is given below.
-\subsection{Value-Function based ADP}
+\section{Value Function Based Approximate Dynamic Programming}
 In the value-function based ADP schemes a parameterized family is chosen and the approximate value-function $\tilde{J}$ is picked from the chosen parameterized class.
 Once the approximate value function $\tilde{J}$ is computed, a sub-optimal policy $\tilde{u}$ can be obtained as the one-step greedy policy with respect to $\tilde{J}$ by making use of \eqref{subpol}.
 The following lemma characterizes the degree of sub-optimality of the greedy policy $\tilde{u}$.
@@ -10,7 +10,6 @@ Let $\tilde{J}$ be the approximate value function and $\tilde{u}$ be as in \eqre
 ||J^*-J_{\tilde{u}}||_\infty \leq \frac{2}{1-\alpha}||J^*-\tilde{J}||_\infty.
 \end{align}
 \end{lemma}
-\begin{comment}
 \begin{proof}
 We know that
 \begin{align}
@@ -32,9 +31,8 @@ We know from \eqref{subpol} that $T_{\tilde{u}}\tilde{J}=T\tilde{J}$. Also from 
 &\leq \frac{2}{1-\alpha}||J^*-\tilde{J}||_\infty\nn.
 \end{align}
 \end{proof}
-\end{comment}
 The quality of any ADP method depends on the approximation guarantees it offers for the quantities $||J^*-\tilde{J}||$ and $||J^*-J_{\tu}||$, where $||\cdot||$ is an appropriate norm. The term  $||J^*-\tilde{J}||$ denotes the error in prediction and $||J^*-J_{\tu}||$ denotes the loss in performance resulting from the sub-optimal policy $\tu$ with respect to the optimal policy $u^*$. Of the two error terms, $||J^*-J_{\tu}||$ is more important because ultimately we are interested in coming up with a useful policy. In the context of ADP methods, the control and prediction problems are said to be addressed when the error terms $||J^*-\tilde{J}||$ and $||J^*-J_{\tu}||$ are bounded by ``small'' constants.\\
-\subsection{Linear Function Approximation}
+\section{Linear Function Approximation}
 The most widely used parameterized class to approximate the value-function is the linear function approximator (LFA). Under LFA, the value-function is approximated as $\tilde{J}=\Phi r^*$, with $\Phi=[\phi_1|\ldots|\phi_k]$ being an $n\times k$ feature matrix and $r^*$ is the parameter to be learnt.\\
 %ADP methods vary in the way they compute the $\tj$ and $\tu$, and in what follows we present a short overview of some of the chief ADP methods while discussing their successes and shortcomings.
 There are two important approaches to value function approximation. Both the approaches start out with a basic solution method and appropriately introduce function approximation in it. The two approaches are:
@@ -42,43 +40,4 @@ There are two important approaches to value function approximation. Both the app
 \item The Projected Bellman Equation (PBE) which combines the BE and the linear least squares projection operator to project high dimensional quantities onto the subspace of the LFA.
 \item The approximate linear programming formulation which introduces the LFA in the linear programming formulation. 
 \end{enumerate}
-A host of ADP methods are based on the PBE and have been found to be useful in practice. The main application of the PBE is for approximate policy evaluation, i.e., to compute $\tilde{J}_u$, an approximation to the value function $J_u$ of policy $u$. Due to the mismatch in the norms, i.e, the linear least squares projection operator based on the $L_2$-norm and the $L_\infty$-norm of the Bellman operator $T$, one cannot use the PBE to obtain a direct approximation to $J^*$. Thus in order to solve the problem of control, $\tilde{J}_u$ is used to compute a one-step greedy policy. However, again due to the mismatch in the norms, i.e., $L_2$-norm of the linear least squares projection and the $L_\infty$ norm required for policy improvement (Lemma~\ref{subopt}), the one-step greedy policy need not necessarily be an improvement. This leads to a phenomenon called \emph{policy-chattering} \cite{dpchapter} where looping within of bad policies can occur. Further, such policy-chattering can be demonstrated in simple examples as well \cite{dpchapter}. Thus, though the approximate value function obtained by solving the PBE offers guarantees for prediction it does not offer any guarantees for the control problem, a significant shortcoming of the PBE based methods.\\
-%However, an important shortcoming of the PBE based methods is the phenomenon called \emph{policy-chattering}. Such policy-chattering behavior can be demonstrated even on simple MDPs. 
-%This happens due to the mismatch in the norms, i.e, the linear least squares projection operator based on the $L_2$-norm and the $L_\infty$ norm required for policy improvement (Lemma~\ref{subopt}). Thus, though the approximate value function obtained by the solving the PBE offers guarantees for prediction it does not offer any guarantees for the control problem, a significant shortcoming of the PBE based methods.\\
-The ALP formulation \cite{ALP} on the other hand does not suffer from issues such as policy-chattering, for the simple reason that it computes $\tilde{J}$ which is an approximation to $J^*$ and a one-step greedy policy $\tilde{u}$ obtained using $\tilde{J}$. In short, since there is only one policy that the ALP outputs there is no question of policy-chattering. Further, the ALP offers performance guarantees for both the error terms $||J^*-\tilde{J}||$ and $||J^*-J_{\tilde{u}}||$. Though the ALP is a complete method addressing both the control and prediction problems, it nevertheless suffers from an important limitation in the form of large number of constraints (as large as the size of the state space). This limitation has been addressed in literature by sampling only a fewer tractable constraints to formulate a reduced linear program (RLP). The RLP has been shown to perform well in practice \cite{ALP,CS,CST}, but theoretical performance guarantees \cite{CS} are available for a specific RLP obtained under idealized assumptions. In this paper, by providing a sound theoretical analysis of the RLP, we aim to show that RLP is a complete method that addresses both the prediction and the control problems.
-We achieve this by developing and presenting a comprehensive theoretical framework to understand the constraint reduction/approximation procedure.\\
-\begin{comment}
-To put our contributions in perspective, we first discuss the merits and demerits of these two approaches.
-\subsection{Projected Bellman Equation}
-A large class of ADP methods compute $r^*$ to be the solution to the projected Bellman equation (PBE) given below:
-\begin{align}\label{pbelong}
-\Phi r^*=\Phi (\Phi ^\top D_u\Phi)^{-1}\Phi^\top T_u\Phi r^*,
-\end{align}
-where $T_u$ is the Bellman operator corresponding to an SDP $u$ and $D_u$ is a $n\times n$ diagonal matrix whose diagonal entries are the stationary probabilities of the states under the SDP $u$. The PBE can be written in short as 
-\begin{align}\label{pbe}
-\Phi r^*=\Pi T_u \Phi r^*,
-\end{align} where $\Pi=\Phi (\Phi ^\top D_u\Phi)^{-1}\Phi^\top$ is the projection operator. Notice that approximate value function $\tj=\Phi r^*$ obtained by solving the PBE \eqref{pbe} is an approximation only to $J_u$ and not $J^*$. This scenario is unavoidable because $T_u$ cannot be replaced by $T$ in \eqref{pbe}, since $\Pi T$ cannot be guaranteed to be a contraction map. As a result, an equation of the form $\Phi r=\Pi T\Phi r$ need not have a solution. Thus, the PBE can only be used for approximate policy evaluation, i.e., to compute $\tilde{J}_u\approx J_u$. Nevertheless, the solution to the PBE offers error bounds for the prediction problem and is given below:
-\begin{align}\label{errbnd}
-||J_u-\Phi r^*||_D \leq \frac{1}{\sqrt{1-\alpha^2}}||J_u-\Pi J_u||_D.
-\end{align}
-In order to address the problem of control, one resorts to approximate policy improvement (API) wherein a one-step look ahead policy is derived. The API scheme is given in Algorithm~\ref{appoliter}
-\begin{algorithm}
-\caption{Approximate Policy Iteration (API)}
-\begin{algorithmic}[1]
-\STATE Start with any policy $u_0$
-\FOR{$i=0,1,\ldots,n$} 
-\STATE \label{appeval}Approximate policy evaluation $\tilde{J}_{i}= \Phi r^*_i$, where $\Phi r^*_i=\Pi T_{u_i}\Phi r^*_i$.
-\STATE Improve policy $u_{i+1}(s)=\arg\max_a (g_a(s)+\alpha\sum_{s'}p_a(s,s')\tilde{J}_{i}(s'))$.
-\ENDFOR
-\RETURN $u_n$
-\end{algorithmic}
-\label{appoliter}
-\end{algorithm}
-The performance guarantee of API can be stated as follows:
-\begin{lemma}\label{pgapi}
-If at each step $i$ one can guarantee that $||\tilde{J}_i-J_{u_i}||_\infty\leq \delta$, then one can show that $\lim_{n\ra\infty}||J_{u_i}-J^*||\leq \frac{2\delta\alpha}{(1-\alpha)^2}$.
-\end{lemma}
-Note that the error bound required by Lemma~\ref{pgapi} is in the $L_\infty$ norm, whereas \eqref{errbnd} is only in the $L_2$ norm. So API cannot guarantee an approximate policy improvement at each step which is a shortcoming. Also, even-though each evaluation step (line~\ref{appeval} of Algorithm~\ref{appoliter}) converges, the sequence ${u_n}, n\geq0$ is not guaranteed to converge. This is known as policy $\emph{chattering}$. Thus the problem of $\emph{control}$ is only partially addressed by API, i.e, suffers in both convergence and performance guarantees. \\
-In short, whilst the approximate value function obtained by the solving the PBE offers guarantees for prediction it does not offer any guarantees for the control problem. \\
-\end{comment}
-In the next section, we discuss the approximate linear programming (ALP) formulation, the basic results and present prior results in literature as well as motivate the problem that we address in this paper. 
+
